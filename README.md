@@ -1,7 +1,8 @@
-Projeto Grernfield - Produzindo Certo
+# Projeto Grernfield - Produzindo Certo
 
 
-Ferramentas:
+##Ferramentas:
 
-Grill me: claude plugin install mattpocock-skills@claude-plugins-official
-BMAD: npx skills add bmad-code-org/BMAD-METHOD
+*Grill me:* claude plugin install mattpocock-skills@claude-plugins-official
+
+*BMAD:* npx skills add bmad-code-org/BMAD-METHOD
