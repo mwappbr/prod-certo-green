@@ -1,0 +1,16 @@
+{
+  "name": "@hn/shared",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./contract/*": {
+      "types": "./dist/contract/*.d.ts",
+      "default": "./dist/contract/*.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  }
+}

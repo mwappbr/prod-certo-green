@@ -1,0 +1,19 @@
+{
+  "name": "hn-modernizacao",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "npm run build -w @hn/shared && (npm run dev -w @hn/server & npm run dev -w @hn/client)",
+    "typecheck": "npm run build -w @hn/shared && npm run typecheck -w @hn/server && npm run typecheck -w @hn/client",
+    "build": "npm run build -w @hn/shared && npm run build -w @hn/server && npm run build -w @hn/client",
+    "start": "npm run start -w @hn/server"
+  }
+}
