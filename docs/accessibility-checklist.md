@@ -37,6 +37,10 @@ Os itens abaixo permanecem **NÃO REALIZADOS**; isso não significa conformidade
 
 **Conclusão:** as evidências dão suporte ao fechamento técnico da execução 4.4, mas não autorizam afirmar conformidade WCAG completa. A incompletude da aba Jobs deve continuar visível nos registros até revisão/aceite apropriado; os resultados automatizados permanecem distintos de avaliação humana.
 
+## Versionamento dos registros
+
+Conforme reporte da MAIN, este checklist e os resumos compactos de QA foram incluídos no commit local `0598a96b2a3fd1d339f61454925805d30a427be9` (86 caminhos/5.845 linhas). Os resumos relevantes incluem `verification/live-compiled-axe-4-4.txFi2Y/passed-postreview/main-validation-summary.json`, `verification/final-platform-qa.U5JP6P/main-local-validation.json`, `verification/final-platform-qa.U5JP6P/main-compose-validation.json` e `verification/final-platform-qa.U5JP6P/main-dev-validation.json`. Logs brutos e capturas permanecem locais; o versionamento não altera o estado das verificações de acessibilidade nem constitui avaliação humana, teste de AT ou declaração de conformidade WCAG.
+
 ## Referências relacionadas
 
 - `docs/qa-final.md` — consolidação da decisão técnica e limites do QA 4.4.

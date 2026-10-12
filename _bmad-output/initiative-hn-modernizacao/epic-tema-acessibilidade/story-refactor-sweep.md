@@ -24,8 +24,8 @@ Verify: `npm run check`, `npm run build` e `npm run e2e` locais passam, e a revi
 
 ## Entrega e verificação
 
-- **Entrega:** revisão original reportada pela MAIN concluiu **NO-OP**, sem defeito concreto que justificasse refactor; nenhum trabalho novo foi criado. A revisão independente de fechamento pelo agente `a287` ainda está em andamento.
+- **Entrega:** revisão original independente `aaf`, recebida e aceita pela MAIN, concluiu **NO-OP** de produção: ThemeProvider/preferência/CSS coerentes e guardas de ownership/Tab/categoria/URL/conexão/RAF/saveScroll preservadas. Nenhum defeito concreto justificou novo refactor; não houve patch ou teste novo. O recheck documental de Closure não substitui nem invalida essa revisão já realizada.
 - **Paths:** definição no plano `epic-tema-acessibilidade/tickets.toml`, entrada 7; esta folha materializa a história.
 - **Evidências:** revisão original NO-OP e resultados técnicos prévios 4.1–4.6; a QA final pública/Compose está em `/Users/maurowidman/Projects/AI/prod-certo-green/verification/final-platform-qa.U5JP6P/main-local-validation.json` e `/Users/maurowidman/Projects/AI/prod-certo-green/verification/final-platform-qa.U5JP6P/main-compose-validation.json`, mas não substitui revisão do sweep.
-- **Limites:** NO-OP significa ausência de defeito concreto no escopo revisado, não garantia geral de ausência de bugs. Não se afirma fechamento independente enquanto o agente `a287` trabalha.
-- **Pendente:** aguardar o fechamento independente; estado formal permanece conforme a entrada correspondente no plano.
+- **Limites:** NO-OP significa ausência de defeito concreto no escopo revisado, não garantia geral de ausência de bugs. Dois limites de cobertura E2E de teclado conhecidos permanecem reportados. A janela Root final121testes/56E2E continua aplicável porque nenhum código de UI/BFF/teste mudou; não afirmar novo Root executado no sweep.
+- **Fechamento:** a revisão técnica do sweep está atendida; a formalização serial via `tickets.py mark` aguarda 4.6, conforme as dependências. O estado fica no plano, não nesta folha.

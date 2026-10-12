@@ -1,10 +1,12 @@
 ---
 title: "Artefatos do SDLC versionados e processo documentado"
 ticket: 9
-status: blocked
-blocked_at: "2026-10-12"
-blocked_reason: "prerequisite 1.7 remains blocked pending human clean-environment acceptance; working tree is dirty; read-only Git constraint forbids git add --refresh; halted before plan generation and readiness gate"
+status: done
 ---
+
+## Fechamento técnico posterior — 2026-10-12
+
+A MAIN verificou o commit documental real `0598a96b2a3fd1d339f61454925805d30a427be9`: 86 caminhos seletivos, com cânones, envelopes/breakdowns, 26 folhas, planos diretos, ledger, inventário das sete fases e quatro resumos compactos. `git show` e `git ls-files` confirmaram todos os caminhos; README/processo já commitados em `842bc98`. A execução local/start/dev/Compose foi tecnicamente demonstrada. O critério de versionamento de1.9 está satisfeito; status formal é mantido por `tickets.py mark`. Sem push, AT, aceite humano de ambiente limpo ou reexecução retroativa do workflow.
 
 ## Auto Run Result — registro histórico do HALT, anterior às autorizações de fechamento
 
