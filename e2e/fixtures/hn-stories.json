@@ -1,0 +1,55 @@
+{
+  "categories": {
+    "top": [101, 102, 103],
+    "new": [104, 102],
+    "best": [105, 101],
+    "ask": [102, 104],
+    "show": [101, 105],
+    "job": [106]
+  },
+  "items": {
+    "101": {
+      "id": 101,
+      "type": "story",
+      "by": "maia",
+      "title": "Roteiro &amp; dados",
+      "url": "https://www.example.com/historia",
+      "score": 42,
+      "descendants": 7,
+      "time": 1791600000,
+      "kids": [201]
+    },
+    "102": {
+      "id": 102,
+      "type": "story",
+      "title": "História sem domínio",
+      "score": 0,
+      "descendants": 0,
+      "time": 1791500000
+    },
+    "103": {
+      "id": 103,
+      "type": 23,
+      "title": "Registro malformado",
+      "score": 1
+    },
+    "104": {
+      "id": 104,
+      "type": "story",
+      "title": "História com HTTP",
+      "url": "http://www.example.net/historia"
+    },
+    "105": {
+      "id": 105,
+      "type": "story",
+      "title": "História com esquema inseguro",
+      "url": "ftp://example.net/historia"
+    },
+    "106": {
+      "id": 106,
+      "type": "job",
+      "title": "Vaga com HTTPS",
+      "url": "https://jobs.example.net/vaga"
+    }
+  }
+}

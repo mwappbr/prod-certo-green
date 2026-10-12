@@ -1,5 +1,6 @@
 import type { FastifyError, FastifyInstance } from 'fastify';
 import type { ApiErrorBody, ApiErrorCode } from '@hn/shared/contract/health';
+import { AppError } from '../app/errors.js';
 
 // Único mapeador de erros (AD-7): toda falha sai no formato { error: { code, message } }.
 function body(code: ApiErrorCode, message: string): ApiErrorBody {
@@ -8,6 +9,9 @@ function body(code: ApiErrorCode, message: string): ApiErrorBody {
 
 export function registerErrorHandlers(app: FastifyInstance, staticRoot: string): void {
   app.setErrorHandler((error: FastifyError, _request, reply) => {
+    if (error instanceof AppError) {
+      return reply.status(error.statusCode).send(body(error.code, error.message));
+    }
     const status = error.statusCode ?? 500;
     if (status >= 500) {
       app.log.error(error);
@@ -20,7 +24,8 @@ export function registerErrorHandlers(app: FastifyInstance, staticRoot: string):
   });
 
   app.setNotFoundHandler((request, reply) => {
-    if (request.url.startsWith('/api/')) {
+    const pathname = request.url.split('?', 1)[0] ?? request.url;
+    if (pathname === '/api' || pathname.startsWith('/api/')) {
       return reply.status(404).send(body('ROUTE_NOT_FOUND', 'Rota não encontrada.'));
     }
     // Demais rotas GET caem no index.html da SPA.

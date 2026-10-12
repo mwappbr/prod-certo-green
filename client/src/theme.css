@@ -1,0 +1,48 @@
+/* Color tokens follow the canonical UX DESIGN.md. */
+:root {
+  color-scheme: light;
+  --surface-base: #F8FAFC;
+  --surface-raised: #FFFFFF;
+  --ink-primary: #0F172A;
+  --ink-secondary: #475569;
+  --primary: #1D4ED8;
+  --primary-foreground: #FFFFFF;
+  --primary-hover: #1E40AF;
+  --border-hairline: #E2E8F0;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-base: #0B1120;
+  --surface-raised: #131C2E;
+  --ink-primary: #E2E8F0;
+  --ink-secondary: #94A3B8;
+  --primary: #60A5FA;
+  --primary-foreground: #0B1120;
+  --primary-hover: #93C5FD;
+  --border-hairline: #1E2A40;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --surface-base: #0B1120;
+    --surface-raised: #131C2E;
+    --ink-primary: #E2E8F0;
+    --ink-secondary: #94A3B8;
+    --primary: #60A5FA;
+    --primary-foreground: #0B1120;
+    --primary-hover: #93C5FD;
+    --border-hairline: #1E2A40;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--surface-base);
+  color: var(--ink-primary);
+}

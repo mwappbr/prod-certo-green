@@ -1,0 +1,16 @@
+.git
+.gitignore
+node_modules/
+**/node_modules/
+**/dist/
+coverage/
+**/coverage/
+**/.env
+**/.env.*
+!.env.example
+.DS_Store
+.aider-desk/
+.agents/
+.claude/
+_bmad/
+_bmad-output/

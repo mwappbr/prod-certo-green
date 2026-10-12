@@ -3,6 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      try {
+        const preference = window.sessionStorage.getItem('hn-modernizacao.theme.preference.v1');
+        if (preference === 'light' || preference === 'dark') {
+          document.documentElement.dataset.theme = preference;
+        }
+      } catch {
+        // Without session storage, CSS follows the system preference.
+      }
+    </script>
     <title>HN Modernização</title>
   </head>
   <body>

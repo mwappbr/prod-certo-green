@@ -8,5 +8,5 @@
     "declaration": true,
     "types": []
   },
-  "include": ["contract/**/*.ts"]
+  "include": ["contract/**/*.ts", "format/**/*.ts"]
 }

@@ -1,0 +1,43 @@
+.theme-screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.theme-screen-header__copy {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.theme-toggle {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  max-inline-size: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-hairline);
+  border-radius: 0.5rem;
+  background-color: var(--surface-raised);
+  color: var(--ink-primary);
+  font: inherit;
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--primary);
+  background-color: var(--surface-base);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
