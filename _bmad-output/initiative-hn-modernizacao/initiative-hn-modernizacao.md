@@ -2,6 +2,7 @@
 tracker_id: ""
 key: ""
 type: initiative
+status: done
 title: "Modernização da interface do Hacker News"
 parent: none
 covers: [RF-01, RF-02, RF-03, RF-04, RF-05, RF-06, RF-07, RF-08, RF-09, RF-10, RF-11, RF-12, RF-13, RNF-01, RNF-02, RNF-03, RNF-04, RNF-05, RNF-06, RNF-07, RNF-08, RNF-09, RNF-10]
@@ -73,3 +74,17 @@ Tracer path: a categoria `top` atravessa o adapter do HN, o cache e a página de
 - Documented: a documentação oficial do HN permite até 500 ids em top/new e até 200 em ask/show/job; best não declara máximo e a documentação diz que não há limite de taxa atualmente. Ver epic-listagem References.
 - Decision (existing platform decision, 2026-10-09): verificações e testes do MVP rodam localmente; CI não faz parte do MVP (epic-plataforma-base Notes).
 - Assumption histórica (execução delegada autônoma /loop, anterior às decisões de 2026-10-12): os checkpoints de planejamento criados nesta decomposição não foram adotados e foram removidos; histórias high-risk seguiram com revisão independente obrigatória. Nesse ponto ainda permaneciam HITLs de leitor de tela/WCAG, reconciliação O-05 e plataforma, sem tickets novos marcados done. As decisões humanas de 2026-10-12 acima substituem os aceites obrigatórios por validação técnica e autorizam fechamento das entregas verificadas; este registro não afirma que os testes humanos ocorreram.
+
+## Fechamento técnico — 2026-10-12
+
+A MAIN/orquestradora encerra a iniciativa no escopo de aceite técnico autorizado, cumprindo o pedido de implementar o projeto e registrar as histórias concluídas. **26/26 histórias e os quatro épicos estão `done`**; as folhas foram formalizadas via `tickets.py mark` nos planos oficiais e os containers foram fechados após conferir requisitos/Done when, não automaticamente pela contagem.
+
+1. **Done when 1:** aplicação real compilada (`npm start`) e Compose isolado passaram com seis categorias de 30 itens, paginação explícita por snapshot, metadados, detalhe, recolhimento/expansão e retorno de rolagem, temas, acesso direto e layout320/375 sem overflow. Desenvolvimento `npm run dev` também passou em `localhost:5173`, com proxy health e Top/Jobs. Resumos versionados em `verification/final-platform-qa.U5JP6P/main-local-validation.json`, `main-compose-validation.json` e `main-dev-validation.json` no mesmo diretório. Capturas efetivamente abertas/inspecionadas e cleanup de recursos próprios registrados; não deixar servidores QA executando implica que a aplicação está disponível pelos comandos documentados, não já iniciada.
+2. **Done when 2/O-01:** 180 amostras HTTP locais sequenciais com cache quente, 30 por categoria, corpo/JSON completos e todas fresh/não vazias; p95 agregado **1,269708 ms** e todas as categorias abaixo de1s. Não é medição de HN frio, carga concorrente, interatividade do browser ou SLA de produção.
+3. **Done when 3/O-02:** história pública `50047422` abriu com 500 nós recebidos/renderizados no compilado e Compose, superando o mínimo200. Testes instrumentados com HN fixture comprovam reuso de itens dentro do TTL e toggles sem chamadas BFF/HN; a instrumentação é distinta do uso público. Limites de profundidade/orçamento/continuação preservados; HTML sanitizado no servidor antes do cache.
+4. **Done when 4/O-03:** axe default de página inteira, quatro contextos novos lista/detalhe × claro/escuro, zero violações; preservados dois `incomplete` color-contrast serious em Jobs e suplemento RGB≈7,24:1/7,34:1. Teclado/foco/alvos e stress tipográfico2× registrados no checklist técnico. Não demonstrados AT/aceite humano, zoom/reflow nativo ou conformidade WCAG completa, conforme escopo autorizado. Resumo axe em `verification/live-compiled-axe-4-4.txFi2Y/passed-postreview/main-validation-summary.json`; checklist em `docs/accessibility-checklist.md`.
+5. **Done when 5/O-04/O-05:** Root final `verification/window-4-4-postreview.zvlN6U/` passou com 121 testes/20 arquivos, typechecks, lint oficial do servidor, contraste dos tokens, build dos três workspaces e 56 E2E. Sete fases do SDLC inventariadas em `docs/sdlc-artifacts.md` e referenciadas pelo README; artefatos versionados no commit real `0598a96b2a3fd1d339f61454925805d30a427be9` e reconciliação posterior no commit real `d24294364a924a626badc0fbaeb78272e5ced576`. Os estados finais deste fechamento são incluídos no commit seletivo de encerramento; fontes/testes inalterados não exigiram nova execução Root nem novo refactor.
+
+O Closure independente a287 confirmou cobertura dos Done when dos quatro épicos/iniciativa e, no recheck após `d242943`, confirmou satisfeita a condição pendente de versionamento. A revisão original aaf do sweep4.7 foi aceita como NO-OP; não equivale a garantir ausência geral de bugs. Este fechamento é uma ação técnica da orquestração, não um novo aceite humano ou execução retroativa de workflows/HALTs/Riskchecks históricos.
+
+RF-09/filtro local permanece **opcional, parked e não implementado**. Produção hospedada, CI, login/votos/escrita e demais itens fora do MVP não foram entregues nem prometidos. Alterações preexistentes e evidências brutas locais preservadas; somente commits locais pertinentes, sem push ou publicação externa.

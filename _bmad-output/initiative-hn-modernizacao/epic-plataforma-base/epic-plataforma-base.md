@@ -2,6 +2,7 @@
 tracker_id: ""
 key: ""
 type: epic
+status: done
 title: "Base da plataforma"
 parent: initiative-hn-modernizacao
 covers: [RNF-05, RNF-06, RNF-07, RNF-08]
@@ -63,3 +64,11 @@ A estrutura do repositório, o servidor, o build, o empacotamento e o CI. Não i
 - Decision: 2026-10-12 — a incerteza histórica sobre Zod, sanitizador e ESLint foi resolvida na implementação: Zod 4.6.6 valida entradas/configuração; sanitize-html 2.18.0 sanitiza antes do cache; ESLint 9.39.5 impõe AD-1. `npm run check` final em Node 24.21.0/TypeScript 7.0.2 passou com 121 testes/20 arquivos, typechecks e lint oficial do servidor (`verification/window-4-4-postreview.zvlN6U/`). Verifica a configuração executada, sem alegar compatibilidade irrestrita futura.
 - Decision: React fica na linha 19.2; a troca para a 19.3 fica para depois do MVP (architecture, seção Adiado).
 - Execução técnica posterior, 2026-10-12: runtime efetivo Node 24.21.0/npm 11.19.0 nas janelas Root e uso real; não afirmar execução deste aceite em Node 26. O smoke final `npm run dev` passou na URL documentada `localhost:5173`, com proxy health200, Top/Jobs30 e tema (`verification/final-platform-qa.U5JP6P/main-dev-validation.json`), superando a pendência histórica da porta5173. Compilado `npm start` e Compose isolado também passaram; o teste humano em ambiente limpo NÃO ocorreu e deixou de ser gate obrigatório por decisão humana de2026-10-12.
+
+## Fechamento técnico — 2026-10-12
+
+- A MAIN/orquestradora conclui este container pelo atendimento dos cinco critérios de Done when, não apenas pela contagem de filhos. As nove histórias têm estado formal `done` nos planos oficiais, atualizado via `tickets.py mark` conforme a autorização de execução e fechamento.
+- Done when 1–2: Compose isolado com um serviço `app`, sem volumes, build local, health200 e SPA/API no mesmo processo; seis categorias e detalhe foram usados no browser real. `npm start` compilado e `npm run dev` na URL documentada também passaram. Evidências compactas em `verification/final-platform-qa.U5JP6P/main-compose-validation.json`, `main-local-validation.json` e `main-dev-validation.json` no mesmo diretório.
+- Done when 3–5: regras de dependência AD-1/probes negativos e configuração Zod centralizada em `server/src/config` registrados nas histórias 1.2/1.3; Root final `verification/window-4-4-postreview.zvlN6U/` passou com typechecks, lint oficial do servidor, 121 testes/20 arquivos e contraste dos tokens. Build dos três workspaces e 56 E2E também passaram.
+- O-05: artefatos/processo versionados em `0598a96`, com reconciliação posterior efetivamente commitada em `d242943`; 1.9 foi formalizada antes de 1.8. Este fechamento complementa esses registros, sem reexecutar nem aprovar retroativamente os workflows/HALTs históricos.
+- Limites: execução demonstrada em Node 24.21.0/macOS e container Linux arm64; não comprovados Node 26, Windows nativo nem teste humano em ambiente limpo. Recursos próprios de QA foram encerrados; sem push/publicação externa e sem remover recursos do usuário.

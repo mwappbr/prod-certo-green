@@ -2,6 +2,7 @@
 tracker_id: ""
 key: ""
 type: epic
+status: done
 title: "História e árvore de comentários"
 parent: initiative-hn-modernizacao
 covers: [RF-04, RF-05, RF-06, RF-08, RF-11, RNF-03, RNF-10]
@@ -70,3 +71,12 @@ O conteúdo da página de história, a árvore, a travessia, a frescura do detal
 - Tracer: entrada 1 conecta contrato existente, busca de item, detalhe e comentários iniciais.
 - Sequencing: entrada 2 completa a travessia e sanitização no servidor; a entrada 3 consome esse resultado no cliente; Refactor sweep (4) fecha o épico antes de 4.1.
 - Sweep bounds: a entrada 4 fica restrita ao detalhe/comentários/travessia/SafeHtml; não altera lista, roteamento, adapter, cache, tema ou contratos compartilhados, evitando colisão com o tema transversal.
+
+## Fechamento técnico — 2026-10-12
+
+- A MAIN/orquestradora conclui este container pelo atendimento dos sete critérios de Done when. As quatro histórias têm estado formal `done` nos planos oficiais; a conclusão não é inferida apenas dessa contagem.
+- Done when 1: uso real compilado e Compose abriu a história pública `50047422`, com 500 nós recebidos/renderizados, recolhimento/expansão, retorno à lista e acesso direto. Profundidade padrão 8 consumida sem query explícita, profundidade observada 3 e `truncated: true` pelo orçamento. Evidências: `verification/final-platform-qa.U5JP6P/main-local-validation.json` e `main-compose-validation.json` no mesmo diretório.
+- Done when 2, 4 e 5: testes backend e E2E preservam autor/tempo conhecidos e replies com marcadores neutros `[morto]`/`[removido]`, suprimem corpos originais, verificam sanitização antes do cache e único sink SafeHtml, orçamento de IDs únicos/ciclos/concorrência, `children: null` versus folha `[]` e distinção de corte por profundidade/orçamento. Não prometer carregamento ilimitado da discussão inteira.
+- Done when 3/O-02: execução instrumentada com fixture ligada ao HN stub comprovou reuso dos itens dentro do TTL e recolhimento/expansão sem novas chamadas BFF/HN. A prova pública de volume é distinta dessa instrumentação; não atribuir counters do stub ao HN público.
+- Done when 6–7: detalhe/Job sem comentários, carregamento, erros independentes com nova tentativa e frescor agregado/stale estão cobertos pelos testes e verificações registrados nas histórias. Root final passou com 121 testes/20 arquivos e 56 E2E; código/testes não mudaram na reconciliação.
+- Artefatos de entrega versionados em `0598a96`, reconciliados em `d242943`. Limites de profundidade/orçamento e continuação não carregada são parte do contrato aceito, não prova de todos os comentários públicos nem de tecnologia assistiva humana.

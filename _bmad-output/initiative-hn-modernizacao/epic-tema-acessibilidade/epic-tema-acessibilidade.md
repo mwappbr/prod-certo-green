@@ -2,6 +2,7 @@
 tracker_id: ""
 key: ""
 type: epic
+status: done
 title: "Tema, acessibilidade e busca local"
 parent: initiative-hn-modernizacao
 covers: [RF-07, RF-09, RNF-04, RNF-09]
@@ -61,3 +62,13 @@ Estilos de tema, acessibilidade, layout responsivo e o filtro local. Não cria n
 - Assumption/boundary: o sweep 1.8 foi limitado pelo proprietário da plataforma a config/health/ferramentas/empacotamento/documentação, sem tocar features, contratos, tokens, chaves de cache ou interfaces consumidas; se aparecer trabalho fora desses limites, volta ao owner, não é corrigido em paralelo. 1.8/1.9 são gates apenas para O-05 na entrada 6.
 - Sequencing histórico: entrada 1 começa após os providers e sweeps de listagem/história; entradas 2–4 percorrem responsividade, semântica e axe; entrada 5 previa HITL manual com leitor de tela/checklist; entrada 6 reconcilia O-05 após 1.8/1.9; sweep 7 é final. A decisão humana de 2026-10-12 substitui os gates obrigatórios humanos de 4.5/4.6 por aceite técnico automatizado, com hitl:false nas folhas e entradas.
 - Limite preservado: axe/testes automatizados não comprovam leitor de tela, checklist WCAG humano ou conformidade completa. Esses testes humanos não ocorreram, mas não são gates obrigatórios do escopo de aceite técnico autorizado. Evidência versionada do SDLC continua obrigatória; workflows manuais históricos/HALTs não são retroativamente aprovados.
+
+## Fechamento técnico — 2026-10-12
+
+- A MAIN/orquestradora conclui este container pelo atendimento dos cinco critérios de Done when no escopo técnico autorizado. As sete histórias têm estado formal `done` nos planos oficiais; 4.6 → 4.7 foram formalizadas serialmente após o commit real `d242943` da reconciliação.
+- Done when 1: claro/escuro, preferência inicial do SO e escolha manual na sessão da aba foram implementados e verificados. Contraste dos tokens passou no Root; tema não remonta providers nem provoca fetch ou perda de buffer/rolagem.
+- Done when 2/O-03: axe default de página inteira em quatro contextos novos (lista/detalhe × claro/escuro), sem filtros ou regras desabilitadas, resultou em zero violações. Permanecem **dois resultados inconclusivos color-contrast serious em Jobs**; medição RGB suplementar após revelar a aba por teclado deu aproximadamente 7,24:1/7,34:1, sem apagar os inconclusivos da auditoria. Resumo versionado em `verification/live-compiled-axe-4-4.txFi2Y/passed-postreview/main-validation-summary.json`.
+- Done when 3: teclado/foco/alvos e layout 320/375 px foram verificados em aplicação compilada; stress tipográfico test-only 2× não é zoom nativo nem ampliação da fonte do SO. Evidências locais das histórias 4.2/4.3 e checklist em `docs/accessibility-checklist.md`; dois limites conhecidos de cobertura E2E de teclado seguem explícitos.
+- Done when 4: RF-09 permanece opcional, parked e **não implementado**; sua ausência não bloqueia o MVP.
+- Done when 5/O-05: sete fases do SDLC inventariadas em `docs/sdlc-artifacts.md`, entregas versionadas em `0598a96` e reconciliação em `d242943`; comandos reais compilado/Compose/desenvolvimento passaram. Revisão original `aaf` do sweep 4.7 foi aceita como NO-OP; Root final121/20, build3 e 56 E2E reutilizados por ausência de alteração de código/testes, não alegados como nova execução.
+- Limites: não foram demonstrados testes humanos com AT/ambiente limpo, zoom/reflow nativo ou conformidade WCAG completa. O fechamento é técnico, conforme decisão humana registrada; não constitui aprovação retroativa de workflows/HALTs históricos.

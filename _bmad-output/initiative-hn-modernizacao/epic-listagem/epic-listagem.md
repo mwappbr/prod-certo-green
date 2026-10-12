@@ -2,6 +2,7 @@
 tracker_id: ""
 key: ""
 type: epic
+status: done
 title: "Listagem por categoria"
 parent: initiative-hn-modernizacao
 covers: [RF-01, RF-02, RF-03, RF-08, RF-10, RF-11, RF-12, RF-13, RNF-01, RNF-02]
@@ -71,3 +72,11 @@ O adapter do HN, o cache, o endpoint `/api/stories` e a tela de listagem. Não i
 - Sequencing: entradas 3 (servidor) e 4 (cliente) podem avançar em paralelo após a entrada 2; a entrada 4 usa fixture `stale=true` e não espera pelo fallback de produção da 3; entrada 5 integra paginação e interface; Refactor sweep (6) fecha o épico.
 - Sweep bounds: a entrada 6 fica restrita a adapter, cache e listagem; não altera história/comentários, tema ou contratos compartilhados consumidos pelos outros épicos.
 - Parked: a busca local RF-09 pertence ao epic-tema-acessibilidade e permanece opcional.
+
+## Fechamento técnico — 2026-10-12
+
+- A MAIN/orquestradora conclui este container pelo atendimento dos cinco critérios de Done when. As seis histórias têm estado formal `done` nos planos oficiais; o sweep 2.6 foi NO-OP técnico revisado, sem refactor artificial.
+- Done when 1–2: seis categorias com 30 itens na primeira página e metadados normalizados; Top P2 preservou `page=2`, `limit=30` e o snapshot. Buffer/categoria/rolagem são preservados ao carregar mais e retornar do detalhe. Uso real compilado e Compose está em `verification/final-platform-qa.U5JP6P/main-local-validation.json` e `main-compose-validation.json` no mesmo diretório; browser consome somente BFF/assets da própria origem.
+- Done when 3 e 5: testes/fixtures e smokes prévios de paginação comprovam carregamento, erro com nova tentativa, vazio, frescor/stale, retenção e recuperação de snapshot substituído. Retentativa incremental mantém a tupla e o buffer; só `hasMore === false` confirma fim. Chaves/TTL e escrita de cache pertencem à camada de aplicação, preservando AD-4.
+- Done when 4/O-01: 180 amostras HTTP sequenciais locais com cache quente, 30 por categoria, corpo/JSON completos, todas fresh e não vazias; p95 agregado **1,269708 ms**, abaixo de 1 s, e p95 de cada categoria também abaixo do limite. Medição registrada no resumo local final; não mede upstream frio, interatividade do browser, carga concorrente nem SLA de produção.
+- Verificação consolidada: Root final 121 testes/20 arquivos, build dos três workspaces e 56 E2E, com produção/testes inalterados na reconciliação documental. Artefatos versionados em `0598a96`/`d242943`; RF-09 não implementado permanece fora do aceite obrigatório deste épico.
