@@ -1,0 +1,48 @@
+# tickets.toml — epic-historia-comentarios: entradas planejadas na ordem de construção.
+# A ordem das tabelas é a ordem de construção; ids são estáveis. Status não fica aqui.
+
+[[entry]]
+id = 1
+type = "story"
+title = "Tracer: conteúdo do detalhe e comentários iniciais"
+description = "Preenche a tela de `/item/{id}` já registrada e ligada pela listagem (2.5), usando `fetchItem`, cache e envelopes AD-3 de 2.1; mostra dados da história, frescor e o primeiro nível de comentários com autor e tempo relativo, sem alterar a rota, o link ou a restauração da lista."
+verify = "Com fixture local de história e comentários, `npm run e2e` confirma que a rota entregue por 2.5 exibe dados do item e cada comentário inicial com autor/tempo relativo, usa `cachedAt` para 'atualizado em HH:MM' e mostra aviso de stale quando `ItemResponse` ou `CommentsResponse` traz `stale=true`."
+covers = ["RF-04", "RF-11"]
+after = ["2.1", "2.5"]
+hitl = false
+risk = "high"
+notes = ["Handoff: epic-listagem é dono do roteamento SPA, do link da lista para `/item/{id}` e do retorno/posição; esta entrada implementa somente o conteúdo da tela de detalhe e consome essa superfície.", "Risk check: comparar localmente a história e a ordem dos comentários com a resposta da fixture do HN, além da verificação automatizada."]
+
+[[entry]]
+id = 2
+type = "story"
+title = "Travessia limitada e sanitização de comentários"
+description = "Monta a árvore nível a nível com concorrência limitada, corta profundidade e nós explicitamente, reaproveita cache, deriva os estados neutros `[removido]` e `[morto]`, e sanitiza o texto HTML no domínio antes de gravar o modelo normalizado no cache."
+verify = "Testes locais com fixtures confirmam allowlist sem HTML ativo, marcador correto, sanitização já aplicada ao valor observado em `cache.set`, concorrência máxima, cache reaproveitado e `children` nulo ou `truncated` nos limites configurados."
+covers = ["RF-04", "RF-06", "RNF-03", "RNF-10"]
+after = [1]
+hitl = false
+risk = "high"
+notes = ["Assumption: usar `sanitize-html` em modo de parsing puro com allowlist de tags e atributos; verificar compatibilidade no servidor e preservar texto simples como texto.", "Assumption: profundidade padrão 8, máxima 20, limite de 500 nós, concorrência 8, timeout 5 s e uma retentativa limitada; alinhar com a configuração validada e com os valores medidos pelo epic-listagem.", "Risk check: revisão de segurança independente confirma que conteúdo malicioso de fixture não chega ao cache ou navegador como HTML ativo."]
+
+[[entry]]
+id = 3
+type = "story"
+title = "Árvore recolhível, frescor e estados do detalhe"
+description = "Renderiza todos os nós com autor e tempo relativo, permite recolher e expandir cada ramo sem nova chamada ao HN, mostra `cachedAt`/`stale` dos envelopes AD-3 e seus avisos de frescor, além de carregamento, erro com nova tentativa e estado vazio."
+verify = "`npm run e2e` local com fixture de pelo menos 200 comentários confirma autor/tempo relativo por nó, recolher/expandir com `aria-expanded` e sem chamada repetida, estado recolhido mantido durante navegação SPA mas árvore aberta após reload completo, indicador 'atualizado em HH:MM' e aviso quando o detalhe recebe `stale=true`, estados de carregamento/erro-retry/sem comentários, e revisão estática confirma que somente `SafeHtml` é o sink de HTML sanitizado."
+covers = ["RF-04", "RF-05", "RF-06", "RF-08", "RF-11"]
+after = [2]
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 4
+type = "story"
+title = "Refactor sweep"
+description = "Limpa apenas débitos e achados adiados dentro do detalhe, árvore, travessia e `SafeHtml`, sem alterar listagem/rota, adapter, cache, tema ou contratos compartilhados e sem ampliar o escopo."
+verify = "`npm run check` e `npm run e2e` locais passam e a revisão confirma a árvore, sanitização antes do cache, exclusividade de `SafeHtml`, frescor, marcadores e estados das entradas anteriores, com diff restrito aos limites deste épico."
+covers = []
+after = [1, 2, 3]
+hitl = false
+risk = "low"

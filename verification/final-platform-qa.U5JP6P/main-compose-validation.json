@@ -1,0 +1,131 @@
+{
+  "validatedAt": "2026-10-12T19:34:28.021Z",
+  "node": "v24.21.0",
+  "status": "passed",
+  "project": "hnqa-202610121929-86572-10958969d046",
+  "hostPort": 55072,
+  "startedAt": "2026-10-12T19:29:54.380Z",
+  "finishedAt": "2026-10-12T19:30:39.910Z",
+  "localBuilder": true,
+  "dockerEndpointKind": "local-unix-socket",
+  "health": {
+    "status": 200,
+    "endpoint": "http://127.0.0.1:55072/api/health"
+  },
+  "sentinels": {
+    "result": "passed",
+    "context": "dockerignore-synthetic-context",
+    "syntheticFilesOnly": [
+      ".env",
+      ".env.qa-sentinel",
+      ".env.example"
+    ],
+    "exampleExceptionBuildSucceeded": true,
+    "ignoredEnvBuildsFailedAsExpected": true,
+    "realEnvFilesOpened": false,
+    "note": "Uses the source .dockerignore in a synthetic context; does not inspect or copy any repository .env file."
+  },
+  "comments": {
+    "requestPath": "/api/items/50047422/comments",
+    "depthQueryOmitted": true,
+    "defaultDepthMaxExpected": 8,
+    "observedMaxDepth": 3,
+    "returnedNodeCount": 500,
+    "renderedNodeCount": 500,
+    "truncated": true,
+    "listedPublicCommentCount": 941,
+    "publicCountLabel": "live BFF ListingItem.commentCount; not a fabricated fixture count"
+  },
+  "categories": [
+    {
+      "category": "top",
+      "label": "Top",
+      "rowCount": 30,
+      "emptyState": []
+    },
+    {
+      "category": "new",
+      "label": "New",
+      "rowCount": 30,
+      "emptyState": []
+    },
+    {
+      "category": "best",
+      "label": "Best",
+      "rowCount": 30,
+      "emptyState": []
+    },
+    {
+      "category": "ask",
+      "label": "Ask",
+      "rowCount": 30,
+      "emptyState": []
+    },
+    {
+      "category": "show",
+      "label": "Show",
+      "rowCount": 30,
+      "emptyState": []
+    },
+    {
+      "category": "job",
+      "label": "Jobs",
+      "rowCount": 30,
+      "emptyState": []
+    }
+  ],
+  "pageTwo": {
+    "requestQueryKeys": [
+      "category",
+      "limit",
+      "page",
+      "snapshot"
+    ],
+    "page": 2,
+    "limit": 30,
+    "snapshotMatched": true,
+    "itemCount": 30
+  },
+  "savedListingScrollY": 2634,
+  "screenshotsOpened": [
+    "category-top-375.png",
+    "category-new-375.png",
+    "category-best-375.png",
+    "category-ask-375.png",
+    "category-show-375.png",
+    "category-job-375.png",
+    "theme-dark-list-320.png",
+    "theme-light-list-320.png",
+    "top-page-two-320.png",
+    "detail-default-depth8-320.png",
+    "detail-dark-320.png",
+    "detail-collapsed-320.png",
+    "detail-responsive-320.png",
+    "detail-responsive-375.png",
+    "listing-return-scroll-320.png",
+    "direct-detail-375.png"
+  ],
+  "all16OpenedByMain": true,
+  "cleanup": {
+    "composeDown": "passed",
+    "volumesRemoved": false,
+    "scope": "hnqa-202610121929-86572-10958969d046",
+    "probeImagesRemoved": [
+      "hnqa-202610121929-86572-10958969d046-env-example-probe:local",
+      "hnqa-202610121929-86572-10958969d046-env-probe:local",
+      "hnqa-202610121929-86572-10958969d046-env-qa-sentinel-probe:local"
+    ]
+  },
+  "independentCleanup": {
+    "containers": 0,
+    "networks": 0,
+    "projectAppImages": 0,
+    "port55072Free": true,
+    "port3000Free": true
+  },
+  "limits": [
+    "No human clean-environment or assistive-technology acceptance",
+    "Public HN counts dynamic",
+    "Not an Axe rerun or p95 benchmark"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "sourceFinishedAt": "2026-10-12T19:59:40.932Z",
+  "status": "passed",
+  "runtime": "Node 24.21.0",
+  "command": "npm run dev",
+  "url": "http://localhost:5173",
+  "evidence": "verification/final-platform-qa.U5JP6P/dev-localhost.g5hQGm/",
+  "sourceTask": "bwl8v2r6j",
+  "proxyHealth": "ok",
+  "topRows": 30,
+  "jobRows": 30,
+  "themeDark": true,
+  "browserErrors": [],
+  "screenshotsOpenedByMain": ["dev-top-light.png", "dev-jobs-dark.png"],
+  "cleanup": {
+    "ownProcessGroupSignal": "SIGTERM",
+    "closed": true,
+    "forced": false,
+    "independentLsof3000": "no listeners",
+    "independentLsof5173": "no listeners"
+  },
+  "historicalFailure": {
+    "sourceTask": "bh12nxo1y",
+    "evidence": "verification/final-platform-qa.U5JP6P/dev-fresh.29ojgr/",
+    "result": "readiness assertion failed before browser launch using 127.0.0.1:5173",
+    "retryChange": "Only temporary helper URLs for Vite changed to documented localhost:5173; product source unchanged",
+    "ipv6CauseConfirmed": false
+  },
+  "limits": ["Functional development smoke only, not Axe audit, benchmark, native zoom or assistive-technology acceptance"]
+}

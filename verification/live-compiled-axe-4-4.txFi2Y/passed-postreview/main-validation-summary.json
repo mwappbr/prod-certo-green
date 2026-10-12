@@ -1,0 +1,380 @@
+{
+  "validatedAt": "2026-10-12T19:07:40.052Z",
+  "status": "passed",
+  "runtime": {
+    "node": "v24.21.0",
+    "browser": "156.0.8078.4",
+    "axeWrapperExpectedVersion": "4.13.0",
+    "axeWrapperVersion": "4.13.0",
+    "axeCoreVersion": "4.13.0",
+    "elapsedMs": 6800
+  },
+  "initial": {
+    "items": 0,
+    "positiveIds": 0,
+    "maxItemCalls": 0,
+    "lists": {
+      "top": 0,
+      "new": 0,
+      "best": 0,
+      "ask": 0,
+      "show": 0,
+      "job": 0
+    },
+    "unexpected": []
+  },
+  "final": {
+    "items": 250,
+    "positiveIds": 250,
+    "maxItemCalls": 1,
+    "lists": {
+      "top": 1,
+      "new": 0,
+      "best": 0,
+      "ask": 0,
+      "show": 0,
+      "job": 0
+    },
+    "unexpected": []
+  },
+  "audits": [
+    {
+      "context": "list-light",
+      "counts": {
+        "violations": {
+          "rules": 0,
+          "nodes": 0,
+          "nodesByImpact": {}
+        },
+        "incomplete": {
+          "rules": 1,
+          "nodes": 1,
+          "nodesByImpact": {
+            "serious": 1
+          }
+        },
+        "passes": {
+          "rules": 37,
+          "nodes": 1282,
+          "nodesByImpact": {
+            "unknown": 1002,
+            "serious": 280
+          }
+        },
+        "inapplicable": {
+          "rules": 52,
+          "nodes": 0,
+          "nodesByImpact": {}
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "targets": [
+            [
+              "#category-tab-job"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "context": "list-dark",
+      "counts": {
+        "violations": {
+          "rules": 0,
+          "nodes": 0,
+          "nodesByImpact": {}
+        },
+        "incomplete": {
+          "rules": 1,
+          "nodes": 1,
+          "nodesByImpact": {
+            "serious": 1
+          }
+        },
+        "passes": {
+          "rules": 37,
+          "nodes": 1282,
+          "nodesByImpact": {
+            "unknown": 1002,
+            "serious": 280
+          }
+        },
+        "inapplicable": {
+          "rules": 52,
+          "nodes": 0,
+          "nodesByImpact": {}
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "targets": [
+            [
+              "#category-tab-job"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "context": "detail-light",
+      "counts": {
+        "violations": {
+          "rules": 0,
+          "nodes": 0,
+          "nodesByImpact": {}
+        },
+        "incomplete": {
+          "rules": 0,
+          "nodes": 0,
+          "nodesByImpact": {}
+        },
+        "passes": {
+          "rules": 34,
+          "nodes": 5291,
+          "nodesByImpact": {
+            "unknown": 5291
+          }
+        },
+        "inapplicable": {
+          "rules": 55,
+          "nodes": 0,
+          "nodesByImpact": {}
+        }
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "context": "detail-dark",
+      "counts": {
+        "violations": {
+          "rules": 0,
+          "nodes": 0,
+          "nodesByImpact": {}
+        },
+        "incomplete": {
+          "rules": 0,
+          "nodes": 0,
+          "nodesByImpact": {}
+        },
+        "passes": {
+          "rules": 34,
+          "nodes": 5291,
+          "nodesByImpact": {
+            "unknown": 5291
+          }
+        },
+        "inapplicable": {
+          "rules": 55,
+          "nodes": 0,
+          "nodesByImpact": {}
+        }
+      },
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "network": [
+    {
+      "context": "list-light",
+      "bffUnchanged": true,
+      "rawHnUnchanged": true
+    },
+    {
+      "context": "list-dark",
+      "bffUnchanged": true,
+      "rawHnUnchanged": true
+    },
+    {
+      "context": "detail-light",
+      "bffUnchanged": true,
+      "rawHnUnchanged": true
+    },
+    {
+      "context": "detail-dark",
+      "bffUnchanged": true,
+      "rawHnUnchanged": true
+    }
+  ],
+  "jobs": [
+    {
+      "context": "list-light",
+      "method": "Native Tab and five ArrowRight keys; computed solid-color contrast after revealing Jobs. Original default whole-page Axe results are unchanged.",
+      "id": "category-tab-job",
+      "active": true,
+      "focusVisible": true,
+      "selectedTab": "category-tab-top",
+      "textColor": "rgb(71, 85, 105)",
+      "backgroundColor": "rgb(248, 250, 252)",
+      "backgroundElement": "body",
+      "contrastRatio": 7.242510935504382,
+      "fullyInsideStrip": true,
+      "fullyInsideViewport": true,
+      "rect": {
+        "left": 313.109375,
+        "top": 24,
+        "right": 373.84375,
+        "bottom": 68
+      },
+      "bffUnchanged": true,
+      "rawHnUnchanged": true,
+      "limitation": "Technical color calculation for the revealed tab only; not a replacement for full Axe results, human AT, or full WCAG acceptance."
+    },
+    {
+      "context": "list-dark",
+      "method": "Native Tab and five ArrowRight keys; computed solid-color contrast after revealing Jobs. Original default whole-page Axe results are unchanged.",
+      "id": "category-tab-job",
+      "active": true,
+      "focusVisible": true,
+      "selectedTab": "category-tab-top",
+      "textColor": "rgb(148, 163, 184)",
+      "backgroundColor": "rgb(11, 17, 32)",
+      "backgroundElement": "body",
+      "contrastRatio": 7.34371541754449,
+      "fullyInsideStrip": true,
+      "fullyInsideViewport": true,
+      "rect": {
+        "left": 313.109375,
+        "top": 24,
+        "right": 373.84375,
+        "bottom": 68
+      },
+      "bffUnchanged": true,
+      "rawHnUnchanged": true,
+      "limitation": "Technical color calculation for the revealed tab only; not a replacement for full Axe results, human AT, or full WCAG acceptance."
+    }
+  ],
+  "contexts": [
+    {
+      "name": "list-light",
+      "route": "/",
+      "colorScheme": "light",
+      "viewport": {
+        "width": 375,
+        "height": 820
+      },
+      "freshContext": true,
+      "storageStateProvided": false,
+      "loadedRows": 30,
+      "firstStoryId": 98410311,
+      "page": 1,
+      "limit": 30,
+      "hasMore": true,
+      "snapshot": "2026-10-12T18:53:54.185Z",
+      "themeEvidence": {
+        "colorScheme": "light",
+        "dataTheme": null,
+        "surfaceBase": "#f8fafc",
+        "bodyBackground": "rgb(248, 250, 252)",
+        "prefersDark": false
+      }
+    },
+    {
+      "name": "list-dark",
+      "route": "/",
+      "colorScheme": "dark",
+      "viewport": {
+        "width": 375,
+        "height": 820
+      },
+      "freshContext": true,
+      "storageStateProvided": false,
+      "loadedRows": 30,
+      "firstStoryId": 98410311,
+      "page": 1,
+      "limit": 30,
+      "hasMore": true,
+      "snapshot": "2026-10-12T18:53:54.185Z",
+      "themeEvidence": {
+        "colorScheme": "dark",
+        "dataTheme": null,
+        "surfaceBase": "#0b1120",
+        "bodyBackground": "rgb(11, 17, 32)",
+        "prefersDark": true
+      }
+    },
+    {
+      "name": "detail-light",
+      "route": "/item/98410311",
+      "colorScheme": "light",
+      "viewport": {
+        "width": 375,
+        "height": 820
+      },
+      "freshContext": true,
+      "storageStateProvided": false,
+      "visibleComments": 220,
+      "totalComments": 221,
+      "defaultDepth": 8,
+      "depthQueryPresent": false,
+      "depthNineId": 98310009,
+      "depthEightContinuationId": 98310008,
+      "itemTitle": "Keyboard fixture primary story — focus-wrap-token-focus-wrap-token-focus-wrap-token-focus-wrap-token-focus-wrap-token-end",
+      "themeEvidence": {
+        "colorScheme": "light",
+        "dataTheme": null,
+        "surfaceBase": "#f8fafc",
+        "bodyBackground": "rgb(248, 250, 252)",
+        "prefersDark": false
+      }
+    },
+    {
+      "name": "detail-dark",
+      "route": "/item/98410311",
+      "colorScheme": "dark",
+      "viewport": {
+        "width": 375,
+        "height": 820
+      },
+      "freshContext": true,
+      "storageStateProvided": false,
+      "visibleComments": 220,
+      "totalComments": 221,
+      "defaultDepth": 8,
+      "depthQueryPresent": false,
+      "depthNineId": 98310009,
+      "depthEightContinuationId": 98310008,
+      "itemTitle": "Keyboard fixture primary story — focus-wrap-token-focus-wrap-token-focus-wrap-token-focus-wrap-token-focus-wrap-token-end",
+      "themeEvidence": {
+        "colorScheme": "dark",
+        "dataTheme": null,
+        "surfaceBase": "#0b1120",
+        "bodyBackground": "rgb(11, 17, 32)",
+        "prefersDark": true
+      }
+    }
+  ],
+  "starter": {
+    "pid": 58146,
+    "signal": "SIGTERM",
+    "exit": 0,
+    "forced": false,
+    "closeCompleted": true
+  },
+  "ports": {
+    "app": 52705,
+    "raw": 52704,
+    "independentLsofStatus": 1
+  },
+  "errors": {
+    "page": [],
+    "console": [],
+    "http": [],
+    "requests": [],
+    "unexpectedBff": [],
+    "unexpectedOrigins": []
+  },
+  "screenshotsOpenedByMain": [
+    "list-light",
+    "list-dark",
+    "detail-light",
+    "detail-dark"
+  ]
+}
