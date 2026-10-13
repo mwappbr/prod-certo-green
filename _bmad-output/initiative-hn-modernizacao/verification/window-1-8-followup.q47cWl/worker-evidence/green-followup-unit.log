@@ -1,0 +1,11 @@
+node=v24.21.0
+npm=11.19.0
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+
+ Test Files  2 passed (2)
+      Tests  14 passed (14)
+   Start at  09:56:19
+   Duration  786ms (tests 94%, import 4%, transform 2%)
+

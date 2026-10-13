@@ -1,0 +1,5 @@
+command=["/Users/maurowidman/.vite-plus/js_runtime/node/24.21.0/bin/node","/tmp/hn-final-platform-qa-20261012-f62d9b/scripts/browser-public-smoke.cjs","--root","/Users/maurowidman/Projects/AI/prod-certo-green","--base-url","http://127.0.0.1:55072","--evidence-dir","/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012192954-86572-0f43f4b004/browser"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=330000
+
+{"status":"pass","failedAt":null,"summary":"/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012192954-86572-0f43f4b004/browser/browser-summary.json","screenshots":16}

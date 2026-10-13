@@ -1,0 +1,6 @@
+command=["docker","image","inspect","hnqa-202610121919-79674-0e90c11b4d86-env-example-probe:local"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=8000
+
+[]
+Error response from daemon: No such image: hnqa-202610121919-79674-0e90c11b4d86-env-example-probe:local

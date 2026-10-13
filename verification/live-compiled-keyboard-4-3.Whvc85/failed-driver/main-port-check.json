@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-12T18:00:25.163Z",
+  "node": "v24.21.0",
+  "ports": [
+    {
+      "port": 64434,
+      "status": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "port": 64433,
+      "status": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

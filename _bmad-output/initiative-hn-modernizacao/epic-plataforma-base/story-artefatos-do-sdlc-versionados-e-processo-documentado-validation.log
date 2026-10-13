@@ -1,0 +1,430 @@
+Local SDLC documentation validation — no network, no repository code execution
+Timestamp UTC: 2026-10-12T09:16:16Z
+HEAD: bfc7e81a60e9f343d4b039c5905b8a123f752082
+Local checks: PASS — README SDLC section and relative inventory link; prior local/production/Compose sections retained; inventory caveats for intermediate evidence, 1.7 HITL, and O-05/4.6; NON-HITL plan metadata has no ticket/type key and keeps formal status blocked.
+Path presence (names only; no source/test/E2E/log contents read):
+PRESENT .dockerignore
+PRESENT .env.example
+PRESENT .gitignore
+PRESENT Dockerfile
+PRESENT README.md
+PRESENT _bmad-output/initiative-hn-modernizacao
+PRESENT _bmad-output/initiative-hn-modernizacao/architecture-hn-modernizacao/architecture-hn-modernizacao.md
+PRESENT _bmad-output/initiative-hn-modernizacao/architecture-hn-modernizacao/reviews/review-adversarial.md
+PRESENT _bmad-output/initiative-hn-modernizacao/architecture-hn-modernizacao/reviews/review-version-verification.md
+PRESENT _bmad-output/initiative-hn-modernizacao/brief-hn-modernizacao/brief-hn-modernizacao.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/epic-historia-comentarios.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/story-tracer-conteudo-do-detalhe-e-comentarios-iniciais-non-hitl-review.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/tickets.toml
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-listagem/epic-listagem.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-listagem/tickets.toml
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/epic-plataforma-base.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-artefatos-do-sdlc-versionados-e-processo-documentado-non-hitl-technical-plan.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-artefatos-do-sdlc-versionados-e-processo-documentado-plan.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-artefatos-do-sdlc-versionados-e-processo-documentado-validation.log
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-configuracao-por-variavel-de-ambiente-validada-plan.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-dockerfile-e-compose-com-um-servico-plan.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-readme-com-execucao-local-e-via-compose-plan.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-regra-de-dependencia-verificada-pelo-lint-plan.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-testes-unitarios-e-de-integracao-pelo-script-de-verificacao-plan.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-tokens-de-tema-claro-e-escuro-plan.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-tracer-servico-com-api-health-e-spa-vazia-plan.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/tickets.toml
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-tema-acessibilidade/epic-tema-acessibilidade.md
+PRESENT _bmad-output/initiative-hn-modernizacao/epic-tema-acessibilidade/tickets.toml
+PRESENT _bmad-output/initiative-hn-modernizacao/execution-progress.md
+PRESENT _bmad-output/initiative-hn-modernizacao/initiative-hn-modernizacao.md
+PRESENT _bmad-output/initiative-hn-modernizacao/prd-hn-modernizacao/addendum.md
+PRESENT _bmad-output/initiative-hn-modernizacao/prd-hn-modernizacao/prd-hn-modernizacao.md
+PRESENT _bmad-output/initiative-hn-modernizacao/tickets.toml
+PRESENT _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/DESIGN.md
+PRESENT _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/EXPERIENCE.md
+PRESENT _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/mockups/key-detalhe.html
+PRESENT _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/mockups/key-lista.html
+PRESENT _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/ux-hn-modernizacao.md
+PRESENT _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/check.log
+PRESENT _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/outcome.log
+PRESENT _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/runtime.log
+PRESENT _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/worker-focused-vitest.log
+PRESENT _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/worker-runtime.log
+PRESENT _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/worker-server-typecheck.log
+PRESENT client/src/App.tsx
+PRESENT client/src/api
+PRESENT client/src/components
+PRESENT client/src/features
+PRESENT client/src/main.tsx
+PRESENT client/src/theme.css
+PRESENT client/vite.config.ts
+PRESENT docker-compose.yml
+PRESENT docs/sdlc-artifacts.md
+PRESENT e2e/detail.spec.ts
+PRESENT e2e/fixtures/comments-tree-200.mjs
+PRESENT e2e/fixtures/hn-stories.json
+PRESENT e2e/listing.spec.ts
+PRESENT e2e/start-server.mjs
+PRESENT package-lock.json
+PRESENT package.json
+PRESENT playwright.config.ts
+PRESENT scripts/check-theme.mjs
+PRESENT server/eslint.config.js
+PRESENT server/package.json
+PRESENT server/src/adapters/cache/memory-cache.ts
+PRESENT server/src/adapters/hn
+PRESENT server/src/app/cache-keys.ts
+PRESENT server/src/app/comments
+PRESENT server/src/app/errors.ts
+PRESENT server/src/app/fetch-item.ts
+PRESENT server/src/app/get-item.ts
+PRESENT server/src/app/get-stories.ts
+PRESENT server/src/app/getHealth.ts
+PRESENT server/src/config/index.ts
+PRESENT server/src/domain
+PRESENT server/src/http/errors.ts
+PRESENT server/src/http/routes/health.ts
+PRESENT server/src/http/routes/items.ts
+PRESENT server/src/http/routes/stories.ts
+PRESENT server/src/main.ts
+PRESENT server/src/ports/cache.ts
+PRESENT server/src/ports/hn.ts
+PRESENT server/test
+PRESENT server/test/get-health.test.ts
+PRESENT server/test/http-app.integration.test.ts
+PRESENT server/test/items-route.test.ts
+PRESENT server/test/stories-route.test.ts
+PRESENT shared/contract/health.ts
+PRESENT shared/contract/stories.ts
+PRESENT shared/format
+PRESENT shared/package.json
+PRESENT shared/tsconfig.json
+PRESENT vitest.config.ts
+SHA-256 (authored documentation only):
+6bcc5006961db3223f3566a4e2eac6b701d37a2ffb1e79b3f947d5b87038c637  README.md
+ee06a4949ca13f2b12b646fa6f0e572e0e80f0b7a508e59bb94d3346f59f3f46  docs/sdlc-artifacts.md
+149a1e2d008477c08e66df8191c44d1d6319d2b0e6ff97cf6a5a32c6d240bdd9  _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-artefatos-do-sdlc-versionados-e-processo-documentado-non-hitl-technical-plan.md
+git ls-files -- README.md _bmad-output docs/sdlc-artifacts.md:
+README.md
+git status --short --branch:
+## feat/plataforma-1-1-tracer
+ M .gitignore
+ M README.md
+ M client/src/App.tsx
+ M client/src/main.tsx
+ M package-lock.json
+ M package.json
+ M server/package.json
+ M server/src/adapters/cache/memory-cache.ts
+ M server/src/config/index.ts
+ M server/src/http/errors.ts
+ M server/src/main.ts
+ M server/src/ports/cache.ts
+ M shared/package.json
+ M shared/tsconfig.json
+?? .agents/
+?? .aider-desk/
+?? .claude/
+?? .dockerignore
+?? .env.example
+?? Dockerfile
+?? _bmad-output/
+?? _bmad/
+?? client/src/api/
+?? client/src/components/
+?? client/src/features/
+?? client/src/theme.css
+?? docker-compose.yml
+?? docs/
+?? e2e/
+?? playwright.config.ts
+?? scripts/
+?? server/eslint.config.js
+?? server/src/adapters/hn/
+?? server/src/app/cache-keys.ts
+?? server/src/app/comments/
+?? server/src/app/errors.ts
+?? server/src/app/fetch-item.ts
+?? server/src/app/get-item.ts
+?? server/src/app/get-stories.ts
+?? server/src/domain/
+?? server/src/http/routes/items.ts
+?? server/src/http/routes/stories.ts
+?? server/src/ports/hn.ts
+?? server/test/
+?? server/tsconfig.test.json
+?? shared/contract/stories.ts
+?? shared/format/
+?? skills-lock.json
+?? verification/
+?? vitest.config.ts
+git ls-files -- inventory paths:
+.gitignore
+README.md
+client/src/App.tsx
+client/src/main.tsx
+client/vite.config.ts
+package-lock.json
+package.json
+server/package.json
+server/src/adapters/cache/memory-cache.ts
+server/src/app/getHealth.ts
+server/src/config/index.ts
+server/src/http/errors.ts
+server/src/http/routes/health.ts
+server/src/main.ts
+server/src/ports/cache.ts
+shared/contract/health.ts
+shared/package.json
+shared/tsconfig.json
+git status --short --untracked-files=all -- inventory paths:
+ M .gitignore
+ M README.md
+ M client/src/App.tsx
+ M client/src/main.tsx
+ M package-lock.json
+ M package.json
+ M server/package.json
+ M server/src/adapters/cache/memory-cache.ts
+ M server/src/config/index.ts
+ M server/src/http/errors.ts
+ M server/src/main.ts
+ M server/src/ports/cache.ts
+ M shared/package.json
+ M shared/tsconfig.json
+?? .dockerignore
+?? .env.example
+?? Dockerfile
+?? _bmad-output/initiative-hn-modernizacao/architecture-hn-modernizacao/.memlog.md
+?? _bmad-output/initiative-hn-modernizacao/architecture-hn-modernizacao/architecture-hn-modernizacao.md
+?? _bmad-output/initiative-hn-modernizacao/architecture-hn-modernizacao/reviews/review-adversarial.md
+?? _bmad-output/initiative-hn-modernizacao/architecture-hn-modernizacao/reviews/review-version-verification.md
+?? _bmad-output/initiative-hn-modernizacao/brief-hn-modernizacao/.memlog.md
+?? _bmad-output/initiative-hn-modernizacao/brief-hn-modernizacao/brief-hn-modernizacao.md
+?? _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/epic-historia-comentarios.md
+?? _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/story-arvore-recolhivel-frescor-e-estados-do-detalhe-non-hitl-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/story-arvore-recolhivel-frescor-e-estados-do-detalhe-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/story-tracer-conteudo-do-detalhe-e-comentarios-iniciais-non-hitl-review.md
+?? _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/story-tracer-conteudo-do-detalhe-e-comentarios-iniciais-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/story-travessia-limitada-e-sanitizacao-de-comentarios-non-hitl-technical-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/story-travessia-limitada-e-sanitizacao-de-comentarios-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-historia-comentarios/tickets.toml
+?? _bmad-output/initiative-hn-modernizacao/epic-listagem/epic-listagem.md
+?? _bmad-output/initiative-hn-modernizacao/epic-listagem/story-adaptador-e-normalizacao-das-seis-categorias-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-listagem/story-carregar-mais-com-snapshot-e-posicao-preservada-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-listagem/story-categorias-metadados-e-estados-da-listagem-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-listagem/story-paginacao-com-snapshot-e-frescor-no-servidor-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-listagem/story-refactor-sweep-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-listagem/story-tracer-primeira-pagina-top-ponta-a-ponta-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-listagem/tickets.toml
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/epic-plataforma-base.md
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-artefatos-do-sdlc-versionados-e-processo-documentado-non-hitl-technical-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-artefatos-do-sdlc-versionados-e-processo-documentado-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-artefatos-do-sdlc-versionados-e-processo-documentado-validation.log
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-configuracao-por-variavel-de-ambiente-validada-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-dockerfile-e-compose-com-um-servico-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-readme-com-execucao-local-e-via-compose-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-regra-de-dependencia-verificada-pelo-lint-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-testes-unitarios-e-de-integracao-pelo-script-de-verificacao-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-tokens-de-tema-claro-e-escuro-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/story-tracer-servico-com-api-health-e-spa-vazia-plan.md
+?? _bmad-output/initiative-hn-modernizacao/epic-plataforma-base/tickets.toml
+?? _bmad-output/initiative-hn-modernizacao/epic-tema-acessibilidade/epic-tema-acessibilidade.md
+?? _bmad-output/initiative-hn-modernizacao/epic-tema-acessibilidade/tickets.toml
+?? _bmad-output/initiative-hn-modernizacao/execution-progress.md
+?? _bmad-output/initiative-hn-modernizacao/initiative-hn-modernizacao.md
+?? _bmad-output/initiative-hn-modernizacao/prd-hn-modernizacao/.memlog.md
+?? _bmad-output/initiative-hn-modernizacao/prd-hn-modernizacao/addendum.md
+?? _bmad-output/initiative-hn-modernizacao/prd-hn-modernizacao/prd-hn-modernizacao.md
+?? _bmad-output/initiative-hn-modernizacao/tickets.toml
+?? _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/.memlog.md
+?? _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/.working/key-detalhe.html
+?? _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/.working/key-lista.html
+?? _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/DESIGN.md
+?? _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/EXPERIENCE.md
+?? _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/mockups/key-detalhe.html
+?? _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/mockups/key-lista.html
+?? _bmad-output/initiative-hn-modernizacao/ux-hn-modernizacao/ux-hn-modernizacao.md
+?? _bmad-output/initiative-hn-modernizacao/verification/2-1-live/listing-bottom.png
+?? _bmad-output/initiative-hn-modernizacao/verification/2-1-live/listing-top.png
+?? _bmad-output/initiative-hn-modernizacao/verification/2-1-live/result.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4-postfix.4MjGru/ask-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4-postfix.4MjGru/best-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4-postfix.4MjGru/driver.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4-postfix.4MjGru/driver.mjs
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4-postfix.4MjGru/job-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4-postfix.4MjGru/job-mobile-320.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4-postfix.4MjGru/new-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4-postfix.4MjGru/result.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4-postfix.4MjGru/show-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4-postfix.4MjGru/top-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.YuIvIh/ask-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.YuIvIh/best-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.YuIvIh/driver.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.YuIvIh/driver.mjs
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.YuIvIh/job-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.YuIvIh/job-mobile-320.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.YuIvIh/new-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.YuIvIh/result.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.YuIvIh/show-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.YuIvIh/top-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.mNJS77/driver.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.mNJS77/failure.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.mNJS77/new-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.mNJS77/result.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-categories-2-3-2-4.mNJS77/top-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/cleanup.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/driver.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/driver.mjs
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/job-detail-empty-mobile-320.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/readiness.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/result.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/return-real-detail-list-scroll.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/server.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/story-detail-desktop.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/story-detail-mobile-320.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-detail-3-1.RcVjnr/story-first-level-bottom.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5-replaced.rX7GpB/after-expiration-first-page.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5-replaced.rX7GpB/before-expiration-two-pages.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5-replaced.rX7GpB/driver.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5-replaced.rX7GpB/driver.mjs
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5-replaced.rX7GpB/health-before.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5-replaced.rX7GpB/result.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5-replaced.rX7GpB/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5.ZSvWGr/before-expiration-two-pages.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5.ZSvWGr/driver.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5.ZSvWGr/driver.mjs
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5.ZSvWGr/failure.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5.ZSvWGr/health-before.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5.ZSvWGr/result.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-expiration-2-5.ZSvWGr/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-initial.1oqTUw/driver.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-initial.1oqTUw/driver.mjs
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-initial.1oqTUw/failure.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-initial.1oqTUw/health-before.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-initial.1oqTUw/result.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-initial.1oqTUw/top-paginated-bottom.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-initial.1oqTUw/top-pagination-offline-error.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/driver.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/driver.mjs
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/health-before.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/item-placeholder.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/jobs-forward-return-scroll.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/jobs-paginated-mobile-320.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/result.json
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/route-error-1-320.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/route-error-2-320.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/route-error-3-320.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/top-paginated-bottom.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/top-pagination-offline-error.png
+?? _bmad-output/initiative-hn-modernizacao/verification/live-pagination-2-5-postfix.kvpz1z/top-return-scroll.png
+?? _bmad-output/initiative-hn-modernizacao/verification/server-dist-3-1-pre-role.v1nv68/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/server-dist-3-1-pre-role.v1nv68/server-build.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-3-2-4-postfix.pKi1IC/build.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-3-2-4-postfix.pKi1IC/check.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-3-2-4-postfix.pKi1IC/e2e.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-3-2-4-postfix.pKi1IC/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-3-2-4-testfollowups.D0z78X/check.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-3-2-4-testfollowups.D0z78X/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-3-2-4.t3LFCh/build.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-3-2-4.t3LFCh/check.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-3-2-4.t3LFCh/e2e.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-3-2-4.t3LFCh/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-5-initial.Txvv17/build.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-5-initial.Txvv17/check.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-5-initial.Txvv17/e2e.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-5-initial.Txvv17/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-5-postfix.7D3rzc/build.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-5-postfix.7D3rzc/check.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-5-postfix.7D3rzc/e2e.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-2-5-postfix.7D3rzc/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-1-postreview.vbqGDs/build.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-1-postreview.vbqGDs/check.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-1-postreview.vbqGDs/e2e.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-1-postreview.vbqGDs/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-1-postreview.vbqGDs/trace-retention.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-1-postreview.vbqGDs/worker-role-green.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-1-postreview.vbqGDs/worker-role-red.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-1-postreview.vbqGDs/worker-target-playwright.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/check.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/outcome.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/worker-focused-vitest.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/worker-runtime.log
+?? _bmad-output/initiative-hn-modernizacao/verification/window-3-2-postreview.B1ebk1/worker-server-typecheck.log
+?? client/src/api/errors.ts
+?? client/src/api/http.ts
+?? client/src/api/items.test.ts
+?? client/src/api/items.ts
+?? client/src/api/stories.ts
+?? client/src/api/use-stories.test.ts
+?? client/src/api/use-stories.ts
+?? client/src/components/SafeHtml.tsx
+?? client/src/features/detail/CommentTree.tsx
+?? client/src/features/detail/CommentTreeProvider.tsx
+?? client/src/features/detail/ItemDetailPage.tsx
+?? client/src/features/detail/comment-tree-state.test.ts
+?? client/src/features/detail/comment-tree-state.ts
+?? client/src/features/detail/detail.css
+?? client/src/features/detail/item-detail-state.test.ts
+?? client/src/features/detail/item-detail-state.ts
+?? client/src/features/detail/use-item-detail.ts
+?? client/src/features/listing/ItemPlaceholderPage.tsx
+?? client/src/features/listing/ListingProvider.tsx
+?? client/src/features/listing/RouteErrorPage.tsx
+?? client/src/features/listing/StoryListPage.tsx
+?? client/src/features/listing/StoryRow.tsx
+?? client/src/features/listing/listing.css
+?? client/src/features/listing/use-stories.ts
+?? client/src/theme.css
+?? docker-compose.yml
+?? docs/sdlc-artifacts.md
+?? e2e/detail.spec.ts
+?? e2e/fixtures/comments-tree-200.mjs
+?? e2e/fixtures/hn-stories.json
+?? e2e/listing.spec.ts
+?? e2e/start-server.mjs
+?? playwright.config.ts
+?? scripts/check-theme.mjs
+?? server/eslint.config.js
+?? server/src/adapters/hn/client.ts
+?? server/src/app/cache-keys.ts
+?? server/src/app/comments/get-comments.ts
+?? server/src/app/errors.ts
+?? server/src/app/fetch-item.ts
+?? server/src/app/get-item.ts
+?? server/src/app/get-stories.ts
+?? server/src/domain/normalize-item.ts
+?? server/src/http/routes/items.ts
+?? server/src/http/routes/stories.ts
+?? server/src/ports/hn.ts
+?? server/test/app-cache-fallback.test.ts
+?? server/test/comments.test.ts
+?? server/test/config.test.ts
+?? server/test/fetch-item.test.ts
+?? server/test/get-health.test.ts
+?? server/test/helpers/hn-fixtures.ts
+?? server/test/helpers/hn-stub.ts
+?? server/test/helpers/large-comment-fixture.ts
+?? server/test/hn-client.test.ts
+?? server/test/http-app.integration.test.ts
+?? server/test/items-route.test.ts
+?? server/test/memory-cache.test.ts
+?? server/test/normalize-item.test.ts
+?? server/test/relative-time.test.ts
+?? server/test/stories-performance.test.ts
+?? server/test/stories-route.test.ts
+?? shared/contract/stories.ts
+?? shared/format/relative-time.ts
+?? vitest.config.ts
+No real .env or secrets read; no code/test/E2E/log contents read; no npm/Node/build/check/E2E/server/Docker/install command; no Git mutation.
+The Git snapshot was captured immediately before writing this log; the log itself is local and untracked.
+
+## Post-review correction — 2026-10-12T10:26:38Z
+
+- Reviewer: document review a651 confirmed a MEDIUM mapping error in the platform-plan row of `docs/sdlc-artifacts.md`. Corrected ticket-to-plan mapping, confirmed against `_bmad-output/initiative-hn-modernizacao/epic-plataforma-base/tickets.toml` titles and local plan filenames: 1.1 tracer; 1.2 configuration; 1.3 lint; 1.4 theme tokens; 1.5 tests; 1.6 Docker; 1.7 README.
+- Local checks: PASS — the row maps all seven IDs to the expected plan paths; each ID’s ticket title matches the read-only TOML; 94/94 inventory paths exist; the README’s relative inventory link resolves; previous local, production-local, and Compose headings remain; NON-HITL frontmatter has no `ticket`/`type` key and retains `plan_status: documentation-prepared-versioning-pending` plus `formal_workflow_status: blocked`.
+- Temporal clarification: the formal 1.9 `Auto Run Result` remains the earlier HALT snapshot, before the separately approved NON-HITL documentation lease. The formal plan was not changed.
+- Snapshot UTC: `2026-10-12T10:26:38Z`; HEAD: `bfc7e81a60e9f343d4b039c5905b8a123f752082`.
+- SHA-256 current snapshot: README (unchanged) `6bcc5006961db3223f3566a4e2eac6b701d37a2ffb1e79b3f947d5b87038c637`; `docs/sdlc-artifacts.md` `4555f385950601ea700efe9a54e5c79bc9f318d26127d8f58fa1c2e5d069ec81`; NON-HITL plan `52de88b44f8a0f00cf0e3d29c30d96d11ed1cc51c866d0a38bc0b2f3fc084b5f`; source TOML `20cf24b5bd8ef9e2f9e77443f09c2393f934afe2c00fa25c58b638813523b8b0`.
+- Historical 09:16:16Z evidence above remains intact, including its prior inventory SHA `ee06a4949ca13f2b12b646fa6f0e572e0e80f0b7a508e59bb94d3346f59f3f46`; it is retained as historical, not presented as the current hash.
+- Read-only Git state for affected paths: `README.md` tracked and modified; the inventory, NON-HITL plan, and this validation log remain untracked/local. HEAD unchanged. No README edit, Git mutation, code/test/E2E/log-content read, npm/Node/build/server/Docker/install command, or environment/secret read occurred in this follow-up.

@@ -1,0 +1,28 @@
+RUN_DIR=/tmp/hn-4.1-focused-client.vQZm4F
+LOG=/tmp/hn-4.1-focused-client.vQZm4F/run.log
+NODE_PATH=/opt/homebrew/opt/node@24/bin/node
+NODE_VERSION=v24.21.0
+NPM_PATH=/opt/homebrew/opt/node@24/bin/npm
+NPM_VERSION=11.19.0
+COMMAND_1=npm exec -- vitest run client/src/features/theme/theme-preference.test.ts --reporter=verbose
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+ ✓ client/src/features/theme/theme-preference.test.ts > theme preference > accepts only the two explicit themes and treats absent/invalid values as system preference 1ms
+ ✓ client/src/features/theme/theme-preference.test.ts > theme preference > reads a valid value from session storage using the versioned key 0ms
+ ✓ client/src/features/theme/theme-preference.test.ts > theme preference > treats missing storage, invalid values, and read exceptions as no manual choice 0ms
+ ✓ client/src/features/theme/theme-preference.test.ts > theme preference > writes the explicit theme and contains missing-storage or write failures 0ms
+ ✓ client/src/features/theme/theme-preference.test.ts > theme preference > resolves the system preference and safely falls back to light when media queries fail 0ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  09:50:04
+   Duration  69ms (transform 57%, import 24%, tests 11%, worker 8%)
+
+UNIT_EXIT_STATUS=0
+COMMAND_2=npm run typecheck -w @hn/client
+
+> @hn/client@0.0.0 typecheck
+> tsc -p tsconfig.json --noEmit
+
+CLIENT_NO_EMIT_EXIT_STATUS=0

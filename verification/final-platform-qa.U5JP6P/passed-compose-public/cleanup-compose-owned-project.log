@@ -1,0 +1,12 @@
+command=["docker","compose","--env-file","/dev/null","--project-directory","/Users/maurowidman/Projects/AI/prod-certo-green","--file","/Users/maurowidman/Projects/AI/prod-certo-green/docker-compose.yml","--project-name","hnqa-202610121929-86572-10958969d046","down","--timeout","10","--rmi","local"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=30000
+
+ Container hnqa-202610121929-86572-10958969d046-app-1 Stopping 
+ Container hnqa-202610121929-86572-10958969d046-app-1 Stopped 
+ Container hnqa-202610121929-86572-10958969d046-app-1 Removing 
+ Container hnqa-202610121929-86572-10958969d046-app-1 Removed 
+ Image hnqa-202610121929-86572-10958969d046-app:latest Removing 
+ Network hnqa-202610121929-86572-10958969d046_default Removing 
+ Image hnqa-202610121929-86572-10958969d046-app:latest Removed 
+ Network hnqa-202610121929-86572-10958969d046_default Removed 

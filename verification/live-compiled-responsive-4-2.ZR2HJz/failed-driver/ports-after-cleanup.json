@@ -1,0 +1,18 @@
+{
+  "capturedAt": "2026-10-12T15:57:05.394Z",
+  "nodeVersion": "v24.21.0",
+  "probes": [
+    {
+      "port": 55888,
+      "status": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "port": 55887,
+      "status": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

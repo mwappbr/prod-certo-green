@@ -1,0 +1,30 @@
+command=["docker","build","--network=none","--pull=false","--no-cache","--file","/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138/dockerignore-synthetic-context/Dockerfile.example","--tag","hnqa-202610121919-79674-0e90c11b4d86-env-example-probe:local","/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138/dockerignore-synthetic-context"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=45000
+
+#0 building with "rancher-desktop" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.example
+#1 transferring dockerfile: 99B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 215B done
+#2 DONE 0.0s
+
+#3 [internal] load build context
+#3 transferring context: 71B done
+#3 DONE 0.0s
+
+#4 [1/1] COPY .env.example /synthetic-env-example
+#4 DONE 0.0s
+
+#5 exporting to image
+#5 exporting layers 0.0s done
+#5 exporting manifest sha256:0855a5fe93e0b595d5251294b73e7c96891b7df71b6bfb0a3d1d61758b3970af done
+#5 exporting config sha256:701bbffe06a97b3059cd60c9431d005f03b95a9d607250e9c37a67c564fa1f1e done
+#5 exporting attestation manifest sha256:50c67b8059c89450591c8a27fa89704e420781c19adf93c296488f8397981fc9 done
+#5 exporting manifest list sha256:2e5cfe13b38f83fa8c4668df9d78ff41172031a99a96cd34f763845a9863db11 done
+#5 naming to docker.io/library/hnqa-202610121919-79674-0e90c11b4d86-env-example-probe:local done
+#5 unpacking to docker.io/library/hnqa-202610121919-79674-0e90c11b4d86-env-example-probe:local done
+#5 DONE 0.0s

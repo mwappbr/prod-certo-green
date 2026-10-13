@@ -1,0 +1,13 @@
+{
+  "capturedAt": "2026-10-12T17:57:27.998Z",
+  "node": "v24.21.0",
+  "files": {
+    "client/src/features/listing/StoryListPage.tsx": "9eb6a2017034a99c5b0688b694dd4b7e3c6db18e2950377c9bf795ce16880136",
+    "e2e/keyboard-focus-semantics.spec.ts": "c19baeef0fd5cc79228fd45aa11aa962fbd18b73f6fc464e875b9992249b522b",
+    "client/src/features/listing/listing.css": "c33fab4bdec8ca78ce1c4398da5f276166be80024cada6fc0aff8439d3189ee3",
+    "client/src/features/detail/detail.css": "39a87d92853900fe9708420df6078e7b0301648e670e027da5948b91f23237ea",
+    "package.json": "9e127cfbba76d8ced7c2818c6421fe51e56fa0c589b7e3da79c65b704b6b9242",
+    "package-lock.json": "fe1e9e1161b8772933080ddfa6c26547de81f874dbfc3d2deba8cba86ac9af76"
+  },
+  "matchesPreflight": true
+}

@@ -1,0 +1,34 @@
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+[isolated-pre-fix-probe] Transformed only /Users/maurowidman/Projects/AI/prod-certo-green/server/src/app/get-stories.ts; exact fresh-entry recheck match count: 1.
+ ❯ server/test/stories-route.test.ts (11 tests | 1 failed | 10 skipped) 1969ms
+   ❯ GET /api/stories (11)
+     × reuses one cold list publication for concurrent first-page snapshots 1968ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  server/test/stories-route.test.ts > GET /api/stories > reuses one cold list publication for concurrent first-page snapshots
+AssertionError: expected '2026-10-11T12:00:00.000Z' to be '2026-10-11T12:00:01.000Z' // Object.is equality
+
+Expected: "2026-10-11T12:00:01.000Z"
+Received: "2026-10-11T12:00:00.000Z"
+
+ ❯ server/test/stories-route.test.ts:294:38
+    292|           expect(first.statusCode).toBe(200);
+    293|           expect(second.statusCode).toBe(200);
+    294|           expect(firstBody.snapshot).toBe(secondBody.snapshot);
+       |                                      ^
+    295|           expect(listCallerCount).toBe(2);
+    296|           expect(listWrites).toBe(1);
+ ❯ withApp server/test/stories-route.test.ts:21:12
+ ❯ server/test/stories-route.test.ts:266:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 skipped (11)
+   Start at  00:08:49
+   Duration  2.13s (tests 95%, import 3%, transform 2%)
+

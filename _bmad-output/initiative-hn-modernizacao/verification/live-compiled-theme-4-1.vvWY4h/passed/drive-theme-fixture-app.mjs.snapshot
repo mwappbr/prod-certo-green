@@ -1,0 +1,391 @@
+import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const [rootArg, evidenceArg, ...extra] = process.argv.slice(2);
+if (!rootArg || !evidenceArg || extra.length) {
+  console.error('Usage: node drive-theme-fixture-app.mjs <ROOT> <evidenceDir>');
+  process.exitCode = 64;
+} else {
+  const ROOT = path.resolve(rootArg);
+  const evidenceDir = path.resolve(evidenceArg);
+  const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+  const starterDir = '/tmp/qa-3-3-compiled-bff-spa/scripts';
+  const safeEvidence = !inside(evidenceDir, ROOT) && !inside(evidenceDir, scriptDir) && !inside(evidenceDir, starterDir);
+  const readyPath = path.join(evidenceDir, 'fixture-ready.json');
+  const failurePath = path.join(evidenceDir, 'fixture-failure.json');
+  const resultPath = path.join(evidenceDir, 'actual-result.json');
+  const screenshotDir = path.join(evidenceDir, 'screenshots');
+  const THEME_KEY = 'hn-modernizacao.theme.preference.v1';
+  const themeButtonName = 'Alternar tema claro e escuro';
+  const expectedTokens = {
+    light: { '--surface-base': '#f8fafc', '--surface-raised': '#ffffff', '--ink-primary': '#0f172a', '--ink-secondary': '#475569', '--primary': '#1d4ed8', '--primary-foreground': '#ffffff', '--primary-hover': '#1e40af', '--border-hairline': '#e2e8f0' },
+    dark: { '--surface-base': '#0b1120', '--surface-raised': '#131c2e', '--ink-primary': '#e2e8f0', '--ink-secondary': '#94a3b8', '--primary': '#60a5fa', '--primary-foreground': '#0b1120', '--primary-hover': '#93c5fd', '--border-hairline': '#1e2a40' },
+  };
+  const startedMs = Date.now();
+  const bff = new Map();
+  const origins = new Set();
+  const pageErrors = [];
+  const consoleErrors = [];
+  const httpErrors = [];
+  const failedRequests = [];
+  const unexpectedBff = [];
+  const pendingCounterRequests = new Set();
+  let ready;
+  let baseOrigin;
+  let browser;
+  let task;
+  let stopResolver;
+  const interrupted = new Promise((resolve) => { stopResolver = resolve; });
+  const result = {
+    protocolVersion: 1, status: 'running', startedAt: new Date(startedMs).toISOString(), helperPid: process.pid,
+    arguments: { rootPath: ROOT, evidenceDir }, runtime: { node: process.version },
+    limits: { readinessMs: 10_000, totalMs: 90_000, counterFetchMs: 5_000, navigationMs: 10_000, maxScreenshots: 7 },
+    firstPaintProof: { captured: false, note: 'Screenshots are post-render; no pre-style/pre-React instrumentation was installed.' },
+    screenshots: [], themeSnapshots: [], networkChecks: [], phases: {},
+    errors: { page: pageErrors, console: consoleErrors, http: httpErrors, requests: failedRequests, unexpectedBff },
+  };
+  const onSigint = () => { result.interrupted = 'SIGINT'; process.exitCode = 130; stopResolver('SIGINT'); };
+  const onSigterm = () => { result.interrupted = 'SIGTERM'; process.exitCode = 143; stopResolver('SIGTERM'); };
+
+  function inside(candidate, parent) {
+    const relative = path.relative(parent, candidate);
+    return relative === '' || (relative !== '..' && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative));
+  }
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  async function bounded(promise, ms, message) {
+    let timer;
+    try { return await Promise.race([promise, new Promise((_, reject) => { timer = setTimeout(() => reject(new Error(message)), ms); })]); }
+    finally { if (timer) clearTimeout(timer); }
+  }
+
+  async function waitForReady() {
+    const until = Date.now() + 10_000;
+    while (Date.now() < until) {
+      try {
+        const failure = JSON.parse(await readFile(failurePath, 'utf8'));
+        if (failure.status === 'failed') throw new Error(`Fixture startup failed: ${failure.message ?? 'no detail'}`);
+      } catch (error) { if (error instanceof Error && error.message.startsWith('Fixture startup failed:')) throw error; }
+      try {
+        const record = JSON.parse(await readFile(readyPath, 'utf8'));
+        if (record.status === 'ready' && record.protocolVersion === 1) return record;
+      } catch {}
+      await sleep(100);
+    }
+    throw new Error('fixture-ready.json did not arrive within 10 seconds.');
+  }
+
+  function validateReady(record) {
+    const app = new URL(record.baseUrl);
+    const counters = new URL(record.countersUrl);
+    const upstream = new URL(record.upstreamBaseUrl);
+    assert.equal(app.protocol, 'http:'); assert.equal(app.hostname, '127.0.0.1'); assert.ok(Number(app.port) > 0);
+    assert.equal(counters.origin, app.origin); assert.equal(counters.pathname, '/__test/hn-counters');
+    assert.equal(upstream.protocol, 'http:'); assert.equal(upstream.hostname, '127.0.0.1'); assert.ok(Number(upstream.port) > 0);
+    assert.ok(Number.isInteger(record.helperPid) && record.helperPid > 0);
+    assert.ok(record.storyId && record.jobId && record.expectedIds?.allCommentIds?.length);
+    assert.equal(record.expectedIds.visibleCommentCount, 220); assert.equal(record.expectedIds.allCommentCount, 221);
+    return { appPort: Number(app.port), upstreamPort: Number(upstream.port) };
+  }
+
+  async function readCounters() {
+    const controller = new AbortController();
+    pendingCounterRequests.add(controller);
+    const timer = setTimeout(() => controller.abort(new Error('Counter request exceeded 5 seconds.')), 5_000);
+    try {
+      const url = new URL(ready.countersUrl);
+      url.searchParams.set('ids', [ready.storyId, ...ready.expectedIds.allCommentIds, ready.jobId].join(','));
+      const response = await fetch(url, { signal: controller.signal });
+      assert.equal(response.status, 200, 'fixture counter endpoint');
+      const body = await response.json();
+      assert.ok(body.itemRequests && body.listRequests && Array.isArray(body.unexpectedUpstreamPaths));
+      return body;
+    } finally { clearTimeout(timer); pendingCounterRequests.delete(controller); }
+  }
+
+  function bffSnapshot() { return Object.fromEntries([...bff.entries()].sort(([a], [b]) => a.localeCompare(b))); }
+  function observe(page, expectedPaths) {
+    page.on('request', (request) => {
+      const url = new URL(request.url());
+      if (url.protocol === 'http:' || url.protocol === 'https:') origins.add(url.origin);
+      if (url.origin === baseOrigin && url.pathname.startsWith('/api/')) {
+        const key = `${request.method()} ${url.pathname}${url.search}`;
+        bff.set(key, (bff.get(key) ?? 0) + 1);
+        if (!expectedPaths.has(url.pathname)) unexpectedBff.push(key);
+      }
+    });
+    page.on('pageerror', (error) => pageErrors.push(error.message));
+    page.on('console', (message) => { if (message.type() === 'error') consoleErrors.push(message.text()); });
+    page.on('response', (response) => {
+      const url = new URL(response.url());
+      if (url.origin === baseOrigin && response.status() >= 400) httpErrors.push({ status: response.status(), url: response.url() });
+    });
+    page.on('requestfailed', (request) => {
+      const url = new URL(request.url());
+      if (url.origin === baseOrigin) failedRequests.push({ url: request.url(), error: request.failure()?.errorText ?? 'failed' });
+    });
+  }
+  function waitResponse(page, pathname, query = () => true) {
+    return page.waitForResponse((response) => {
+      const url = new URL(response.url());
+      return url.origin === baseOrigin && url.pathname === pathname && response.request().method() === 'GET' && query(url);
+    }, { timeout: 10_000 });
+  }
+  async function json200(response, label) { assert.equal(response.status(), 200, label); return response.json(); }
+  async function idle(page) { await page.waitForLoadState('networkidle', { timeout: 5_000 }); }
+
+  async function themeState(page) {
+    return page.evaluate((key) => {
+      const root = document.documentElement;
+      const style = getComputedStyle(root);
+      let preference;
+      try { preference = sessionStorage.getItem(key); } catch { preference = '[[blocked]]'; }
+      const names = ['--surface-base', '--surface-raised', '--ink-primary', '--ink-secondary', '--primary', '--primary-foreground', '--primary-hover', '--border-hairline'];
+      const rawTokens = Object.fromEntries(names.map((name) => [name, style.getPropertyValue(name).trim().toLowerCase()]));
+      const tokens = Object.fromEntries(Object.entries(rawTokens).map(([name, value]) => [name, value.replace(/^#([0-9a-f])([0-9a-f])([0-9a-f])$/, '#$1$1$2$2$3$3')]));
+      return {
+        system: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+        manual: root.getAttribute('data-theme'), preference, colorScheme: style.colorScheme,
+        ariaPressed: document.querySelector('button.theme-toggle')?.getAttribute('aria-pressed') ?? null,
+        rawTokens, tokens,
+      };
+    }, THEME_KEY);
+  }
+  async function waitTheme(page, theme, manual, preference) {
+    await page.waitForFunction(({ colors, isManual, key, stored, expected }) => {
+      const root = document.documentElement;
+      const style = getComputedStyle(root);
+      let value;
+      try { value = sessionStorage.getItem(key); } catch { value = '[[blocked]]'; }
+      const pressed = document.querySelector('button.theme-toggle')?.getAttribute('aria-pressed') ?? null;
+      return root.getAttribute('data-theme') === (isManual ? expected : null) && value === stored &&
+        pressed === String(expected === 'dark') && style.colorScheme === expected &&
+        Object.keys(colors).every((name) => style.getPropertyValue(name).trim().toLowerCase().replace(/^#([0-9a-f])([0-9a-f])([0-9a-f])$/, '#$1$1$2$2$3$3') === colors[name]);
+    }, { colors: expectedTokens[theme], isManual: manual, key: THEME_KEY, stored: preference, expected: theme }, { timeout: 8_000 });
+    const state = await themeState(page);
+    assert.equal(state.manual, manual ? theme : null); assert.equal(state.preference, preference);
+    assert.equal(state.ariaPressed, String(theme === 'dark')); assert.equal(state.colorScheme, theme);
+    assert.deepEqual(state.tokens, expectedTokens[theme]);
+    result.themeSnapshots.push({ at: new Date().toISOString(), theme, mode: manual ? 'manual' : 'system', ...state });
+    return state;
+  }
+
+  async function noNetworkDelta(page, label, action) {
+    await idle(page);
+    const bffBefore = bffSnapshot();
+    const hnBefore = await readCounters();
+    await action(); await idle(page);
+    const bffAfter = bffSnapshot();
+    const hnAfter = await readCounters();
+    assert.deepEqual(bffAfter, bffBefore, `${label}: no BFF request`);
+    assert.deepEqual(hnAfter, hnBefore, `${label}: no fixture HN request`);
+    result.networkChecks.push({ label, bffBefore, bffAfter, hnBefore, hnAfter, unchanged: true });
+  }
+  async function changeSystem(page, scheme, theme, manual, preference, label) {
+    await noNetworkDelta(page, label, async () => {
+      await page.emulateMedia({ colorScheme: scheme });
+      const state = await waitTheme(page, theme, manual, preference);
+      assert.equal(state.system, scheme, `${label}: matchMedia emulation must take effect`);
+    });
+  }
+  async function toggle(page, theme, preference, label) {
+    const button = page.getByRole('button', { name: themeButtonName });
+    await button.scrollIntoViewIfNeeded();
+    const scrollBefore = await page.evaluate(() => window.scrollY);
+    await noNetworkDelta(page, label, async () => { await button.click(); await waitTheme(page, theme, true, preference); });
+    const scrollAfter = await page.evaluate(() => window.scrollY);
+    assert.ok(Math.abs(scrollAfter - scrollBefore) <= 2, `${label}: theme control changed scroll position`);
+  }
+  async function assertTouchTarget(page) {
+    const button = page.getByRole('button', { name: themeButtonName });
+    assert.equal(await button.count(), 1);
+    const box = await button.boundingBox();
+    assert.ok(box && box.width >= 44 && box.height >= 44, `theme button target below 44×44 CSS px: ${JSON.stringify(box)}`);
+  }
+  async function capture(page, name, theme, width, height) {
+    await page.setViewportSize({ width, height }); await idle(page); await assertTouchTarget(page);
+    const geometry = await page.evaluate(() => ({ viewport: document.documentElement.clientWidth, document: document.documentElement.scrollWidth, body: document.body.scrollWidth }));
+    if (width === 320) {
+      assert.equal(geometry.viewport, 320);
+      assert.ok(geometry.document <= 320 && geometry.body <= 320, `${name}: horizontal overflow ${JSON.stringify(geometry)}`);
+    }
+    const file = path.join(screenshotDir, `${name}.png`);
+    await page.screenshot({ path: file, fullPage: false, animations: 'disabled' });
+    result.screenshots.push({ name, path: file, theme, width, height, geometry });
+  }
+  async function installStorageMode(page, mode) {
+    await page.addInitScript(({ key, mode }) => {
+      const get = Storage.prototype.getItem; const set = Storage.prototype.setItem;
+      if (mode === 'invalid') {
+        Storage.prototype.getItem = function (name) { return name === key ? 'not-a-theme' : get.call(this, name); };
+      } else {
+        Storage.prototype.getItem = function (name) { if (name === key) throw new DOMException('blocked', 'SecurityError'); return get.call(this, name); };
+        Storage.prototype.setItem = function (name, value) { if (name === key) throw new DOMException('blocked', 'SecurityError'); return set.call(this, name, value); };
+      }
+    }, { key: THEME_KEY, mode });
+  }
+
+  async function exercise(browser, ports) {
+    const paths = new Set(['/api/stories', `/api/items/${ready.storyId}`, `/api/items/${ready.storyId}/comments`, `/api/items/${ready.jobId}`, `/api/items/${ready.jobId}/comments`]);
+    const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: 'light' });
+    const page = await context.newPage(); page.setDefaultTimeout(8_000); page.setDefaultNavigationTimeout(10_000); observe(page, paths);
+    const topWait = waitResponse(page, '/api/stories', (url) => url.searchParams.get('category') === 'top');
+    await page.goto(ready.baseUrl, { waitUntil: 'domcontentloaded' });
+    const top = await json200(await topWait, 'top stories'); await idle(page);
+    assert.ok(top.items.some((item) => item.id === ready.storyId));
+    await waitTheme(page, 'light', false, null); await assertTouchTarget(page);
+    result.phases.initial = { at: new Date().toISOString(), category: 'top', route: new URL(page.url()).pathname, itemIds: top.items.map((item) => item.id) };
+    await capture(page, 'list-system-light-desktop', 'light', 1440, 900);
+
+    await changeSystem(page, 'dark', 'dark', false, null, 'system light→dark before choice');
+    await capture(page, 'list-system-dark-320', 'dark', 320, 720);
+    await changeSystem(page, 'light', 'light', false, null, 'system dark→light before choice');
+    await toggle(page, 'dark', 'dark', 'manual choice on listing');
+    await capture(page, 'list-manual-dark-desktop', 'dark', 1440, 900);
+    await changeSystem(page, 'dark', 'dark', true, 'dark', 'system light→dark after manual choice');
+    await changeSystem(page, 'light', 'dark', true, 'dark', 'system dark→light after manual choice');
+    result.phases.manual = { at: new Date().toISOString(), state: await themeState(page) };
+
+    const newWait = waitResponse(page, '/api/stories', (url) => url.searchParams.get('category') === 'new');
+    await page.getByRole('tab', { name: 'New' }).click();
+    const fresh = await json200(await newWait, 'New stories'); await idle(page);
+    assert.ok(fresh.items.some((item) => item.id === ready.storyId));
+    assert.equal(await page.getByRole('tab', { name: 'New' }).getAttribute('aria-selected'), 'true');
+    await page.setViewportSize({ width: 320, height: 280 });
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    const link = page.locator(`a.story-row__detail[href="/item/${ready.storyId}"]`);
+    await link.scrollIntoViewIfNeeded();
+    const listScroll = await page.evaluate(() => window.scrollY);
+    assert.ok(listScroll > 0, 'listing needs a real scroll offset for restoration check');
+    const itemWait = waitResponse(page, `/api/items/${ready.storyId}`);
+    const commentsWait = waitResponse(page, `/api/items/${ready.storyId}/comments`);
+    await link.click();
+    const [itemResponse, commentsResponse] = await Promise.all([itemWait, commentsWait]);
+    const item = await json200(itemResponse, 'story item'); const comments = await json200(commentsResponse, 'comment tree');
+    assert.equal(item.item.id, ready.storyId); assert.equal(item.item.type, 'story'); assert.equal(item.item.title, ready.rawMeta.storyTitle);
+    assert.equal(new URL(commentsResponse.url()).searchParams.has('depth'), false);
+    await page.waitForFunction(() => document.querySelectorAll('article[data-comment-id]').length === 220, undefined, { timeout: 12_000 });
+    assert.equal(new URL(page.url()).pathname, `/item/${ready.storyId}`);
+    await waitTheme(page, 'dark', true, 'dark');
+
+    const collapseId = ready.rawMeta.chainIds[3]; const childId = ready.rawMeta.chainIds[4];
+    const article = page.locator(`article[data-comment-id="${collapseId}"]`);
+    const collapse = article.locator('button.detail-comment__toggle');
+    await collapse.waitFor({ state: 'visible' }); await collapse.click();
+    assert.equal(await collapse.getAttribute('aria-expanded'), 'false');
+    assert.equal(await page.locator(`article[data-comment-id="${childId}"]`).count(), 0);
+    await article.scrollIntoViewIfNeeded(); await capture(page, 'detail-manual-dark-desktop', 'dark', 1440, 900);
+    await article.scrollIntoViewIfNeeded(); await capture(page, 'detail-manual-dark-320', 'dark', 320, 720);
+    await toggle(page, 'light', 'light', 'manual dark→light on detail');
+    assert.equal(await collapse.getAttribute('aria-expanded'), 'false');
+    await article.scrollIntoViewIfNeeded(); await capture(page, 'detail-manual-light-320', 'light', 320, 720);
+    await article.scrollIntoViewIfNeeded(); await capture(page, 'detail-manual-light-desktop', 'light', 1440, 900);
+    await toggle(page, 'dark', 'dark', 'manual light→dark on detail');
+    assert.equal(await collapse.getAttribute('aria-expanded'), 'false');
+    result.phases.detail = { at: new Date().toISOString(), story: { id: item.item.id, stale: item.stale, cachedAt: item.cachedAt }, comments: { roots: comments.nodes.length, visible: 220, stale: comments.stale, cachedAt: comments.cachedAt }, collapsedId: collapseId };
+
+    await page.setViewportSize({ width: 320, height: 280 });
+    await page.getByRole('button', { name: 'Voltar' }).click();
+    await page.waitForFunction(() => location.pathname === '/', undefined, { timeout: 8_000 });
+    await page.waitForFunction((target) => Math.abs(window.scrollY - target) <= 2, listScroll, { timeout: 8_000 });
+    assert.equal(await page.getByRole('tab', { name: 'New' }).getAttribute('aria-selected'), 'true');
+    assert.equal(await link.count(), 1); await waitTheme(page, 'dark', true, 'dark');
+    result.phases.back = { at: new Date().toISOString(), category: 'new', scrollY: await page.evaluate(() => window.scrollY), expectedScrollY: listScroll };
+
+    const revisitItem = waitResponse(page, `/api/items/${ready.storyId}`);
+    const revisitComments = waitResponse(page, `/api/items/${ready.storyId}/comments`);
+    await link.click(); await Promise.all([revisitItem, revisitComments]);
+    await page.waitForFunction((id) => document.querySelector(`article[data-comment-id="${id}"] button`)?.getAttribute('aria-expanded') === 'false', collapseId, { timeout: 10_000 });
+    assert.equal(await page.locator(`article[data-comment-id="${childId}"]`).count(), 0);
+    await waitTheme(page, 'dark', true, 'dark');
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(() => document.querySelectorAll('article[data-comment-id]').length === 220, undefined, { timeout: 12_000 });
+    await waitTheme(page, 'dark', true, 'dark');
+    result.phases.reload = { at: new Date().toISOString(), route: new URL(page.url()).pathname, state: await themeState(page) };
+
+    const other = await context.newPage(); other.setDefaultTimeout(8_000); other.setDefaultNavigationTimeout(10_000); observe(other, paths);
+    await other.emulateMedia({ colorScheme: 'dark' });
+    const otherTop = waitResponse(other, '/api/stories', (url) => url.searchParams.get('category') === 'top');
+    await other.goto(ready.baseUrl, { waitUntil: 'domcontentloaded' }); await json200(await otherTop, 'independent tab listing'); await idle(other);
+    assert.equal(await other.evaluate(() => window.opener), null);
+    await waitTheme(other, 'dark', false, null);
+    await toggle(other, 'light', 'light', 'manual choice in no-opener tab');
+    await waitTheme(page, 'dark', true, 'dark');
+    result.phases.independentTab = { at: new Date().toISOString(), first: await themeState(page), second: await themeState(other), opener: null };
+
+    for (const mode of ['invalid', 'blocked']) {
+      const isolated = await browser.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: 'dark' });
+      const testPage = await isolated.newPage(); testPage.setDefaultTimeout(8_000); testPage.setDefaultNavigationTimeout(10_000); observe(testPage, paths);
+      await installStorageMode(testPage, mode);
+      const list = waitResponse(testPage, '/api/stories', (url) => url.searchParams.get('category') === 'top');
+      await testPage.goto(ready.baseUrl, { waitUntil: 'domcontentloaded' }); await json200(await list, `${mode} storage listing`); await idle(testPage);
+      const stored = mode === 'invalid' ? 'not-a-theme' : '[[blocked]]';
+      await waitTheme(testPage, 'dark', false, stored);
+      await toggle(testPage, 'light', stored, `${mode} storage fallback toggle`);
+      await testPage.reload({ waitUntil: 'domcontentloaded' }); await idle(testPage);
+      await waitTheme(testPage, 'dark', false, stored);
+      result.phases[`storage-${mode}`] = { at: new Date().toISOString(), initial: 'system-dark', toggledInMemory: 'light', reload: 'system-dark' };
+      await isolated.close();
+    }
+
+    result.finalFixtureCounters = await readCounters();
+    result.bffRequestCounts = bffSnapshot(); result.origins = [...origins].sort();
+    assert.deepEqual(unexpectedBff, []); assert.deepEqual(httpErrors, []); assert.deepEqual(failedRequests, []);
+    assert.deepEqual(pageErrors, []); assert.deepEqual(consoleErrors, []);
+    assert.deepEqual([...origins], [baseOrigin]);
+    assert.deepEqual(result.finalFixtureCounters.unexpectedUpstreamPaths, []);
+  }
+
+  async function run() {
+    let ports;
+    let cleanupError;
+    try {
+      if (!safeEvidence) throw new Error('evidenceDir must be outside ROOT and both helper script directories.');
+      await mkdir(screenshotDir, { recursive: true }); ready = await waitForReady(); ports = validateReady(ready);
+      baseOrigin = new URL(ready.baseUrl).origin;
+      result.startHelperPath = path.join(starterDir, 'start-fixture-app.mjs');
+      result.fixture = { evidenceDir, readyPath, helperPid: ready.helperPid, fixtureAppPid: ready.fixtureAppPid, rawUpstreamPid: ready.rawUpstreamPid,
+        baseUrl: ready.baseUrl, appPort: ports.appPort, upstreamBaseUrl: ready.upstreamBaseUrl, upstreamPort: ports.upstreamPort,
+        storyId: ready.storyId, jobId: ready.jobId, visibleComments: 220, totalComments: 221 };
+      result.starterOwnership = { pid: ready.helperPid, readyFile: readyPath, stoppedFile: path.join(evidenceDir, 'fixture-stopped.json'), driverWillNotStopOrModifyStarter: true };
+      result.fixtureReadyAt = ready.readyAt; result.initialFixtureCounters = await readCounters();
+      const { chromium } = createRequire(path.join(ROOT, 'package.json'))('@playwright/test');
+      browser = await chromium.launch({ headless: true, timeout: 10_000 }); result.runtime.browser = browser.version();
+      process.once('SIGINT', onSigint); process.once('SIGTERM', onSigterm);
+      task = exercise(browser, ports); task.catch(() => {});
+      const remaining = Math.max(1, 90_000 - (Date.now() - startedMs));
+      await Promise.race([bounded(task, remaining, 'Theme QA exceeded the 90-second total deadline.'), interrupted.then((signal) => { throw new Error(`Interrupted by ${signal}.`); })]);
+      result.status = 'passed';
+    } catch (error) {
+      result.status = 'failed'; result.failure = { message: error instanceof Error ? error.message : String(error), stack: error instanceof Error ? error.stack : undefined };
+      if (!result.interrupted) process.exitCode = 1;
+    } finally {
+      for (const controller of pendingCounterRequests) controller.abort();
+      if (browser) try { await bounded(browser.close(), 5_000, 'Owned Chromium close timed out.'); }
+      catch (error) { cleanupError = error instanceof Error ? error.message : String(error); process.exitCode = 1; }
+      if (task) try { await bounded(task.catch(() => {}), 3_000, 'QA task did not drain after Chromium close.'); }
+      catch (error) { cleanupError ??= error instanceof Error ? error.message : String(error); process.exitCode = 1; }
+      process.removeListener('SIGINT', onSigint); process.removeListener('SIGTERM', onSigterm);
+      if (ready && ports) {
+        try {
+          result.portObservation = { appPort: ports.appPort, upstreamPort: ports.upstreamPort, afterBrowserClose: 'reachable' };
+          const final = await readCounters(); result.finalFixtureCounters ??= final;
+        } catch (error) {
+          result.portObservation = { appPort: ports.appPort, upstreamPort: ports.upstreamPort, afterBrowserClose: 'unreachable' };
+          cleanupError ??= error instanceof Error ? error.message : String(error);
+        }
+      }
+      result.finishedAt = new Date().toISOString(); result.runtime.elapsedMs = Date.now() - startedMs;
+      result.bffRequestCounts = bffSnapshot(); result.origins = [...origins].sort();
+      result.errors = { page: pageErrors, console: consoleErrors, http: httpErrors, requests: failedRequests, unexpectedBff };
+      if (cleanupError) { result.cleanupError = cleanupError; result.status = 'failed'; process.exitCode = 1; }
+      if (safeEvidence) try { await writeFile(resultPath, `${JSON.stringify(result, null, 2)}\n`, { mode: 0o600 }); }
+      catch (error) { console.error(`Could not write result JSON: ${error instanceof Error ? error.message : String(error)}`); process.exitCode = 1; }
+    }
+    console.log(JSON.stringify({ status: result.status, resultPath: safeEvidence ? resultPath : null, screenshots: result.screenshots.length, failure: result.failure?.message ?? null }));
+  }
+
+  await run();
+}

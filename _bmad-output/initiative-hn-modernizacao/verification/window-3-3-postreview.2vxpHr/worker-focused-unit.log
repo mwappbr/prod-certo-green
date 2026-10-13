@@ -1,0 +1,16 @@
+snapshot=/tmp/hn-3.3-p2-unit-snapshot.AenMBx/source.tar
+log=/tmp/hn-3.3-p2-unit.im60bg
+node=v24.21.0
+npm=11.19.0
+exec=/opt/homebrew/Cellar/node@24/24.21.0_1/bin/node
+command=focused Vitest API/state/item-detail-state suite
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+
+ Test Files  3 passed (3)
+      Tests  14 passed (14)
+   Start at  06:52:54
+   Duration  213ms (tests 37%, transform 36%, import 19%, worker 7%)
+
+FOCUSED_UNIT_exit_status=0

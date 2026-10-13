@@ -1,0 +1,373 @@
+{
+  "runId": "run-20261012191932-79674-3d271b2138",
+  "startedAt": "2026-10-12T19:19:32.149Z",
+  "node": "v24.21.0",
+  "platform": "darwin",
+  "root": "/Users/maurowidman/Projects/AI/prod-certo-green",
+  "evidence": "/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138",
+  "freezeConfirmation": "explicit CLI gate supplied",
+  "project": "hnqa-202610121919-79674-0e90c11b4d86",
+  "hostPort": 54301,
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "compose",
+        "version",
+        "--short"
+      ],
+      "log": "preflight-compose-version.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": "5.1.4\n"
+    },
+    {
+      "command": [
+        "docker",
+        "version",
+        "--format",
+        "{{.Client.Version}}"
+      ],
+      "log": "preflight-docker-client-version.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": "29.5.3-rd\n"
+    },
+    {
+      "command": [
+        "docker",
+        "context",
+        "show"
+      ],
+      "log": "preflight-docker-context.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": "rancher-desktop\n"
+    },
+    {
+      "command": [
+        "docker",
+        "context",
+        "inspect",
+        "rancher-desktop",
+        "--format",
+        "{{.Endpoints.docker.Host}}"
+      ],
+      "log": "preflight-docker-context-endpoint.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": "unix:///Users/maurowidman/.rd/docker.sock\n"
+    },
+    {
+      "command": [
+        "docker",
+        "info",
+        "--format",
+        "{{.ServerVersion}}"
+      ],
+      "log": "preflight-docker-daemon.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": "29.1.3\n"
+    },
+    {
+      "command": [
+        "docker",
+        "buildx",
+        "inspect"
+      ],
+      "log": "preflight-buildx-builder.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": "Name:          rancher-desktop\nDriver:        docker\nLast Activity: 2026-10-12 19:17:14 +0000 UTC\n\nNodes:\nName:             rancher-desktop\nEndpoint:         rancher-desktop\nStatus:           running\nBuildKit version: v0.26.2\nPlatforms:        linux/arm64\nLabels:\n org.mobyproject.buildkit.worker.containerd.namespace: moby\n org.mobyproject.buildkit.worker.containerd.uuid:      2a9cdfa3-d7b5-4f0a-a200-9408abbb8fce\n org.mobyproject.buildkit.worker.executor:             containerd\n org.mobyproject.buildkit.worker.hostname:             lima-rancher-desktop\n org.mobyproject.buildkit.worker.moby.host-gateway-ip: 172.17.0.1\n org.mobyproject.buildkit.worker.network:              host\n org.mobyproject.buildkit.worker.selinux.enabled:      false\n org.mobyproject.buildkit.worker.snapshotter:          overlayfs\nDevices:\n Name:                  lima-vm.io/rosetta=cached\n Automatically allowed: true\n Annotations:\n  org.mobyproject.buildkit.device.autoallow: true\nGC Policy rule#0:\n All:            false\n Filters:        type==source.local,type==exec.cachemount,type==source.git.checkout\n Keep Duration:  48h0m0s\n Max Used Space: 1.287GiB\nGC Policy rule#1:\n All:            false\n Keep Duration:  1440h0m0s\n Reserved Space: 9.313GiB\n Max Used Space: 73.57GiB\n Min Free Space: 18.63GiB\nGC Policy rule#2:\n All:            false\n Reserved Space: 9.313GiB\n Max Used Space: 73.57GiB\n Min Free Space: 18.63GiB\nGC Policy rule#3:\n All:            true\n Reserved Space: 9.313GiB\n Max Used Space: 73.57GiB\n Min Free Space: 18.63GiB\n"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--env-file",
+        "/dev/null",
+        "--project-directory",
+        "/Users/maurowidman/Projects/AI/prod-certo-green",
+        "--file",
+        "/Users/maurowidman/Projects/AI/prod-certo-green/docker-compose.yml",
+        "--project-name",
+        "hnqa-202610121919-79674-0e90c11b4d86",
+        "config",
+        "--format",
+        "json"
+      ],
+      "log": "preflight-compose-config.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": "{\n  \"name\": \"hnqa-202610121919-79674-0e90c11b4d86\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"hnqa-202610121919-79674-0e90c11b4d86_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"app\": {\n      \"build\": {\n        \"context\": \"/Users/maurowidman/Projects/AI/prod-certo-green\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"NODE_ENV\": \"production\",\n        \"PORT\": \"3000\"\n      },\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"node\",\n          \"-e\",\n          \"fetch('http://127.0.0.1:3000/api/health').then((response) =\\u003e process.exit(response.ok ? 0 : 1)).catch(() =\\u003e process.exit(1))\"\n        ],\n        \"timeout\": \"3s\",\n        \"interval\": \"10s\",\n        \"retries\": 5,\n        \"start_period\": \"5s\"\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"host_ip\": \"127.0.0.1\",\n          \"target\": 3000,\n          \"published\": \"54301\",\n          \"protocol\": \"tcp\"\n        }\n      ]\n    }\n  }\n}"
+    },
+    {
+      "command": [
+        "docker",
+        "build",
+        "--network=none",
+        "--pull=false",
+        "--no-cache",
+        "--file",
+        "/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138/dockerignore-synthetic-context/Dockerfile.example",
+        "--tag",
+        "hnqa-202610121919-79674-0e90c11b4d86-env-example-probe:local",
+        "/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138/dockerignore-synthetic-context"
+      ],
+      "log": "dockerignore-example-sentinel-build.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": ""
+    },
+    {
+      "command": [
+        "docker",
+        "build",
+        "--network=none",
+        "--pull=false",
+        "--no-cache",
+        "--file",
+        "/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138/dockerignore-synthetic-context/Dockerfile.env",
+        "--tag",
+        "hnqa-202610121919-79674-0e90c11b4d86-env-probe:local",
+        "/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138/dockerignore-synthetic-context"
+      ],
+      "log": "dockerignore-env-sentinel-build.log",
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": ""
+    },
+    {
+      "command": [
+        "docker",
+        "build",
+        "--network=none",
+        "--pull=false",
+        "--no-cache",
+        "--file",
+        "/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138/dockerignore-synthetic-context/Dockerfile.env-pattern",
+        "--tag",
+        "hnqa-202610121919-79674-0e90c11b4d86-env-qa-sentinel-probe:local",
+        "/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138/dockerignore-synthetic-context"
+      ],
+      "log": "dockerignore-env-qa-sentinel-sentinel-build.log",
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--env-file",
+        "/dev/null",
+        "--project-directory",
+        "/Users/maurowidman/Projects/AI/prod-certo-green",
+        "--file",
+        "/Users/maurowidman/Projects/AI/prod-certo-green/docker-compose.yml",
+        "--project-name",
+        "hnqa-202610121919-79674-0e90c11b4d86",
+        "logs",
+        "--no-color",
+        "--tail",
+        "200",
+        "app"
+      ],
+      "log": "failure-compose-app-logs.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--env-file",
+        "/dev/null",
+        "--project-directory",
+        "/Users/maurowidman/Projects/AI/prod-certo-green",
+        "--file",
+        "/Users/maurowidman/Projects/AI/prod-certo-green/docker-compose.yml",
+        "--project-name",
+        "hnqa-202610121919-79674-0e90c11b4d86",
+        "down",
+        "--timeout",
+        "10",
+        "--rmi",
+        "local"
+      ],
+      "log": "cleanup-compose-owned-project.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": ""
+    },
+    {
+      "command": [
+        "docker",
+        "image",
+        "rm",
+        "hnqa-202610121919-79674-0e90c11b4d86-env-example-probe:local"
+      ],
+      "log": "cleanup-hnqa-202610121919-79674-0e90c11b4d86-env-example-probe.log",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": "Untagged: hnqa-202610121919-79674-0e90c11b4d86-env-example-probe:local\nDeleted: sha256:2e5cfe13b38f83fa8c4668df9d78ff41172031a99a96cd34f763845a9863db11\n"
+    },
+    {
+      "command": [
+        "docker",
+        "image",
+        "rm",
+        "hnqa-202610121919-79674-0e90c11b4d86-env-probe:local"
+      ],
+      "log": "cleanup-hnqa-202610121919-79674-0e90c11b4d86-env-probe.log",
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": ""
+    },
+    {
+      "command": [
+        "docker",
+        "image",
+        "inspect",
+        "hnqa-202610121919-79674-0e90c11b4d86-env-probe:local"
+      ],
+      "log": "cleanup-verify-hnqa-202610121919-79674-0e90c11b4d86-env-probe.log",
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": "[]\n"
+    },
+    {
+      "command": [
+        "docker",
+        "image",
+        "rm",
+        "hnqa-202610121919-79674-0e90c11b4d86-env-qa-sentinel-probe:local"
+      ],
+      "log": "cleanup-hnqa-202610121919-79674-0e90c11b4d86-env-qa-sentinel-probe.log",
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": ""
+    },
+    {
+      "command": [
+        "docker",
+        "image",
+        "inspect",
+        "hnqa-202610121919-79674-0e90c11b4d86-env-qa-sentinel-probe:local"
+      ],
+      "log": "cleanup-verify-hnqa-202610121919-79674-0e90c11b4d86-env-qa-sentinel-probe.log",
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false,
+      "interrupted": false,
+      "stdout": "[]\n"
+    }
+  ],
+  "ownedProbeImages": [
+    "hnqa-202610121919-79674-0e90c11b4d86-env-example-probe:local",
+    "hnqa-202610121919-79674-0e90c11b4d86-env-probe:local",
+    "hnqa-202610121919-79674-0e90c11b4d86-env-qa-sentinel-probe:local"
+  ],
+  "dockerEndpointKind": "local-unix-socket",
+  "dockerignoreSentinels": {
+    "result": "passed",
+    "context": "dockerignore-synthetic-context",
+    "syntheticFilesOnly": [
+      ".env",
+      ".env.qa-sentinel",
+      ".env.example"
+    ],
+    "exampleExceptionBuildSucceeded": true,
+    "ignoredEnvBuildsFailedAsExpected": true,
+    "realEnvFilesOpened": false,
+    "note": "Uses the source .dockerignore in a synthetic context; does not inspect or copy any repository .env file."
+  },
+  "health": null,
+  "browser": null,
+  "cleanup": {
+    "composeDown": "passed",
+    "volumesRemoved": false,
+    "scope": "hnqa-202610121919-79674-0e90c11b4d86",
+    "probeImagesRemoved": [
+      "hnqa-202610121919-79674-0e90c11b4d86-env-example-probe:local",
+      "hnqa-202610121919-79674-0e90c11b4d86-env-probe:local",
+      "hnqa-202610121919-79674-0e90c11b4d86-env-qa-sentinel-probe:local"
+    ]
+  },
+  "realEnvFilesOpened": false,
+  "status": "failed",
+  "dockerignoreRules": {
+    "envRule": "**/.env",
+    "envDotRule": "**/.env.*",
+    "exampleException": "!.env.example"
+  },
+  "composeConfig": {
+    "service": "app",
+    "containerPort": 3000,
+    "hostPort": "54301",
+    "hostIp": "127.0.0.1",
+    "volumeCount": 0
+  },
+  "failedAt": "local-compose-build",
+  "failure": "compose-fresh-local-build exited with status 1.",
+  "failedCommand": {
+    "command": [
+      "docker",
+      "compose",
+      "--env-file",
+      "/dev/null",
+      "--project-directory",
+      "/Users/maurowidman/Projects/AI/prod-certo-green",
+      "--file",
+      "/Users/maurowidman/Projects/AI/prod-certo-green/docker-compose.yml",
+      "--project-name",
+      "hnqa-202610121919-79674-0e90c11b4d86",
+      "build",
+      "--no-cache",
+      "--pull=false",
+      "--progress",
+      "plain",
+      "app"
+    ],
+    "log": "compose-fresh-local-build.log",
+    "exitCode": 1,
+    "signal": null,
+    "timedOut": false,
+    "interrupted": false
+  },
+  "finishedAt": "2026-10-12T19:19:37.527Z"
+}

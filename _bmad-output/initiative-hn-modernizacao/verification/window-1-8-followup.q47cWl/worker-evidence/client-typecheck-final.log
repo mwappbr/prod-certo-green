@@ -1,0 +1,6 @@
+node=v24.21.0
+npm=11.19.0
+
+> @hn/client@0.0.0 typecheck
+> tsc -p tsconfig.json --noEmit
+

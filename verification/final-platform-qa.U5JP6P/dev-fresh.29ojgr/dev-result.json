@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-10-12T19:37:47.330Z",
+  "node": "v24.21.0",
+  "status": "failed",
+  "errors": [],
+  "cleanup": {
+    "signal": "SIGTERM",
+    "closed": true,
+    "exit": {
+      "code": null,
+      "signal": "SIGTERM"
+    },
+    "port3000Free": true,
+    "port5173Free": true
+  },
+  "pid": 93577,
+  "failure": "AssertionError [ERR_ASSERTION]: Dev API and Vite ready within 30s\n    at main (/private/tmp/hn-verification-tools-ed87e997/final-dev-smoke.cjs:39:5)",
+  "finishedAt": "2026-10-12T19:38:17.528Z"
+}

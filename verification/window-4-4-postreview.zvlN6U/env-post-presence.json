@@ -1,0 +1,34 @@
+[
+  {
+    "path": "./.env",
+    "present": false
+  },
+  {
+    "path": "./.env.local",
+    "present": false
+  },
+  {
+    "path": "./.env.production",
+    "present": false
+  },
+  {
+    "path": "./.env.production.local",
+    "present": false
+  },
+  {
+    "path": "client/.env",
+    "present": false
+  },
+  {
+    "path": "client/.env.local",
+    "present": false
+  },
+  {
+    "path": "client/.env.production",
+    "present": false
+  },
+  {
+    "path": "client/.env.production.local",
+    "present": false
+  }
+]

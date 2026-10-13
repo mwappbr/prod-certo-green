@@ -1,0 +1,20 @@
+{
+  "verifiedAt": "2026-10-12T18:36:32.581Z",
+  "node": "v24.21.0",
+  "added": [
+    "node_modules/@axe-core/playwright",
+    "node_modules/axe-core"
+  ],
+  "removed": [],
+  "changedExistingPackageEntries": [
+    ""
+  ],
+  "manifestOnlyExpectedDependency": true,
+  "wrapperVersion": "4.13.0",
+  "coreVersion": "4.13.0",
+  "availability": {
+    "wrapper": "/Users/maurowidman/Projects/AI/prod-certo-green/node_modules/@axe-core/playwright/dist/index.js",
+    "core": "/Users/maurowidman/Projects/AI/prod-certo-green/node_modules/axe-core/axe.js"
+  },
+  "installScriptsDisabled": true
+}

@@ -1,0 +1,102 @@
+
+> e2e
+> npm run build && playwright test
+
+
+> build
+> npm run build -w @hn/shared && npm run build -w @hn/server && npm run build -w @hn/client
+
+
+> @hn/shared@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/server@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/client@0.0.0 build
+> tsc -p tsconfig.json --noEmit && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 39 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.77 kB │ gzip:  0.44 kB
+dist/assets/index-Dm_gFIxO.css    9.38 kB │ gzip:  2.12 kB
+dist/assets/index-CYd16-z1.js   219.55 kB │ gzip: 67.81 kB
+
+✓ built in 47ms
+
+Running 56 tests using 6 workers
+
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓   5 e2e/detail.spec.ts:79:1 › renders story metadata and the first comment from the shared envelopes (315ms)
+  ✓   1 e2e/theme.spec.ts:25:3 › Tema claro e escuro › PRE_THEME: sistema escuro aplica tokens na lista e detalhe antes do bundle (317ms)
+  ✓   3 e2e/listing.spec.ts:3:1 › shows a normalized top page from the local HN fixture (318ms)
+  ✓   8 e2e/theme.spec.ts:40:3 › Tema claro e escuro › bootstrap manual aplica a escolha antes do bundle e dos componentes React (87ms)
+  ✓   9 e2e/listing.spec.ts:27:1 › renders the backend-normalized Job item in the Jobs category (123ms)
+{"scenario":"list-light","runtime":{"nodeVersion":"v24.21.0","browserName":"chromium","browserVersion":"156.0.8078.4","viewport":{"width":375,"height":812},"colorScheme":"light","route":"/?category=top"},"testEngine":{"name":"axe-core","version":"4.13.0"},"counts":{"violations":0,"incomplete":1,"passes":37,"inapplicable":52},"violations":[],"incomplete":[{"id":"color-contrast","impact":"serious","nodes":[{"target":["#category-tab-job"],"failureSummary":"Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"}]}],"criticalOrSerious":[]}
+  ✓  10 e2e/theme.spec.ts:51:3 › Tema claro e escuro › toggle semântico funciona nas duas telas e acompanha mudança do sistema antes da escolha manual (229ms)
+  ✓  11 e2e/listing.spec.ts:50:1 › offers a retry action when the API is unavailable (201ms)
+  ✓   6 e2e/accessibility.spec.ts:21:5 › Axe accessibility audit › list-light at 375px (673ms)
+  ✓  13 e2e/listing.spec.ts:207:1 › uses singular labels for one point and one comment (106ms)
+  ✓  15 e2e/listing.spec.ts:227:1 › wraps long listing content and keeps Jobs reachable at 320px (247ms)
+{"scenario":"list-dark","runtime":{"nodeVersion":"v24.21.0","browserName":"chromium","browserVersion":"156.0.8078.4","viewport":{"width":375,"height":812},"colorScheme":"dark","route":"/?category=top"},"testEngine":{"name":"axe-core","version":"4.13.0"},"counts":{"violations":0,"incomplete":1,"passes":37,"inapplicable":52},"violations":[],"incomplete":[{"id":"color-contrast","impact":"serious","nodes":[{"target":["#category-tab-job"],"failureSummary":"Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"}]}],"criticalOrSerious":[]}
+  ✓  14 e2e/accessibility.spec.ts:21:5 › Axe accessibility audit › list-dark at 375px (430ms)
+  ✓  16 e2e/listing.spec.ts:277:1 › wraps unbroken listing error messages at 320px (94ms)
+  ✓  18 e2e/listing.spec.ts:293:1 › appends the next page from its snapshot and keeps the control disabled while loading (246ms)
+  ✓  12 e2e/theme.spec.ts:81:3 › Tema claro e escuro › manual preference survives SPA navigation and reload but not an independent tab (849ms)
+  ✓   7 e2e/detail.spec.ts:105:1 › renders the 3.3 HN fixture tree, collapse state, and warm item cache through the local BFF (1.3s)
+  ✓  20 e2e/theme.spec.ts:138:3 › Tema claro e escuro › invalid preference follows the system and can then be replaced manually (139ms)
+  ✓  22 e2e/theme.spec.ts:155:3 › Tema claro e escuro › blocked sessionStorage reads and writes do not break in-tab theme changes (159ms)
+  ✓  19 e2e/listing.spec.ts:338:1 › keeps advancing after an empty page and never loads automatically on scroll (446ms)
+  ✓  21 e2e/detail.spec.ts:314:3 › restores a collapsed comment body when replies become leaf after SPA revisit (UI-only) (327ms)
+  ✓  23 e2e/listing.spec.ts:372:1 › treats a missing hasMore flag as unknown rather than end of list (158ms)
+  ✓  25 e2e/listing.spec.ts:391:1 › keeps existing rows below an incremental error and retries identical parameters (243ms)
+  ✓  24 e2e/detail.spec.ts:314:3 › restores a collapsed comment body when replies become cutoff after SPA revisit (UI-only) (322ms)
+  ✓   2 e2e/keyboard-focus-semantics.spec.ts:232:3 › uses keyboard traversal for all six category tabs at 320px (2.3s)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  27 e2e/detail.spec.ts:392:1 › keeps collapsed markers and generic continuation/truncation states in a UI-only envelope (176ms)
+  ✓  26 e2e/listing.spec.ts:435:1 › discards an expired sequence and announces the refreshed first page (235ms)
+  ✓  29 e2e/detail.spec.ts:439:1 › renders two comments in envelope order with author and relative-time metadata (107ms)
+  ✓  31 e2e/detail.spec.ts:463:1 › preserves valid authors for deleted and dead markers without rendering their bodies (110ms)
+  ✓  32 e2e/detail.spec.ts:502:3 › shows stale data when only the item envelope is stale (97ms)
+  ✓  33 e2e/detail.spec.ts:502:3 › shows stale data when only the comments envelope is stale (94ms)
+  ✓  30 e2e/listing.spec.ts:482:1 › restores loaded pages, category, and scroll when returning from real item detail (443ms)
+  ✓  34 e2e/detail.spec.ts:523:1 › announces an empty successful comments envelope only after loading (94ms)
+{"scenario":"detail-light","runtime":{"nodeVersion":"v24.21.0","browserName":"chromium","browserVersion":"156.0.8078.4","viewport":{"width":375,"height":812},"colorScheme":"light","route":"/item/98310000"},"testEngine":{"name":"axe-core","version":"4.13.0"},"counts":{"violations":0,"incomplete":0,"passes":32,"inapplicable":57},"violations":[],"incomplete":[],"criticalOrSerious":[]}
+  ✓  17 e2e/accessibility.spec.ts:21:5 › Axe accessibility audit › detail-light at 375px (2.0s)
+  ✓  36 e2e/detail.spec.ts:559:1 › starts item and comments before release and retries only failed comments (227ms)
+  ✓  38 e2e/detail.spec.ts:626:1 › keeps successful comments while the item fails and retries only the item (225ms)
+  ✓  35 e2e/listing.spec.ts:529:3 › preserves new pages across Back, Forward, and Voltar (504ms)
+  ✓  39 e2e/detail.spec.ts:693:1 › keeps the new detail after native-history SPA id change and late fulfill attempts (111ms)
+  ✓  41 e2e/detail.spec.ts:781:1 › requests comments for a Job and shows the API empty state (100ms)
+  ✓  42 e2e/detail.spec.ts:811:1 › keeps a comment root typed and neutral while its replies endpoint remains usable (91ms)
+  ✓  43 e2e/detail.spec.ts:842:1 › keeps the detail surface inside a 320px viewport (92ms)
+  ✓  40 e2e/listing.spec.ts:529:3 › preserves job pages across Back, Forward, and Voltar (485ms)
+  ✓  28 e2e/keyboard-focus-semantics.spec.ts:232:3 › uses keyboard traversal for all six category tabs at 375px (1.9s)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  44 e2e/listing.spec.ts:587:1 › cancels a queued page scroll restore when changing category (348ms)
+  ✓  46 e2e/listing.spec.ts:668:3 › shows an accessible route error for /not-a-route and returns to the listing (127ms)
+  ✓  47 e2e/listing.spec.ts:668:3 › shows an accessible route error for /item/not-a-number and returns to the listing (126ms)
+  ✓  48 e2e/listing.spec.ts:668:3 › shows an accessible route error for /item/9007199254740992 and returns to the listing (125ms)
+  ✓  45 e2e/keyboard-focus-semantics.spec.ts:315:1 › keeps keyboard pagination focus visible unless the user moves it during a retained response (512ms)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  49 e2e/listing.spec.ts:691:1 › ignores a late page response after changing category (184ms)
+  ✓  50 e2e/keyboard-focus-semantics.spec.ts:456:1 › uses keyboard for theme and comment-tree disclosure without extra API requests (206ms)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+{"scenario":"detail-dark","runtime":{"nodeVersion":"v24.21.0","browserName":"chromium","browserVersion":"156.0.8078.4","viewport":{"width":375,"height":812},"colorScheme":"dark","route":"/item/98310000"},"testEngine":{"name":"axe-core","version":"4.13.0"},"counts":{"violations":0,"incomplete":0,"passes":32,"inapplicable":57},"violations":[],"incomplete":[],"criticalOrSerious":[]}
+  ✓  52 e2e/keyboard-focus-semantics.spec.ts:547:1 › disables actual list and detail loader motion when reduced motion is preferred (165ms)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  37 e2e/accessibility.spec.ts:21:5 › Axe accessibility audit › detail-dark at 375px (2.0s)
+  ✓  53 e2e/keyboard-focus-semantics.spec.ts:627:1 › rejects a test-only invisible keyboard focus outline (109ms)
+  ✓  51 e2e/listing.spec.ts:732:1 › supports query-backed tabs for all categories and resets scroll (589ms)
+  ✓  54 e2e/listing.spec.ts:816:1 › isolates category loading and ignores late responses from an abandoned category (177ms)
+  ✓  55 e2e/listing.spec.ts:873:1 › announces loading, stale content, and an empty category (194ms)
+[Raw evidence at e2e.log:98 preserved; 104655 characters]
+  ✓   4 e2e/responsive-text.spec.ts:406:1 › measures responsive layout, text reflow simulation and 44px targets on list and detail (6.7s)
+  ✓  56 e2e/responsive-text.spec.ts:504:1 › rejects a fixture story source hidden from target measurement (515ms)
+
+  56 passed (8.1s)

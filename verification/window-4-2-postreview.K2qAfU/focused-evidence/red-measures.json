@@ -1,0 +1,1627 @@
+{
+  "capturedAt": "2026-10-12T14:52:46.637Z",
+  "nodeVersion": "v24.19.0",
+  "browserName": "chromium",
+  "browserVersion": "156.0.8078.4",
+  "simulation": "test-only per-element computed font-size 2x and original numeric computed line-height 2x; no html/root/viewport/DPR/zoom mutation",
+  "apiRequests": [
+    "/api/stories?category=top",
+    "/api/stories?category=top",
+    "/api/stories?category=top",
+    "/api/stories?category=top",
+    "/api/stories?category=top",
+    "/api/items/4201",
+    "/api/items/4201/comments"
+  ],
+  "results": [
+    {
+      "surface": "listing",
+      "theme": "light",
+      "viewport": 320,
+      "scale": "normal",
+      "innerWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "targets": [
+        {
+          "name": "Top [[role=tab]#category-tab-top.category-tabs__tab]",
+          "width": 51.89,
+          "height": 44,
+          "clientWidth": 52,
+          "clientHeight": 42,
+          "scrollWidth": 52,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "New [[role=tab]#category-tab-new.category-tabs__tab]",
+          "width": 57.73,
+          "height": 44,
+          "clientWidth": 58,
+          "clientHeight": 42,
+          "scrollWidth": 58,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Best [[role=tab]#category-tab-best.category-tabs__tab]",
+          "width": 58.23,
+          "height": 44,
+          "clientWidth": 58,
+          "clientHeight": 42,
+          "scrollWidth": 58,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Ask [[role=tab]#category-tab-ask.category-tabs__tab]",
+          "width": 52.42,
+          "height": 44,
+          "clientWidth": 52,
+          "clientHeight": 42,
+          "scrollWidth": 52,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Show [[role=tab]#category-tab-show.category-tabs__tab]",
+          "width": 65.83,
+          "height": 44,
+          "clientWidth": 66,
+          "clientHeight": 42,
+          "scrollWidth": 66,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Jobs [[role=tab]#category-tab-job.category-tabs__tab]",
+          "width": 60.73,
+          "height": 44,
+          "clientWidth": 61,
+          "clientHeight": 42,
+          "scrollWidth": 61,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Alternar tema claro e escuro [.theme-toggle]",
+          "width": 230.41,
+          "height": 44,
+          "clientWidth": 228,
+          "clientHeight": 42,
+          "scrollWidth": 228,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Carregar mais [.listing__button.listing__load-more]",
+          "width": 130.92,
+          "height": 44,
+          "clientWidth": 131,
+          "clientHeight": 44,
+          "scrollWidth": 131,
+          "scrollHeight": 44,
+          "overflows": false
+        },
+        {
+          "name": "Título de história longo para validar quebra de texto sem corte: interfa [.story-row__detail]",
+          "width": 288,
+          "height": 239.91,
+          "clientWidth": 288,
+          "clientHeight": 240,
+          "scrollWidth": 288,
+          "scrollHeight": 240,
+          "overflows": false
+        },
+        {
+          "name": "História secundária com domínio longo de origem7 pontos·autora-secundari [.story-row__detail]",
+          "width": 288,
+          "height": 91.56,
+          "clientWidth": 288,
+          "clientHeight": 92,
+          "scrollWidth": 288,
+          "scrollHeight": 92,
+          "overflows": false
+        },
+        {
+          "name": "Abrir tiny.test em nova aba [.story-row__source]",
+          "width": 44.77,
+          "height": 16.8,
+          "clientWidth": 45,
+          "clientHeight": 17,
+          "scrollWidth": 45,
+          "scrollHeight": 17,
+          "overflows": false
+        },
+        {
+          "name": "Abrir domain-domain-domain-domain-domain-domain-domain-domain-domain-dom [.story-row__source]",
+          "width": 288,
+          "height": 50.39,
+          "clientWidth": 288,
+          "clientHeight": 50,
+          "scrollWidth": 288,
+          "scrollHeight": 50,
+          "overflows": false
+        }
+      ],
+      "textClipping": [
+        {
+          "element": ".listing__header h1",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 30,
+          "clientHeight": 30
+        },
+        {
+          "element": ".story-row__title.story-row__title",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 151,
+          "clientHeight": 151
+        },
+        {
+          "element": ".story-row__title.story-row__title",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 43,
+          "clientHeight": 43
+        },
+        {
+          "element": ".story-row__meta.story-row__meta",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 81,
+          "clientHeight": 81
+        },
+        {
+          "element": ".story-row__meta.story-row__meta",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 40,
+          "clientHeight": 40
+        },
+        {
+          "element": ".story-row__source.story-row__source",
+          "clipped": false,
+          "scrollWidth": 45,
+          "clientWidth": 45,
+          "scrollHeight": 17,
+          "clientHeight": 17
+        },
+        {
+          "element": ".story-row__source.story-row__source",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 50,
+          "clientHeight": 50
+        },
+        {
+          "element": ".listing__button.listing__button.listing__load-more",
+          "clipped": false,
+          "scrollWidth": 131,
+          "clientWidth": 131,
+          "scrollHeight": 44,
+          "clientHeight": 44
+        },
+        {
+          "element": ".theme-toggle.theme-toggle",
+          "clipped": false,
+          "scrollWidth": 228,
+          "clientWidth": 228,
+          "scrollHeight": 42,
+          "clientHeight": 42
+        }
+      ],
+      "categoryStrip": {
+        "clientWidth": 320,
+        "scrollWidth": 419,
+        "scrollLeft": 99,
+        "jobsVisible": true
+      }
+    },
+    {
+      "surface": "listing",
+      "theme": "light",
+      "viewport": 320,
+      "scale": "simulated-200",
+      "innerWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "targets": [
+        {
+          "name": "Top [[role=tab]#category-tab-top.category-tabs__tab]",
+          "width": 76.8,
+          "height": 44,
+          "clientWidth": 77,
+          "clientHeight": 42,
+          "scrollWidth": 77,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "New [[role=tab]#category-tab-new.category-tabs__tab]",
+          "width": 89.66,
+          "height": 44,
+          "clientWidth": 90,
+          "clientHeight": 42,
+          "scrollWidth": 90,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Best [[role=tab]#category-tab-best.category-tabs__tab]",
+          "width": 89.75,
+          "height": 44,
+          "clientWidth": 90,
+          "clientHeight": 42,
+          "scrollWidth": 90,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Ask [[role=tab]#category-tab-ask.category-tabs__tab]",
+          "width": 79.27,
+          "height": 44,
+          "clientWidth": 79,
+          "clientHeight": 42,
+          "scrollWidth": 79,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Show [[role=tab]#category-tab-show.category-tabs__tab]",
+          "width": 105.91,
+          "height": 44,
+          "clientWidth": 106,
+          "clientHeight": 42,
+          "scrollWidth": 106,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Jobs [[role=tab]#category-tab-job.category-tabs__tab]",
+          "width": 95.27,
+          "height": 44,
+          "clientWidth": 95,
+          "clientHeight": 42,
+          "scrollWidth": 95,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Alternar tema claro e escuro [.theme-toggle]",
+          "width": 288,
+          "height": 98,
+          "clientWidth": 286,
+          "clientHeight": 96,
+          "scrollWidth": 286,
+          "scrollHeight": 96,
+          "overflows": false
+        },
+        {
+          "name": "Carregar mais [.listing__button.listing__load-more]",
+          "width": 227.81,
+          "height": 54,
+          "clientWidth": 228,
+          "clientHeight": 54,
+          "scrollWidth": 228,
+          "scrollHeight": 54,
+          "overflows": false
+        },
+        {
+          "name": "Título de história longo para validar quebra de texto sem corte: interfa [.story-row__detail]",
+          "width": 288,
+          "height": 713.67,
+          "clientWidth": 288,
+          "clientHeight": 714,
+          "scrollWidth": 288,
+          "scrollHeight": 714,
+          "overflows": false
+        },
+        {
+          "name": "História secundária com domínio longo de origem7 pontos·autora-secundari [.story-row__detail]",
+          "width": 288,
+          "height": 295.23,
+          "clientWidth": 288,
+          "clientHeight": 295,
+          "scrollWidth": 288,
+          "scrollHeight": 295,
+          "overflows": false
+        },
+        {
+          "name": "Abrir tiny.test em nova aba [.story-row__source]",
+          "width": 79.44,
+          "height": 33.59,
+          "clientWidth": 79,
+          "clientHeight": 34,
+          "scrollWidth": 79,
+          "scrollHeight": 34,
+          "overflows": false
+        },
+        {
+          "name": "Abrir domain-domain-domain-domain-domain-domain-domain-domain-domain-dom [.story-row__source]",
+          "width": 288,
+          "height": 167.97,
+          "clientWidth": 288,
+          "clientHeight": 168,
+          "scrollWidth": 288,
+          "scrollHeight": 168,
+          "overflows": false
+        }
+      ],
+      "textClipping": [
+        {
+          "element": ".listing__header h1",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 60,
+          "clientHeight": 60
+        },
+        {
+          "element": ".story-row__title.story-row__title",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 475,
+          "clientHeight": 475
+        },
+        {
+          "element": ".story-row__title.story-row__title",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 130,
+          "clientHeight": 130
+        },
+        {
+          "element": ".story-row__meta.story-row__meta",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 230,
+          "clientHeight": 230
+        },
+        {
+          "element": ".story-row__meta.story-row__meta",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 158,
+          "clientHeight": 158
+        },
+        {
+          "element": ".story-row__source.story-row__source",
+          "clipped": false,
+          "scrollWidth": 79,
+          "clientWidth": 79,
+          "scrollHeight": 34,
+          "clientHeight": 34
+        },
+        {
+          "element": ".story-row__source.story-row__source",
+          "clipped": false,
+          "scrollWidth": 288,
+          "clientWidth": 288,
+          "scrollHeight": 168,
+          "clientHeight": 168
+        },
+        {
+          "element": ".listing__button.listing__button.listing__load-more",
+          "clipped": false,
+          "scrollWidth": 228,
+          "clientWidth": 228,
+          "scrollHeight": 54,
+          "clientHeight": 54
+        },
+        {
+          "element": ".theme-toggle.theme-toggle",
+          "clipped": false,
+          "scrollWidth": 286,
+          "clientWidth": 286,
+          "scrollHeight": 96,
+          "clientHeight": 96
+        }
+      ],
+      "categoryStrip": {
+        "clientWidth": 320,
+        "scrollWidth": 609,
+        "scrollLeft": 276,
+        "jobsVisible": true
+      },
+      "scaleEvidence": {
+        "viewportBefore": 320,
+        "viewportAfter": 320,
+        "htmlFontSizeBefore": 16,
+        "htmlFontSizeAfter": 16,
+        "glyphBefore": {
+          "fontSize": 24,
+          "lineHeight": "30px",
+          "rangeWidth": 11.83,
+          "rangeHeight": 28,
+          "rangeRects": 1
+        },
+        "glyphAfter": {
+          "fontSize": 48,
+          "lineHeight": "60px",
+          "rangeWidth": 23.13,
+          "rangeHeight": 56,
+          "rangeRects": 1
+        },
+        "textSnapshot": [
+          {
+            "element": "main.listing",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "nav.category-tabs",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "div.category-tabs__list",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-top.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-new.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-best.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-ask.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-show.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-job.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "section#listing-panel.listing__panel.listing__panel--plain",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "header.listing__header",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "div.theme-screen-header",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "div.theme-screen-header__copy",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "p.listing__eyebrow",
+            "fontSizeBefore": 12,
+            "fontSizeAfter": 24,
+            "lineHeightBefore": "15.6px",
+            "lineHeightAfter": "31.2px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "h1",
+            "fontSizeBefore": 24,
+            "fontSizeAfter": 48,
+            "lineHeightBefore": "30px",
+            "lineHeightAfter": "60px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "p.freshness",
+            "fontSizeBefore": 12,
+            "fontSizeAfter": 24,
+            "lineHeightBefore": "16.8px",
+            "lineHeightAfter": "33.6px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "button.theme-toggle",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "20px",
+            "lineHeightAfter": "40px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "ol.story-list",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "li",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "article.story-row",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "a.story-row__detail",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "h2.story-row__title",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "21.6px",
+            "lineHeightAfter": "43.2px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "p.story-row__meta",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "time",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "a.story-row__source",
+            "fontSizeBefore": 12,
+            "fontSizeAfter": 24,
+            "lineHeightBefore": "16.8px",
+            "lineHeightAfter": "33.6px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "li",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "article.story-row",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "a.story-row__detail",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "h2.story-row__title",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "21.6px",
+            "lineHeightAfter": "43.2px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "p.story-row__meta",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "time",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "a.story-row__source",
+            "fontSizeBefore": 12,
+            "fontSizeAfter": 24,
+            "lineHeightBefore": "16.8px",
+            "lineHeightAfter": "33.6px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "button.listing__button.listing__load-more",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          }
+        ]
+      }
+    },
+    {
+      "surface": "listing",
+      "theme": "light",
+      "viewport": 375,
+      "scale": "normal",
+      "innerWidth": 375,
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "targets": [
+        {
+          "name": "Top [[role=tab]#category-tab-top.category-tabs__tab]",
+          "width": 51.89,
+          "height": 44,
+          "clientWidth": 52,
+          "clientHeight": 42,
+          "scrollWidth": 52,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "New [[role=tab]#category-tab-new.category-tabs__tab]",
+          "width": 57.73,
+          "height": 44,
+          "clientWidth": 58,
+          "clientHeight": 42,
+          "scrollWidth": 58,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Best [[role=tab]#category-tab-best.category-tabs__tab]",
+          "width": 58.23,
+          "height": 44,
+          "clientWidth": 58,
+          "clientHeight": 42,
+          "scrollWidth": 58,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Ask [[role=tab]#category-tab-ask.category-tabs__tab]",
+          "width": 52.42,
+          "height": 44,
+          "clientWidth": 52,
+          "clientHeight": 42,
+          "scrollWidth": 52,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Show [[role=tab]#category-tab-show.category-tabs__tab]",
+          "width": 65.83,
+          "height": 44,
+          "clientWidth": 66,
+          "clientHeight": 42,
+          "scrollWidth": 66,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Jobs [[role=tab]#category-tab-job.category-tabs__tab]",
+          "width": 60.73,
+          "height": 44,
+          "clientWidth": 61,
+          "clientHeight": 42,
+          "scrollWidth": 61,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Alternar tema claro e escuro [.theme-toggle]",
+          "width": 230.41,
+          "height": 44,
+          "clientWidth": 228,
+          "clientHeight": 42,
+          "scrollWidth": 228,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Carregar mais [.listing__button.listing__load-more]",
+          "width": 130.92,
+          "height": 44,
+          "clientWidth": 131,
+          "clientHeight": 44,
+          "scrollWidth": 131,
+          "scrollHeight": 44,
+          "overflows": false
+        },
+        {
+          "name": "Título de história longo para validar quebra de texto sem corte: interfa [.story-row__detail]",
+          "width": 343,
+          "height": 178.53,
+          "clientWidth": 343,
+          "clientHeight": 179,
+          "scrollWidth": 343,
+          "scrollHeight": 179,
+          "overflows": false
+        },
+        {
+          "name": "História secundária com domínio longo de origem7 pontos·autora-secundari [.story-row__detail]",
+          "width": 343,
+          "height": 91.56,
+          "clientWidth": 343,
+          "clientHeight": 92,
+          "scrollWidth": 343,
+          "scrollHeight": 92,
+          "overflows": false
+        },
+        {
+          "name": "Abrir tiny.test em nova aba [.story-row__source]",
+          "width": 44.77,
+          "height": 16.8,
+          "clientWidth": 45,
+          "clientHeight": 17,
+          "scrollWidth": 45,
+          "scrollHeight": 17,
+          "overflows": false
+        },
+        {
+          "name": "Abrir domain-domain-domain-domain-domain-domain-domain-domain-domain-dom [.story-row__source]",
+          "width": 343,
+          "height": 33.59,
+          "clientWidth": 343,
+          "clientHeight": 34,
+          "scrollWidth": 343,
+          "scrollHeight": 34,
+          "overflows": false
+        }
+      ],
+      "textClipping": [
+        {
+          "element": ".listing__header h1",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 30,
+          "clientHeight": 30
+        },
+        {
+          "element": ".story-row__title.story-row__title",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 108,
+          "clientHeight": 108
+        },
+        {
+          "element": ".story-row__title.story-row__title",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 43,
+          "clientHeight": 43
+        },
+        {
+          "element": ".story-row__meta.story-row__meta",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 63,
+          "clientHeight": 63
+        },
+        {
+          "element": ".story-row__meta.story-row__meta",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 40,
+          "clientHeight": 40
+        },
+        {
+          "element": ".story-row__source.story-row__source",
+          "clipped": false,
+          "scrollWidth": 45,
+          "clientWidth": 45,
+          "scrollHeight": 17,
+          "clientHeight": 17
+        },
+        {
+          "element": ".story-row__source.story-row__source",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 34,
+          "clientHeight": 34
+        },
+        {
+          "element": ".listing__button.listing__button.listing__load-more",
+          "clipped": false,
+          "scrollWidth": 131,
+          "clientWidth": 131,
+          "scrollHeight": 44,
+          "clientHeight": 44
+        },
+        {
+          "element": ".theme-toggle.theme-toggle",
+          "clipped": false,
+          "scrollWidth": 228,
+          "clientWidth": 228,
+          "scrollHeight": 42,
+          "clientHeight": 42
+        }
+      ],
+      "categoryStrip": {
+        "clientWidth": 375,
+        "scrollWidth": 419,
+        "scrollLeft": 28,
+        "jobsVisible": true
+      }
+    },
+    {
+      "surface": "listing",
+      "theme": "light",
+      "viewport": 375,
+      "scale": "simulated-200",
+      "innerWidth": 375,
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "targets": [
+        {
+          "name": "Top [[role=tab]#category-tab-top.category-tabs__tab]",
+          "width": 76.8,
+          "height": 44,
+          "clientWidth": 77,
+          "clientHeight": 42,
+          "scrollWidth": 77,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "New [[role=tab]#category-tab-new.category-tabs__tab]",
+          "width": 89.66,
+          "height": 44,
+          "clientWidth": 90,
+          "clientHeight": 42,
+          "scrollWidth": 90,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Best [[role=tab]#category-tab-best.category-tabs__tab]",
+          "width": 89.75,
+          "height": 44,
+          "clientWidth": 90,
+          "clientHeight": 42,
+          "scrollWidth": 90,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Ask [[role=tab]#category-tab-ask.category-tabs__tab]",
+          "width": 79.27,
+          "height": 44,
+          "clientWidth": 79,
+          "clientHeight": 42,
+          "scrollWidth": 79,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Show [[role=tab]#category-tab-show.category-tabs__tab]",
+          "width": 105.91,
+          "height": 44,
+          "clientWidth": 106,
+          "clientHeight": 42,
+          "scrollWidth": 106,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Jobs [[role=tab]#category-tab-job.category-tabs__tab]",
+          "width": 95.27,
+          "height": 44,
+          "clientWidth": 95,
+          "clientHeight": 42,
+          "scrollWidth": 95,
+          "scrollHeight": 42,
+          "overflows": false
+        },
+        {
+          "name": "Alternar tema claro e escuro [.theme-toggle]",
+          "width": 343,
+          "height": 98,
+          "clientWidth": 341,
+          "clientHeight": 96,
+          "scrollWidth": 341,
+          "scrollHeight": 96,
+          "overflows": false
+        },
+        {
+          "name": "Carregar mais [.listing__button.listing__load-more]",
+          "width": 227.81,
+          "height": 54,
+          "clientWidth": 228,
+          "clientHeight": 54,
+          "scrollWidth": 228,
+          "scrollHeight": 54,
+          "overflows": false
+        },
+        {
+          "name": "Título de história longo para validar quebra de texto sem corte: interfa [.story-row__detail]",
+          "width": 343,
+          "height": 593.66,
+          "clientWidth": 343,
+          "clientHeight": 594,
+          "scrollWidth": 343,
+          "scrollHeight": 594,
+          "overflows": false
+        },
+        {
+          "name": "História secundária com domínio longo de origem7 pontos·autora-secundari [.story-row__detail]",
+          "width": 343,
+          "height": 214.42,
+          "clientWidth": 343,
+          "clientHeight": 214,
+          "scrollWidth": 343,
+          "scrollHeight": 214,
+          "overflows": false
+        },
+        {
+          "name": "Abrir tiny.test em nova aba [.story-row__source]",
+          "width": 79.44,
+          "height": 33.59,
+          "clientWidth": 79,
+          "clientHeight": 34,
+          "scrollWidth": 79,
+          "scrollHeight": 34,
+          "overflows": false
+        },
+        {
+          "name": "Abrir domain-domain-domain-domain-domain-domain-domain-domain-domain-dom [.story-row__source]",
+          "width": 343,
+          "height": 134.38,
+          "clientWidth": 343,
+          "clientHeight": 134,
+          "scrollWidth": 343,
+          "scrollHeight": 134,
+          "overflows": false
+        }
+      ],
+      "textClipping": [
+        {
+          "element": ".listing__header h1",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 60,
+          "clientHeight": 60
+        },
+        {
+          "element": ".story-row__title.story-row__title",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 432,
+          "clientHeight": 432
+        },
+        {
+          "element": ".story-row__title.story-row__title",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 130,
+          "clientHeight": 130
+        },
+        {
+          "element": ".story-row__meta.story-row__meta",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 154,
+          "clientHeight": 154
+        },
+        {
+          "element": ".story-row__meta.story-row__meta",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 77,
+          "clientHeight": 77
+        },
+        {
+          "element": ".story-row__source.story-row__source",
+          "clipped": false,
+          "scrollWidth": 79,
+          "clientWidth": 79,
+          "scrollHeight": 34,
+          "clientHeight": 34
+        },
+        {
+          "element": ".story-row__source.story-row__source",
+          "clipped": false,
+          "scrollWidth": 343,
+          "clientWidth": 343,
+          "scrollHeight": 134,
+          "clientHeight": 134
+        },
+        {
+          "element": ".listing__button.listing__button.listing__load-more",
+          "clipped": false,
+          "scrollWidth": 228,
+          "clientWidth": 228,
+          "scrollHeight": 54,
+          "clientHeight": 54
+        },
+        {
+          "element": ".theme-toggle.theme-toggle",
+          "clipped": false,
+          "scrollWidth": 341,
+          "clientWidth": 341,
+          "scrollHeight": 96,
+          "clientHeight": 96
+        }
+      ],
+      "categoryStrip": {
+        "clientWidth": 375,
+        "scrollWidth": 609,
+        "scrollLeft": 234,
+        "jobsVisible": true
+      },
+      "scaleEvidence": {
+        "viewportBefore": 375,
+        "viewportAfter": 375,
+        "htmlFontSizeBefore": 16,
+        "htmlFontSizeAfter": 16,
+        "glyphBefore": {
+          "fontSize": 24,
+          "lineHeight": "30px",
+          "rangeWidth": 11.83,
+          "rangeHeight": 28,
+          "rangeRects": 1
+        },
+        "glyphAfter": {
+          "fontSize": 48,
+          "lineHeight": "60px",
+          "rangeWidth": 23.13,
+          "rangeHeight": 56,
+          "rangeRects": 1
+        },
+        "textSnapshot": [
+          {
+            "element": "main.listing",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "nav.category-tabs",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "div.category-tabs__list",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-top.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-new.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-best.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-ask.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-show.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "button#category-tab-job.category-tabs__tab",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "section#listing-panel.listing__panel.listing__panel--plain",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "header.listing__header",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "div.theme-screen-header",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "div.theme-screen-header__copy",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "p.listing__eyebrow",
+            "fontSizeBefore": 12,
+            "fontSizeAfter": 24,
+            "lineHeightBefore": "15.6px",
+            "lineHeightAfter": "31.2px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "h1",
+            "fontSizeBefore": 24,
+            "fontSizeAfter": 48,
+            "lineHeightBefore": "30px",
+            "lineHeightAfter": "60px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "p.freshness",
+            "fontSizeBefore": 12,
+            "fontSizeAfter": 24,
+            "lineHeightBefore": "16.8px",
+            "lineHeightAfter": "33.6px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "button.theme-toggle",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "20px",
+            "lineHeightAfter": "40px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "ol.story-list",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "li",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "article.story-row",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "a.story-row__detail",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "h2.story-row__title",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "21.6px",
+            "lineHeightAfter": "43.2px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "p.story-row__meta",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "time",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "a.story-row__source",
+            "fontSizeBefore": 12,
+            "fontSizeAfter": 24,
+            "lineHeightBefore": "16.8px",
+            "lineHeightAfter": "33.6px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "li",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "article.story-row",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "a.story-row__detail",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          },
+          {
+            "element": "h2.story-row__title",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "21.6px",
+            "lineHeightAfter": "43.2px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "p.story-row__meta",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "time",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "span",
+            "fontSizeBefore": 13,
+            "fontSizeAfter": 26,
+            "lineHeightBefore": "18.2px",
+            "lineHeightAfter": "36.4px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "a.story-row__source",
+            "fontSizeBefore": 12,
+            "fontSizeAfter": 24,
+            "lineHeightBefore": "16.8px",
+            "lineHeightAfter": "33.6px",
+            "lineHeightRatio": 2
+          },
+          {
+            "element": "button.listing__button.listing__load-more",
+            "fontSizeBefore": 16,
+            "fontSizeAfter": 32,
+            "lineHeightBefore": "normal",
+            "lineHeightAfter": "normal",
+            "lineHeightRatio": null
+          }
+        ]
+      }
+    }
+  ],
+  "issues": []
+}

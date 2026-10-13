@@ -1,0 +1,9 @@
+{
+  "client/src/features/listing/StoryListPage.tsx": "c3c471d9f3e5c70ddc2a14b5a1e5e6245be3bfb5bea816da929520db04da04a3",
+  "e2e/keyboard-focus-semantics.spec.ts": "c19baeef0fd5cc79228fd45aa11aa962fbd18b73f6fc464e875b9992249b522b",
+  "e2e/accessibility.spec.ts": "fe0fb7aecffb8cd980e52e7db57f7b1223bb03d819e68680990e0e77604c4d01",
+  "client/src/features/listing/listing.css": "c33fab4bdec8ca78ce1c4398da5f276166be80024cada6fc0aff8439d3189ee3",
+  "client/src/features/detail/detail.css": "39a87d92853900fe9708420df6078e7b0301648e670e027da5948b91f23237ea",
+  "package.json": "e8b7bb2becfe2a41374f561feaba00297617bd14bb09480f9659e7fd7a5980b3",
+  "package-lock.json": "8fe36829206574937712568e14fd76bda426aa48a200ba81294ebe409766cd2b"
+}

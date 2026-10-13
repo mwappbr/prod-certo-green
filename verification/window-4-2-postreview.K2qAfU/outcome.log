@@ -1,0 +1,5 @@
+CHECK_STATUS=0
+BUILD_STATUS=0
+E2E_STATUS=0
+CLEANUP_STATUS=0
+EVIDENCE=/Users/maurowidman/Projects/AI/prod-certo-green/verification/window-4-2-postreview.K2qAfU

@@ -1,0 +1,4 @@
+command=["docker","compose","--env-file","/dev/null","--project-directory","/Users/maurowidman/Projects/AI/prod-certo-green","--file","/Users/maurowidman/Projects/AI/prod-certo-green/docker-compose.yml","--project-name","hnqa-202610121919-79674-0e90c11b4d86","down","--timeout","10","--rmi","local"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=30000
+

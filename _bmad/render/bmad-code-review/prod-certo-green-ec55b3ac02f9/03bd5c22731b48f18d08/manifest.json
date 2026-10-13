@@ -1,0 +1,67 @@
+{
+  "generation_hash": "03bd5c22731b48f18d08",
+  "inputs": {
+    "jinja2_version": "3.1.6",
+    "project_root": "/Users/maurowidman/Projects/AI/prod-certo-green",
+    "renderer_sha256": "a622fd5d9f633690323bdecf6cc9dc28625ef0d7b9d971fcc3cd101ed271fa19",
+    "resolved_values": {
+      "config.core.output_folder": "/Users/maurowidman/Projects/AI/prod-certo-green/_bmad-output",
+      "customization.workflow.activation_steps_append": [],
+      "customization.workflow.activation_steps_prepend": [],
+      "customization.workflow.on_complete": "",
+      "customization.workflow.persistent_facts": [],
+      "customization.workflow.review": "thorough",
+      "customization.workflow.thorough_lenses": [
+        {
+          "id": "blind-hunter",
+          "instruction": "Launch a context-free subagent with this prompt:\n\nConduct a review of CONTENT.\nLook for what's missing, not only what's wrong.\nCompute your finding floor N from the diff file's size: N = min(floor(sqrt(kB) + 1), 10), where kB is the file's size in kilobytes. State the arithmetic in one line, then find at least N issues to fix or improve.\nOutput a Markdown list of findings only — no severity, priority, or ranking.\nIf the content is empty, stop and say so.\nIf you have zero findings, re-check and keep thinking; do not stop with an empty list.\n\nCONTENT: the unified diff at `{diff_file}`. Read that file — it is the content under review.\n\nDo not invoke any skill, and do not spawn subagents of your own — you are the reviewer. Return your findings as text in your final message; do not route them through any findings-reporting tool the host may offer.\n\n",
+          "name": "Blind Hunter"
+        },
+        {
+          "id": "edge-case-hunter",
+          "instruction": "Launch a context-free subagent with this prompt:\n\nRead `{skill-root}/review-prompts/edge-case-hunter.md` completely and follow it as your review instructions.\n\nclaims_file (leave unread until your instructions call for it): {claims_file}\n\nReview content: the unified diff at `{diff_file}`. Read that file — it is the content under review.\n\nDo not invoke any skill, and do not spawn subagents of your own — you are the reviewer. If the instruction file is unreadable, report that exact failure and stop. Return your findings as text in your final message; do not route them through any findings-reporting tool the host may offer.\n\n",
+          "name": "Edge Case Hunter"
+        },
+        {
+          "id": "verification-gap",
+          "instruction": "Launch a context-free subagent with this prompt:\n\nRead `{skill-root}/review-prompts/verification-gap.md` completely and follow it as your review instructions.\n\nReview content: the unified diff at `{diff_file}`. Read that file — it is the content under review.\n\nDo not invoke any skill, and do not spawn subagents of your own — you are the reviewer. If the instruction file is unreadable, report that exact failure and stop. Return your findings as text in your final message; do not route them through any findings-reporting tool the host may offer.\n\n",
+          "name": "Verification Gap Reviewer"
+        },
+        {
+          "id": "intent-alignment",
+          "instruction": "Launch a subagent with this prompt:\n\nYou are an intent-alignment auditor. You have no other context about how this change was produced. Here is the verbatim intent this work started from:\n\n{verbatim_intent}\n\nThe diff is the unified diff at `{diff_file}`. Read that file — it is the change under review.\n\nYour task is strictly descriptive — do not prescribe additional work. Report: (1) the defensible readings of the intent, enumerated; (2) which reading this diff implements; (3) where the readings and the diff diverge — specifically, which surface the intent's expectations live at versus which surface the diff's changes and its tests exercise.\n\nDo not invoke any skill, and do not spawn subagents of your own — you are the reviewer. Return your findings as text in your final message; do not route them through any findings-reporting tool the host may offer.\n\n",
+          "name": "Intent Alignment Auditor",
+          "when": "an intent is available: the spec's intent section, or the user's or conversation's own words on what the change is for"
+        }
+      ]
+    },
+    "skill_root": "/Users/maurowidman/Projects/AI/prod-certo-green/.claude/skills/bmad-code-review",
+    "source_sha256": {
+      "references/claims-check.md": "7be5d35dd90a1950addc2062acdf8669026b239117efe1e398da1e8161cfa6f9",
+      "references/deletion-check.md": "0f1f124e4e957147e89164a272b10bedc694ad0d9ad2618c8610ac74ee9cb0da",
+      "review-prompts/edge-case-hunter.md": "5f4572d57340b4c0d155f33454d644a44af101cd7fd02a01591be68a4ebb8b7f",
+      "review-prompts/verification-gap.md": "06f6184d7d94c808970d0146cdc4585dfd66b94a7b7ab2988277fb6fc4208508",
+      "step-01-gather-context.md": "84112aac114062af5b7b5e3d89f220c757c69abd53c93f955151bc430465cfbe",
+      "step-02-review.md": "4b81354318c5f57ab4fd0faab1ea49d9bcd3f012b1acad5b491f8a89c3d0c300",
+      "step-03-triage.md": "d6f0f0362c47b2ebe0d8b4d99215c76bedeb3aec58be91756962616ccbb0a969",
+      "step-04-present.md": "ba764bc7b5206c450130df0787687c1611a5453997255b8c450ab77240ce4db7",
+      "workflow.md": "d4fbc961cd239708fb16f444b1d4ccb5a92dcd5d2fc7bc4fb57f33b9efc8496e"
+    }
+  },
+  "outputs": {
+    "references/claims-check.md": "7be5d35dd90a1950addc2062acdf8669026b239117efe1e398da1e8161cfa6f9",
+    "references/deletion-check.md": "0f1f124e4e957147e89164a272b10bedc694ad0d9ad2618c8610ac74ee9cb0da",
+    "review-prompts/edge-case-hunter.md": "5f4572d57340b4c0d155f33454d644a44af101cd7fd02a01591be68a4ebb8b7f",
+    "review-prompts/verification-gap.md": "06f6184d7d94c808970d0146cdc4585dfd66b94a7b7ab2988277fb6fc4208508",
+    "step-01-gather-context.md": "c9e025864974d38139cc81f850f24c3ac0803dcc113f7e74422d73389f910e0c",
+    "step-02-review.md": "2cc3f7e6ce5ba34a22a5ef4b9cf31a02e052e415c8e09c1ad524dddeeaf1fdb5",
+    "step-03-triage.md": "8371d493b0df2256df004d33c7049424c669278d08e27afe8e17e053abe0eca6",
+    "step-04-present.md": "696370955ef4ce6dccec092e412a1c0441fd854a42c74a01175d621958643a52",
+    "workflow.md": "0f9433d229372afcd5816a92fcd77d86d46b259b97fe0af1b42525954a9cfda1"
+  },
+  "project_root": "/Users/maurowidman/Projects/AI/prod-certo-green",
+  "project_slug": "prod-certo-green",
+  "root_hash": "ec55b3ac02f9",
+  "schema_version": 1,
+  "skill": "bmad-code-review"
+}

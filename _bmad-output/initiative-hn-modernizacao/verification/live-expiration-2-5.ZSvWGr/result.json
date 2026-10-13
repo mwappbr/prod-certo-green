@@ -1,0 +1,21 @@
+{
+  "status": "failed",
+  "checkedAt": "2026-10-12T04:53:31.879Z",
+  "node": "v24.21.0",
+  "message": "The expression evaluated to a falsy value:\n\n  assert(expiredResponse.status() >= 400)\n",
+  "listCacheTtlMs": 2000,
+  "firstSnapshot": "2026-10-12T04:53:28.577Z",
+  "secondSnapshot": "2026-10-12T04:53:28.577Z",
+  "requests": [
+    "http://127.0.0.1:3000/",
+    "http://127.0.0.1:3000/assets/index-CCZiZLxr.js",
+    "http://127.0.0.1:3000/assets/index-BOuFo2NL.css",
+    "http://127.0.0.1:3000/api/stories?category=top",
+    "http://127.0.0.1:3000/api/stories?category=top&page=2&limit=30&snapshot=2026-10-12T04%3A53%3A28.577Z",
+    "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A53%3A28.577Z"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "httpErrors": []
+}

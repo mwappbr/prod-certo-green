@@ -1,0 +1,5 @@
+command=["docker","context","inspect","rancher-desktop","--format","{{.Endpoints.docker.Host}}"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=8000
+
+unix:///Users/maurowidman/.rd/docker.sock

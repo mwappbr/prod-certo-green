@@ -1,0 +1,352 @@
+{
+  "status": "passed",
+  "startedAt": "2026-10-12T13:34:54.625Z",
+  "finishedAt": "2026-10-12T13:34:59.414Z",
+  "runtime": {
+    "node": "v24.21.0",
+    "browser": "156.0.8078.4",
+    "elapsedMs": 4789
+  },
+  "fixture": {
+    "evidenceDir": "/tmp/hn-4-1-actual-data-postfix.euH6Wj",
+    "readyPath": "/tmp/hn-4-1-actual-data-postfix.euH6Wj/fixture-ready.json",
+    "helperPid": 33401,
+    "fixtureAppPid": 33401,
+    "rawUpstreamPid": 33401,
+    "baseUrl": "http://127.0.0.1:63155",
+    "appPort": 63155,
+    "upstreamBaseUrl": "http://127.0.0.1:63154/v0/",
+    "upstreamPort": 63154,
+    "storyId": 98310000,
+    "jobId": 98311311,
+    "visibleComments": 220,
+    "totalComments": 221
+  },
+  "firstPaintProof": {
+    "captured": false,
+    "note": "Screenshots are post-render; no pre-style/pre-React instrumentation was installed."
+  },
+  "phases": {
+    "initial": {
+      "at": "2026-10-12T13:34:55.442Z",
+      "category": "top",
+      "route": "/",
+      "itemIds": [
+        98310000
+      ]
+    },
+    "manual": {
+      "at": "2026-10-12T13:34:55.689Z",
+      "state": {
+        "system": "light",
+        "manual": "dark",
+        "preference": "dark",
+        "colorScheme": "dark",
+        "ariaPressed": "true",
+        "rawTokens": {
+          "--surface-base": "#0b1120",
+          "--surface-raised": "#131c2e",
+          "--ink-primary": "#e2e8f0",
+          "--ink-secondary": "#94a3b8",
+          "--primary": "#60a5fa",
+          "--primary-foreground": "#0b1120",
+          "--primary-hover": "#93c5fd",
+          "--border-hairline": "#1e2a40"
+        },
+        "tokens": {
+          "--surface-base": "#0b1120",
+          "--surface-raised": "#131c2e",
+          "--ink-primary": "#e2e8f0",
+          "--ink-secondary": "#94a3b8",
+          "--primary": "#60a5fa",
+          "--primary-foreground": "#0b1120",
+          "--primary-hover": "#93c5fd",
+          "--border-hairline": "#1e2a40"
+        }
+      }
+    },
+    "detail": {
+      "at": "2026-10-12T13:34:56.313Z",
+      "story": {
+        "id": 98310000,
+        "stale": false,
+        "cachedAt": "2026-10-12T13:34:54.905Z"
+      },
+      "comments": {
+        "roots": 4,
+        "visible": 220,
+        "stale": false,
+        "cachedAt": "2026-10-12T13:34:54.905Z"
+      },
+      "collapsedId": 98310004
+    },
+    "back": {
+      "at": "2026-10-12T13:34:56.358Z",
+      "category": "new",
+      "scrollY": 67,
+      "expectedScrollY": 67
+    },
+    "reload": {
+      "at": "2026-10-12T13:34:56.432Z",
+      "route": "/item/98310000",
+      "state": {
+        "system": "light",
+        "manual": "dark",
+        "preference": "dark",
+        "colorScheme": "dark",
+        "ariaPressed": "true",
+        "rawTokens": {
+          "--surface-base": "#0b1120",
+          "--surface-raised": "#131c2e",
+          "--ink-primary": "#e2e8f0",
+          "--ink-secondary": "#94a3b8",
+          "--primary": "#60a5fa",
+          "--primary-foreground": "#0b1120",
+          "--primary-hover": "#93c5fd",
+          "--border-hairline": "#1e2a40"
+        },
+        "tokens": {
+          "--surface-base": "#0b1120",
+          "--surface-raised": "#131c2e",
+          "--ink-primary": "#e2e8f0",
+          "--ink-secondary": "#94a3b8",
+          "--primary": "#60a5fa",
+          "--primary-foreground": "#0b1120",
+          "--primary-hover": "#93c5fd",
+          "--border-hairline": "#1e2a40"
+        }
+      }
+    },
+    "independentTab": {
+      "at": "2026-10-12T13:34:57.056Z",
+      "first": {
+        "system": "light",
+        "manual": "dark",
+        "preference": "dark",
+        "colorScheme": "dark",
+        "ariaPressed": "true",
+        "rawTokens": {
+          "--surface-base": "#0b1120",
+          "--surface-raised": "#131c2e",
+          "--ink-primary": "#e2e8f0",
+          "--ink-secondary": "#94a3b8",
+          "--primary": "#60a5fa",
+          "--primary-foreground": "#0b1120",
+          "--primary-hover": "#93c5fd",
+          "--border-hairline": "#1e2a40"
+        },
+        "tokens": {
+          "--surface-base": "#0b1120",
+          "--surface-raised": "#131c2e",
+          "--ink-primary": "#e2e8f0",
+          "--ink-secondary": "#94a3b8",
+          "--primary": "#60a5fa",
+          "--primary-foreground": "#0b1120",
+          "--primary-hover": "#93c5fd",
+          "--border-hairline": "#1e2a40"
+        }
+      },
+      "second": {
+        "system": "dark",
+        "manual": "light",
+        "preference": "light",
+        "colorScheme": "light",
+        "ariaPressed": "false",
+        "rawTokens": {
+          "--surface-base": "#f8fafc",
+          "--surface-raised": "#fff",
+          "--ink-primary": "#0f172a",
+          "--ink-secondary": "#475569",
+          "--primary": "#1d4ed8",
+          "--primary-foreground": "#fff",
+          "--primary-hover": "#1e40af",
+          "--border-hairline": "#e2e8f0"
+        },
+        "tokens": {
+          "--surface-base": "#f8fafc",
+          "--surface-raised": "#ffffff",
+          "--ink-primary": "#0f172a",
+          "--ink-secondary": "#475569",
+          "--primary": "#1d4ed8",
+          "--primary-foreground": "#ffffff",
+          "--primary-hover": "#1e40af",
+          "--border-hairline": "#e2e8f0"
+        }
+      },
+      "opener": null
+    },
+    "storage-invalid": {
+      "at": "2026-10-12T13:34:58.230Z",
+      "initial": "system-dark",
+      "toggledInMemory": "light",
+      "reload": "system-dark"
+    },
+    "storage-blocked": {
+      "at": "2026-10-12T13:34:59.391Z",
+      "initial": "system-dark",
+      "toggledInMemory": "light",
+      "reload": "system-dark"
+    }
+  },
+  "themeSnapshotCount": 21,
+  "networkChecks": [
+    {
+      "label": "system light→dark before choice",
+      "unchanged": true
+    },
+    {
+      "label": "system dark→light before choice",
+      "unchanged": true
+    },
+    {
+      "label": "manual choice on listing",
+      "unchanged": true
+    },
+    {
+      "label": "system light→dark after manual choice",
+      "unchanged": true
+    },
+    {
+      "label": "system dark→light after manual choice",
+      "unchanged": true
+    },
+    {
+      "label": "manual dark→light on detail",
+      "unchanged": true
+    },
+    {
+      "label": "manual light→dark on detail",
+      "unchanged": true
+    },
+    {
+      "label": "manual choice in no-opener tab",
+      "unchanged": true
+    },
+    {
+      "label": "invalid storage fallback toggle",
+      "unchanged": true
+    },
+    {
+      "label": "blocked storage fallback toggle",
+      "unchanged": true
+    }
+  ],
+  "bffRequestCounts": {
+    "GET /api/items/98310000": 3,
+    "GET /api/items/98310000/comments": 3,
+    "GET /api/stories?category=new": 2,
+    "GET /api/stories?category=top": 6
+  },
+  "positiveRawItemIds": 221,
+  "rawItemFetches": 221,
+  "rawListCounts": {
+    "top": 1,
+    "new": 1,
+    "best": 0,
+    "ask": 0,
+    "show": 0,
+    "job": 0
+  },
+  "origins": [
+    "http://127.0.0.1:63155"
+  ],
+  "errors": {
+    "page": [],
+    "console": [],
+    "http": [],
+    "requests": [],
+    "unexpectedBff": []
+  },
+  "screenshots": [
+    {
+      "name": "list-system-light-desktop",
+      "path": "/tmp/hn-4-1-actual-data-postfix.euH6Wj/screenshots/list-system-light-desktop.png",
+      "theme": "light",
+      "width": 1440,
+      "height": 900,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440
+      }
+    },
+    {
+      "name": "list-system-dark-320",
+      "path": "/tmp/hn-4-1-actual-data-postfix.euH6Wj/screenshots/list-system-dark-320.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 720,
+      "geometry": {
+        "viewport": 320,
+        "document": 320,
+        "body": 320
+      }
+    },
+    {
+      "name": "list-manual-dark-desktop",
+      "path": "/tmp/hn-4-1-actual-data-postfix.euH6Wj/screenshots/list-manual-dark-desktop.png",
+      "theme": "dark",
+      "width": 1440,
+      "height": 900,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440
+      }
+    },
+    {
+      "name": "detail-manual-dark-desktop",
+      "path": "/tmp/hn-4-1-actual-data-postfix.euH6Wj/screenshots/detail-manual-dark-desktop.png",
+      "theme": "dark",
+      "width": 1440,
+      "height": 900,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440
+      }
+    },
+    {
+      "name": "detail-manual-dark-320",
+      "path": "/tmp/hn-4-1-actual-data-postfix.euH6Wj/screenshots/detail-manual-dark-320.png",
+      "theme": "dark",
+      "width": 320,
+      "height": 720,
+      "geometry": {
+        "viewport": 320,
+        "document": 320,
+        "body": 320
+      }
+    },
+    {
+      "name": "detail-manual-light-320",
+      "path": "/tmp/hn-4-1-actual-data-postfix.euH6Wj/screenshots/detail-manual-light-320.png",
+      "theme": "light",
+      "width": 320,
+      "height": 720,
+      "geometry": {
+        "viewport": 320,
+        "document": 320,
+        "body": 320
+      }
+    },
+    {
+      "name": "detail-manual-light-desktop",
+      "path": "/tmp/hn-4-1-actual-data-postfix.euH6Wj/screenshots/detail-manual-light-desktop.png",
+      "theme": "light",
+      "width": 1440,
+      "height": 900,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440
+      }
+    }
+  ],
+  "portObservation": {
+    "appPort": 63155,
+    "upstreamPort": 63154,
+    "afterBrowserClose": "reachable"
+  },
+  "independentAssertions": "PASS"
+}

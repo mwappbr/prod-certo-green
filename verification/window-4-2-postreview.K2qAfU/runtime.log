@@ -1,0 +1,11 @@
+CAPTURED_AT=2026-10-12T15:52:20Z
+NODE_PATH=/Users/maurowidman/.vite-plus/js_runtime/node/24.21.0/bin/node
+v24.21.0
+11.19.0
+HEAD=bfc7e81a60e9f343d4b039c5905b8a123f752082
+BRANCH=feat/plataforma-1-1-tracer
+STAGED_STAT_BEGIN
+STAGED_STAT_END
+{"environmentPresenceOnly":[{"name":"client/.env","exists":false},{"name":"client/.env.local","exists":false},{"name":"client/.env.production","exists":false},{"name":"client/.env.production.local","exists":false}]}
+ENV_PRECONDITION_STATUS=0
+PORT_PRECHECK_LSOF_STATUS=1

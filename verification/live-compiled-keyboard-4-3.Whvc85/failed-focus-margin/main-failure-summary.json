@@ -1,0 +1,754 @@
+{
+  "status": "failed",
+  "runtime": {
+    "node": "v24.21.0",
+    "browser": "156.0.8078.4",
+    "elapsedMs": 1514
+  },
+  "startedAt": "2026-10-12T18:01:32.823Z",
+  "finishedAt": "2026-10-12T18:01:34.337Z",
+  "failure": {
+    "message": "load-more keyboard focus restored after appending 60 rows: focused target must be fully inside the viewport and all clipping ancestors: {\"tag\":\"button\",\"id\":\"\",\"role\":\"button\",\"className\":\"listing__button listing__load-more\",\"name\":\"Carregar mais\",\"href\":null,\"ariaSelected\":null,\"ariaPressed\":null,\"ariaExpanded\":null,\"ariaBusy\":\"false\",\"disabled\":false,\"tabIndex\":0,\"closestCommentId\":null,\"inTablist\":false,\"tabStrip\":null,\"clippedBy\":[],\"focusVisible\":true,\"focusIndicator\":true,\"outline\":{\"style\":\"solid\",\"width\":\"2px\",\"color\":\"rgb(29, 78, 216)\",\"offset\":\"3px\",\"boxShadow\":\"none\"},\"focusRingOutset\":5,\"focusRingRect\":{\"left\":11,\"top\":771.296875,\"right\":151.921875,\"bottom\":825.296875},\"visible\":false,\"intersectsViewport\":true,\"viewportFullyVisible\":false,\"fullyVisibleThroughClips\":true,\"rect\":{\"x\":16,\"y\":776.296875,\"width\":130.921875,\"height\":44,\"right\":146.921875,\"bottom\":820.296875},\"documentPath\":\"/\",\"scrollY\":8242}",
+    "stack": "AssertionError [ERR_ASSERTION]: load-more keyboard focus restored after appending 60 rows: focused target must be fully inside the viewport and all clipping ancestors: {\"tag\":\"button\",\"id\":\"\",\"role\":\"button\",\"className\":\"listing__button listing__load-more\",\"name\":\"Carregar mais\",\"href\":null,\"ariaSelected\":null,\"ariaPressed\":null,\"ariaExpanded\":null,\"ariaBusy\":\"false\",\"disabled\":false,\"tabIndex\":0,\"closestCommentId\":null,\"inTablist\":false,\"tabStrip\":null,\"clippedBy\":[],\"focusVisible\":true,\"focusIndicator\":true,\"outline\":{\"style\":\"solid\",\"width\":\"2px\",\"color\":\"rgb(29, 78, 216)\",\"offset\":\"3px\",\"boxShadow\":\"none\"},\"focusRingOutset\":5,\"focusRingRect\":{\"left\":11,\"top\":771.296875,\"right\":151.921875,\"bottom\":825.296875},\"visible\":false,\"intersectsViewport\":true,\"viewportFullyVisible\":false,\"fullyVisibleThroughClips\":true,\"rect\":{\"x\":16,\"y\":776.296875,\"width\":130.921875,\"height\":44,\"right\":146.921875,\"bottom\":820.296875},\"documentPath\":\"/\",\"scrollY\":8242}\n    at assertFocused (file:///private/tmp/qa-4-3-keyboard-fixture-20261012-f62d9b/scripts/drive-keyboard-fixture-app.mjs:211:12)\n    at executeQA (file:///private/tmp/qa-4-3-keyboard-fixture-20261012-f62d9b/scripts/drive-keyboard-fixture-app.mjs:521:5)"
+  },
+  "cleanupError": null,
+  "fixture": {
+    "helperPid": 3408,
+    "fixtureAppPid": 3408,
+    "rawUpstreamPid": 3408,
+    "baseUrl": "http://127.0.0.1:64652",
+    "appPort": 64652,
+    "upstreamBaseUrl": "http://127.0.0.1:64651/v0/",
+    "upstreamPort": 64651,
+    "topStoryCount": 61,
+    "pageSize": 30,
+    "page2ItemCount": 30,
+    "commentsVisible": 220,
+    "commentsTotal": 221,
+    "primaryStoryId": 98410311,
+    "jobId": 98410376,
+    "markerAuthors": {
+      "dead": "fixture-author-98310100",
+      "deleted": "fixture-author-98310101"
+    },
+    "gate": {
+      "statusUrl": "http://127.0.0.1:64652/__test/gate/status",
+      "releaseUrl": "http://127.0.0.1:64652/__test/gate/release",
+      "timeoutMs": 4000,
+      "autoReleaseMs": 2800
+    }
+  },
+  "starterLifecycle": {
+    "path": "/private/tmp/qa-4-3-keyboard-fixture-20261012-f62d9b/scripts/start-keyboard-fixture-app.mjs",
+    "command": [
+      "/Users/maurowidman/.vite-plus/js_runtime/node/24.21.0/bin/node",
+      "/private/tmp/qa-4-3-keyboard-fixture-20261012-f62d9b/scripts/start-keyboard-fixture-app.mjs",
+      "/Users/maurowidman/Projects/AI/prod-certo-green",
+      "/tmp/hn-4-3-actual-compiled-postfix.qu5p5l/actual"
+    ],
+    "pid": 3408,
+    "stopSignal": "SIGTERM",
+    "forced": false,
+    "exitCode": 0,
+    "exitSignal": null,
+    "stopped": {
+      "status": "stopped",
+      "stoppedAt": "2026-10-12T18:01:34.330Z",
+      "helperPid": 3408,
+      "signal": "SIGTERM",
+      "closeCompleted": true,
+      "closeErrors": [],
+      "gate": {
+        "enabled": true,
+        "released": true,
+        "releaseReason": "node-driver-release",
+        "targetItemIds": [
+          98410341,
+          98410342,
+          98410343,
+          98410344,
+          98410345,
+          98410346,
+          98410347,
+          98410348,
+          98410349,
+          98410350,
+          98410351,
+          98410352,
+          98410353,
+          98410354,
+          98410355,
+          98410356,
+          98410357,
+          98410358,
+          98410359,
+          98410360,
+          98410361,
+          98410362,
+          98410363,
+          98410364,
+          98410365,
+          98410366,
+          98410367,
+          98410368,
+          98410369,
+          98410370
+        ],
+        "hits": [
+          {
+            "id": 98410341,
+            "at": "2026-10-12T18:01:34.284Z"
+          },
+          {
+            "id": 98410342,
+            "at": "2026-10-12T18:01:34.284Z"
+          },
+          {
+            "id": 98410343,
+            "at": "2026-10-12T18:01:34.284Z"
+          },
+          {
+            "id": 98410344,
+            "at": "2026-10-12T18:01:34.284Z"
+          }
+        ],
+        "pendingCount": 0,
+        "autoReleaseMs": 2800,
+        "hnClientTimeoutMs": 4000
+      }
+    }
+  },
+  "phases": [
+    "topPage",
+    "category-job",
+    "category-top",
+    "category-new",
+    "category-best",
+    "category-ask",
+    "category-show",
+    "listing theme Enter to dark",
+    "listing theme Space to light",
+    "loadMoreBusy"
+  ],
+  "screenshots": [
+    {
+      "name": "top-tab-focused",
+      "path": "/tmp/hn-4-3-actual-compiled-postfix.qu5p5l/actual/screenshots/top-tab-focused.png",
+      "focus": {
+        "tag": "button",
+        "id": "category-tab-top",
+        "role": "tab",
+        "name": "Top",
+        "href": null,
+        "closestCommentId": null,
+        "ariaExpanded": null,
+        "ariaBusy": null,
+        "focusVisible": true,
+        "focusIndicator": true,
+        "outline": {
+          "style": "solid",
+          "width": "2px",
+          "color": "rgb(29, 78, 216)",
+          "offset": "-3px",
+          "boxShadow": "none"
+        },
+        "focusRingOutset": 0,
+        "focusRingRect": {
+          "left": 16,
+          "top": 24,
+          "right": 67.890625,
+          "bottom": 68
+        },
+        "visible": true,
+        "viewportFullyVisible": true,
+        "tabStrip": {
+          "id": "",
+          "className": "category-tabs",
+          "rect": {
+            "left": 0,
+            "top": 24,
+            "right": 320,
+            "bottom": 68
+          },
+          "fullyVisible": true,
+          "focusRingFullyVisible": true
+        },
+        "clippedBy": [
+          {
+            "id": "",
+            "className": "category-tabs",
+            "overflowX": "auto",
+            "overflowY": "auto",
+            "clientRect": {
+              "left": 0,
+              "top": 24,
+              "right": 320,
+              "bottom": 68
+            },
+            "fullyInside": true
+          }
+        ],
+        "rect": {
+          "x": 16,
+          "y": 24,
+          "width": 51.890625,
+          "height": 44,
+          "right": 67.890625,
+          "bottom": 68
+        }
+      }
+    },
+    {
+      "name": "jobs-tab-focused",
+      "path": "/tmp/hn-4-3-actual-compiled-postfix.qu5p5l/actual/screenshots/jobs-tab-focused.png",
+      "focus": {
+        "tag": "button",
+        "id": "category-tab-job",
+        "role": "tab",
+        "name": "Jobs",
+        "href": null,
+        "closestCommentId": null,
+        "ariaExpanded": null,
+        "ariaBusy": null,
+        "focusVisible": true,
+        "focusIndicator": true,
+        "outline": {
+          "style": "solid",
+          "width": "2px",
+          "color": "rgb(29, 78, 216)",
+          "offset": "-3px",
+          "boxShadow": "none"
+        },
+        "focusRingOutset": 0,
+        "focusRingRect": {
+          "left": 258.109375,
+          "top": 24,
+          "right": 318.84375,
+          "bottom": 68
+        },
+        "visible": true,
+        "viewportFullyVisible": true,
+        "tabStrip": {
+          "id": "",
+          "className": "category-tabs",
+          "rect": {
+            "left": 0,
+            "top": 24,
+            "right": 320,
+            "bottom": 68
+          },
+          "fullyVisible": true,
+          "focusRingFullyVisible": true
+        },
+        "clippedBy": [
+          {
+            "id": "",
+            "className": "category-tabs",
+            "overflowX": "auto",
+            "overflowY": "auto",
+            "clientRect": {
+              "left": 0,
+              "top": 24,
+              "right": 320,
+              "bottom": 68
+            },
+            "fullyInside": true
+          }
+        ],
+        "rect": {
+          "x": 258.109375,
+          "y": 24,
+          "width": 60.734375,
+          "height": 44,
+          "right": 318.84375,
+          "bottom": 68
+        }
+      }
+    },
+    {
+      "name": "theme-dark-focused",
+      "path": "/tmp/hn-4-3-actual-compiled-postfix.qu5p5l/actual/screenshots/theme-dark-focused.png",
+      "focus": {
+        "tag": "button",
+        "id": "",
+        "role": "button",
+        "name": "Alternar tema claro e escuro",
+        "href": null,
+        "closestCommentId": null,
+        "ariaExpanded": null,
+        "ariaBusy": null,
+        "focusVisible": true,
+        "focusIndicator": true,
+        "outline": {
+          "style": "solid",
+          "width": "2px",
+          "color": "rgb(96, 165, 250)",
+          "offset": "2px",
+          "boxShadow": "none"
+        },
+        "focusRingOutset": 4,
+        "focusRingRect": {
+          "left": 12,
+          "top": 82.390625,
+          "right": 250.40625,
+          "bottom": 134.390625
+        },
+        "visible": true,
+        "viewportFullyVisible": true,
+        "tabStrip": null,
+        "clippedBy": [],
+        "rect": {
+          "x": 16,
+          "y": 86.390625,
+          "width": 230.40625,
+          "height": 44,
+          "right": 246.40625,
+          "bottom": 130.390625
+        }
+      }
+    },
+    {
+      "name": "load-more-before-activation-focused",
+      "path": "/tmp/hn-4-3-actual-compiled-postfix.qu5p5l/actual/screenshots/load-more-before-activation-focused.png",
+      "focus": {
+        "tag": "button",
+        "id": "",
+        "role": "button",
+        "name": "Carregar mais",
+        "href": null,
+        "closestCommentId": null,
+        "ariaExpanded": null,
+        "ariaBusy": "false",
+        "focusVisible": true,
+        "focusIndicator": true,
+        "outline": {
+          "style": "solid",
+          "width": "2px",
+          "color": "rgb(29, 78, 216)",
+          "offset": "3px",
+          "boxShadow": "none"
+        },
+        "focusRingOutset": 5,
+        "focusRingRect": {
+          "left": 11,
+          "top": 742.234375,
+          "right": 151.921875,
+          "bottom": 796.234375
+        },
+        "visible": true,
+        "viewportFullyVisible": true,
+        "tabStrip": null,
+        "clippedBy": [],
+        "rect": {
+          "x": 16,
+          "y": 747.234375,
+          "width": 130.921875,
+          "height": 44,
+          "right": 146.921875,
+          "bottom": 791.234375
+        }
+      }
+    }
+  ],
+  "lastTabGoals": [
+    {
+      "label": "tabpanel Shift+Tab to Jobs",
+      "direction": "Shift+Tab",
+      "steps": 1,
+      "durationMs": 3,
+      "focus": {
+        "tag": "button",
+        "id": "category-tab-job",
+        "role": "tab",
+        "className": "category-tabs__tab",
+        "name": "Jobs",
+        "href": null,
+        "ariaSelected": "true",
+        "ariaPressed": null,
+        "ariaExpanded": null,
+        "ariaBusy": null,
+        "disabled": false,
+        "tabIndex": 0,
+        "closestCommentId": null,
+        "inTablist": true,
+        "tabStrip": {
+          "id": "",
+          "className": "category-tabs",
+          "rect": {
+            "left": 0,
+            "top": 24,
+            "right": 320,
+            "bottom": 68
+          },
+          "fullyVisible": true,
+          "focusRingFullyVisible": true
+        },
+        "clippedBy": [
+          {
+            "id": "",
+            "className": "category-tabs",
+            "overflowX": "auto",
+            "overflowY": "auto",
+            "clientRect": {
+              "left": 0,
+              "top": 24,
+              "right": 320,
+              "bottom": 68
+            },
+            "fullyInside": true
+          }
+        ],
+        "focusVisible": true,
+        "focusIndicator": true,
+        "outline": {
+          "style": "solid",
+          "width": "2px",
+          "color": "rgb(29, 78, 216)",
+          "offset": "-3px",
+          "boxShadow": "none"
+        },
+        "focusRingOutset": 0,
+        "focusRingRect": {
+          "left": 258.109375,
+          "top": 24,
+          "right": 318.84375,
+          "bottom": 68
+        },
+        "visible": true,
+        "intersectsViewport": true,
+        "viewportFullyVisible": true,
+        "fullyVisibleThroughClips": true,
+        "rect": {
+          "x": 258.109375,
+          "y": 24,
+          "width": 60.734375,
+          "height": 44,
+          "right": 318.84375,
+          "bottom": 68
+        },
+        "documentPath": "/",
+        "scrollY": 0
+      }
+    },
+    {
+      "label": "Theme toggle from Top tab",
+      "direction": "Tab",
+      "steps": 2,
+      "durationMs": 5,
+      "focus": {
+        "tag": "button",
+        "id": "",
+        "role": "button",
+        "className": "theme-toggle",
+        "name": "Alternar tema claro e escuro",
+        "href": null,
+        "ariaSelected": null,
+        "ariaPressed": "false",
+        "ariaExpanded": null,
+        "ariaBusy": null,
+        "disabled": false,
+        "tabIndex": 0,
+        "closestCommentId": null,
+        "inTablist": false,
+        "tabStrip": null,
+        "clippedBy": [],
+        "focusVisible": true,
+        "focusIndicator": true,
+        "outline": {
+          "style": "solid",
+          "width": "2px",
+          "color": "rgb(29, 78, 216)",
+          "offset": "2px",
+          "boxShadow": "none"
+        },
+        "focusRingOutset": 4,
+        "focusRingRect": {
+          "left": 12,
+          "top": 82.390625,
+          "right": 250.40625,
+          "bottom": 134.390625
+        },
+        "visible": true,
+        "intersectsViewport": true,
+        "viewportFullyVisible": true,
+        "fullyVisibleThroughClips": true,
+        "rect": {
+          "x": 16,
+          "y": 86.390625,
+          "width": 230.40625,
+          "height": 44,
+          "right": 246.40625,
+          "bottom": 130.390625
+        },
+        "documentPath": "/",
+        "scrollY": 84
+      }
+    },
+    {
+      "label": "Top panel Carregar mais",
+      "direction": "Tab",
+      "steps": 61,
+      "durationMs": 97,
+      "focus": {
+        "tag": "button",
+        "id": "",
+        "role": "button",
+        "className": "listing__button listing__load-more",
+        "name": "Carregar mais",
+        "href": null,
+        "ariaSelected": null,
+        "ariaPressed": null,
+        "ariaExpanded": null,
+        "ariaBusy": "false",
+        "disabled": false,
+        "tabIndex": 0,
+        "closestCommentId": null,
+        "inTablist": false,
+        "tabStrip": null,
+        "clippedBy": [],
+        "focusVisible": true,
+        "focusIndicator": true,
+        "outline": {
+          "style": "solid",
+          "width": "2px",
+          "color": "rgb(29, 78, 216)",
+          "offset": "3px",
+          "boxShadow": "none"
+        },
+        "focusRingOutset": 5,
+        "focusRingRect": {
+          "left": 11,
+          "top": 742.234375,
+          "right": 151.921875,
+          "bottom": 796.234375
+        },
+        "visible": true,
+        "intersectsViewport": true,
+        "viewportFullyVisible": true,
+        "fullyVisibleThroughClips": true,
+        "rect": {
+          "x": 16,
+          "y": 747.234375,
+          "width": 130.921875,
+          "height": 44,
+          "right": 146.921875,
+          "bottom": 791.234375
+        },
+        "documentPath": "/",
+        "scrollY": 3922
+      }
+    }
+  ],
+  "lastKeyboardEvents": [
+    {
+      "key": "Tab",
+      "label": "Top panel Carregar mais Tab 60",
+      "before": {
+        "tag": "a",
+        "id": "",
+        "role": "link",
+        "name": "Keyboard fixture story 30 171 pontos · keyboard-fixture-author-30 · há 8 horas · 0 comentários",
+        "href": "/item/98410340",
+        "ariaSelected": null,
+        "ariaExpanded": null
+      },
+      "after": {
+        "tag": "a",
+        "id": "",
+        "role": "link",
+        "name": "Abrir keyboard-fixture-30.example.invalid em nova aba",
+        "href": "https://keyboard-fixture-30.example.invalid/story/98410340",
+        "ariaSelected": null,
+        "ariaExpanded": null,
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "key": "Tab",
+      "label": "Top panel Carregar mais Tab 61",
+      "before": {
+        "tag": "a",
+        "id": "",
+        "role": "link",
+        "name": "Abrir keyboard-fixture-30.example.invalid em nova aba",
+        "href": "https://keyboard-fixture-30.example.invalid/story/98410340",
+        "ariaSelected": null,
+        "ariaExpanded": null
+      },
+      "after": {
+        "tag": "button",
+        "id": "",
+        "role": "button",
+        "name": "Carregar mais",
+        "href": null,
+        "ariaSelected": null,
+        "ariaExpanded": null,
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "key": "Enter",
+      "label": "keyboard activate Top load-more",
+      "before": {
+        "tag": "button",
+        "id": "",
+        "role": "button",
+        "name": "Carregar mais",
+        "href": null,
+        "ariaSelected": null,
+        "ariaExpanded": null
+      },
+      "after": {
+        "tag": "button",
+        "id": "",
+        "role": "button",
+        "name": "Carregando mais…",
+        "href": null,
+        "ariaSelected": null,
+        "ariaExpanded": null,
+        "focusVisible": true,
+        "visible": false
+      }
+    }
+  ],
+  "lastFocusObservations": [
+    {
+      "phase": "load-more-busy-active-element",
+      "focus": {
+        "tag": "button",
+        "id": "",
+        "role": "button",
+        "className": "listing__button listing__load-more",
+        "name": "Carregando mais…",
+        "href": null,
+        "ariaSelected": null,
+        "ariaPressed": null,
+        "ariaExpanded": null,
+        "ariaBusy": "true",
+        "disabled": true,
+        "tabIndex": 0,
+        "closestCommentId": null,
+        "inTablist": false,
+        "tabStrip": null,
+        "clippedBy": [],
+        "focusVisible": true,
+        "focusIndicator": true,
+        "outline": {
+          "style": "solid",
+          "width": "2px",
+          "color": "rgb(29, 78, 216)",
+          "offset": "3px",
+          "boxShadow": "none"
+        },
+        "focusRingOutset": 5,
+        "focusRingRect": {
+          "left": 11,
+          "top": 946.234375,
+          "right": 188.578125,
+          "bottom": 1000.234375
+        },
+        "visible": false,
+        "intersectsViewport": false,
+        "viewportFullyVisible": false,
+        "fullyVisibleThroughClips": true,
+        "rect": {
+          "x": 16,
+          "y": 951.234375,
+          "width": 167.578125,
+          "height": 44,
+          "right": 183.578125,
+          "bottom": 995.234375
+        },
+        "documentPath": "/",
+        "scrollY": 3922
+      }
+    },
+    {
+      "phase": "load-more-focus-after-60-rows",
+      "focus": {
+        "tag": "button",
+        "id": "",
+        "role": "button",
+        "className": "listing__button listing__load-more",
+        "name": "Carregar mais",
+        "href": null,
+        "ariaSelected": null,
+        "ariaPressed": null,
+        "ariaExpanded": null,
+        "ariaBusy": "false",
+        "disabled": false,
+        "tabIndex": 0,
+        "closestCommentId": null,
+        "inTablist": false,
+        "tabStrip": null,
+        "clippedBy": [],
+        "focusVisible": true,
+        "focusIndicator": true,
+        "outline": {
+          "style": "solid",
+          "width": "2px",
+          "color": "rgb(29, 78, 216)",
+          "offset": "3px",
+          "boxShadow": "none"
+        },
+        "focusRingOutset": 5,
+        "focusRingRect": {
+          "left": 11,
+          "top": 771.296875,
+          "right": 151.921875,
+          "bottom": 825.296875
+        },
+        "visible": false,
+        "intersectsViewport": true,
+        "viewportFullyVisible": false,
+        "fullyVisibleThroughClips": true,
+        "rect": {
+          "x": 16,
+          "y": 776.296875,
+          "width": 130.921875,
+          "height": 44,
+          "right": 146.921875,
+          "bottom": 820.296875
+        },
+        "documentPath": "/",
+        "scrollY": 8242
+      }
+    }
+  ],
+  "bffRequestCounts": {
+    "GET /api/stories?category=ask": 1,
+    "GET /api/stories?category=best": 1,
+    "GET /api/stories?category=job": 2,
+    "GET /api/stories?category=new": 1,
+    "GET /api/stories?category=show": 1,
+    "GET /api/stories?category=top": 3,
+    "GET /api/stories?category=top&page=2&limit=30&snapshot=2026-10-12T18%3A01%3A33.313Z": 1
+  },
+  "errors": {
+    "page": [],
+    "console": [],
+    "http": [],
+    "requests": [],
+    "unexpectedBff": []
+  },
+  "ports": {
+    "checkedAt": "2026-10-12T18:03:46.642Z",
+    "node": "v24.21.0",
+    "ports": [
+      {
+        "port": 64652,
+        "status": 1,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "port": 64651,
+        "status": 1,
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,151 @@
+command=["docker","compose","--env-file","/dev/null","--project-directory","/Users/maurowidman/Projects/AI/prod-certo-green","--file","/Users/maurowidman/Projects/AI/prod-certo-green/docker-compose.yml","--project-name","hnqa-202610121919-79674-0e90c11b4d86","build","--no-cache","--pull=false","--progress","plain","app"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=360000
+
+--progress is a global compose flag, better use `docker compose --progress xx build ...
+ Image hnqa-202610121919-79674-0e90c11b4d86-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 616B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.12kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-bookworm-slim
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 215B done
+#4 DONE 0.0s
+
+#5 [build  1/12] FROM docker.io/library/node:24-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
+#5 resolve docker.io/library/node:24-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20 done
+#5 DONE 0.0s
+
+#6 [build  2/12] WORKDIR /app
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 491.71kB done
+#7 DONE 0.0s
+
+#8 [build  3/12] COPY package.json package-lock.json ./
+#8 DONE 0.0s
+
+#9 [build  4/12] COPY shared/package.json ./shared/package.json
+#9 DONE 0.0s
+
+#10 [build  5/12] COPY server/package.json ./server/package.json
+#10 DONE 0.0s
+
+#11 [build  6/12] COPY client/package.json ./client/package.json
+#11 DONE 0.0s
+
+#12 [build  7/12] RUN npm ci
+#12 ...
+
+#13 [runtime  7/10] RUN npm ci --omit=dev
+#13 1.690 
+#13 1.690 added 93 packages, and audited 97 packages in 1s
+#13 1.690 
+#13 1.690 38 packages are looking for funding
+#13 1.690   run `npm fund` for details
+#13 1.691 
+#13 1.691 found 0 vulnerabilities
+#13 1.691 npm notice
+#13 1.691 npm notice New major version of npm available! 11.19.0 -> 12.2.0
+#13 1.691 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+#13 1.691 npm notice To update run: npm install -g npm@12.2.0
+#13 1.691 npm notice
+#13 DONE 1.8s
+
+#12 [build  7/12] RUN npm ci
+#12 2.684 npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#12 2.932 
+#12 2.932 added 404 packages, and audited 408 packages in 3s
+#12 2.932 
+#12 2.932 168 packages are looking for funding
+#12 2.932   run `npm fund` for details
+#12 2.933 
+#12 2.933 found 0 vulnerabilities
+#12 2.933 npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+#12 2.933 npm warn install-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+#12 2.933 npm warn install-scripts
+#12 2.933 npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+#12 2.934 npm notice
+#12 2.934 npm notice New major version of npm available! 11.19.0 -> 12.2.0
+#12 2.934 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+#12 2.934 npm notice To update run: npm install -g npm@12.2.0
+#12 2.934 npm notice
+#12 DONE 3.1s
+
+#14 [build  8/12] COPY tsconfig.base.json ./tsconfig.base.json
+#14 DONE 0.1s
+
+#15 [build  9/12] COPY shared/ ./shared/
+#15 DONE 0.0s
+
+#16 [build 10/12] COPY server/ ./server/
+#16 DONE 0.0s
+
+#17 [build 11/12] COPY client/ ./client/
+#17 DONE 0.0s
+
+#18 [build 12/12] RUN npm run build
+#18 0.214 
+#18 0.214 > build
+#18 0.214 > npm run build -w @hn/shared && npm run build -w @hn/server && npm run build -w @hn/client
+#18 0.214 
+#18 0.257 
+#18 0.257 > @hn/shared@0.0.0 build
+#18 0.257 > tsc -p tsconfig.json
+#18 0.257 
+#18 0.350 
+#18 0.350 > @hn/server@0.0.0 build
+#18 0.350 > tsc -p tsconfig.json
+#18 0.350 
+#18 0.531 
+#18 0.531 > @hn/client@0.0.0 build
+#18 0.531 > tsc -p tsconfig.json --noEmit && vite build
+#18 0.531 
+#18 0.643 vite.config.ts(3,22): error TS2307: Cannot find module '../scripts/dev-platform-config.mjs' or its corresponding type declarations.
+#18 0.646 npm error Lifecycle script `build` failed with error:
+#18 0.646 npm error code 1
+#18 0.646 npm error path /app/client
+#18 0.646 npm error workspace @hn/client@0.0.0
+#18 0.646 npm error location /app/client
+#18 0.646 npm error command failed
+#18 0.646 npm error command sh -c tsc -p tsconfig.json --noEmit && vite build
+#18 ERROR: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+------
+ > [build 12/12] RUN npm run build:
+0.531 > tsc -p tsconfig.json --noEmit && vite build
+0.531 
+error TS2307: Cannot find module '../scripts/dev-platform-config.mjs' or its corresponding type declarations.
+0.646 npm error Lifecycle script `build` failed with error:
+0.646 npm error code 1
+0.646 npm error path /app/client
+0.646 npm error workspace @hn/client@0.0.0
+0.646 npm error location /app/client
+0.646 npm error command failed
+0.646 npm error command sh -c tsc -p tsconfig.json --noEmit && vite build
+------
+Dockerfile:15
+
+--------------------
+
+  13 |     COPY server/ ./server/
+
+  14 |     COPY client/ ./client/
+
+  15 | >>> RUN npm run build
+
+  16 |     
+
+  17 |     FROM node:24-bookworm-slim AS runtime
+
+--------------------
+
+failed to solve: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+

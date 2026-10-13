@@ -1,0 +1,1 @@
+{"status":"failed","resultPath":"/tmp/hn-3-3-actual-data.3SBOft/actual-result.json","screenshots":0,"failure":"Expected values to be strictly equal:\n\ntrue !== 'string'\n"}

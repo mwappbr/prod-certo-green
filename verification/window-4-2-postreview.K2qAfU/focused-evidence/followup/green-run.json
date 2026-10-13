@@ -1,0 +1,16 @@
+{
+  "startedAt": "2026-10-12T15:25:23Z",
+  "finishedAt": "2026-10-12T15:25:31Z",
+  "nodeVersion": "v24.19.0",
+  "npmVersion": "11.17.0",
+  "playwrightVersion": "1.64.0",
+  "browserVersion": "156.0.8078.4",
+  "testCount": 2,
+  "matrixScenarioCount": 16,
+  "exitStatus": 0,
+  "log": "/tmp/hn-4-2/run.c79f19/followup/green.log",
+  "measureJson": "/tmp/hn-4-2/run.c79f19/followup/green-measures.json",
+  "measurementsCaptured": true,
+  "issueCount": 0,
+  "issues": []
+}

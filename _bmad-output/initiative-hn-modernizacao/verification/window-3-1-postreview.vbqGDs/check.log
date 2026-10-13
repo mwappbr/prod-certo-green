@@ -1,0 +1,46 @@
+
+> check
+> npm run typecheck && npm run lint && npm test && node scripts/check-theme.mjs
+
+
+> typecheck
+> npm run build -w @hn/shared && npm run typecheck -w @hn/server && npm run typecheck -w @hn/client
+
+
+> @hn/shared@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/server@0.0.0 typecheck
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json --noEmit
+
+
+> @hn/client@0.0.0 typecheck
+> tsc -p tsconfig.json --noEmit
+
+
+> lint
+> npm run lint -w @hn/server
+
+
+> @hn/server@0.0.0 lint
+> eslint src --config eslint.config.js
+
+
+> test
+> npm run build -w @hn/shared && vitest run
+
+
+> @hn/shared@0.0.0 build
+> tsc -p tsconfig.json
+
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+
+ Test Files  16 passed (16)
+      Tests  90 passed (90)
+   Start at  03:52:21
+   Duration  37.61s (tests 99%, import 1%)
+
+Theme tokens pass WCAG AA 4.5:1 text contrast checks for light and dark themes.

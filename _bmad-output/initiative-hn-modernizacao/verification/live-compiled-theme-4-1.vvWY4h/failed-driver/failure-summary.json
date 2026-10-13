@@ -1,0 +1,47 @@
+{
+  "status": "failed",
+  "failure": {
+    "message": "page.waitForFunction: Timeout 8000ms exceeded.",
+    "stack": "page.waitForFunction: Timeout 8000ms exceeded.\n    at waitTheme (/private/tmp/qa-4-1-theme-driver-20261012-a8c6f2/scripts/drive-theme-fixture-app.mjs:155:16)\n    at exercise (/private/tmp/qa-4-1-theme-driver-20261012-a8c6f2/scripts/drive-theme-fixture-app.mjs:236:11)"
+  },
+  "runtime": {
+    "node": "v24.21.0",
+    "browser": "156.0.8078.4",
+    "elapsedMs": 8830
+  },
+  "errors": {
+    "page": [],
+    "console": [],
+    "http": [],
+    "requests": [],
+    "unexpectedBff": []
+  },
+  "phases": {},
+  "screenshots": [],
+  "themeSnapshotCount": 0,
+  "networkChecks": [],
+  "firstPaintProof": {
+    "captured": false,
+    "note": "Screenshots are post-render; no pre-style/pre-React instrumentation was installed."
+  },
+  "fixture": {
+    "evidenceDir": "/tmp/hn-4-1-actual-data.0SbGkE",
+    "readyPath": "/tmp/hn-4-1-actual-data.0SbGkE/fixture-ready.json",
+    "helperPid": 28944,
+    "fixtureAppPid": 28944,
+    "rawUpstreamPid": 28944,
+    "baseUrl": "http://127.0.0.1:62863",
+    "appPort": 62863,
+    "upstreamBaseUrl": "http://127.0.0.1:62862/v0/",
+    "upstreamPort": 62862,
+    "storyId": 98310000,
+    "jobId": 98311311,
+    "visibleComments": 220,
+    "totalComments": 221
+  },
+  "portObservation": {
+    "appPort": 62863,
+    "upstreamPort": 62862,
+    "afterBrowserClose": "reachable"
+  }
+}

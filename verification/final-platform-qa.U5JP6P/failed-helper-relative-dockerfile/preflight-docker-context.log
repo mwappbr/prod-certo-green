@@ -1,0 +1,5 @@
+command=["docker","context","show"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=8000
+
+rancher-desktop

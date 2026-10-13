@@ -1,0 +1,1461 @@
+{
+  "startedAt": "2026-10-12T19:18:52.656Z",
+  "node": "v24.21.0",
+  "base": "http://127.0.0.1:3000",
+  "status": "passed",
+  "samples": [
+    {
+      "category": "top",
+      "elapsedMs": 2.22912499999984,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 1.575166999999965,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 1.1087090000000899,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 1.3307919999997466,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 1.317124999999578,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 1.2818749999996726,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 1.3192079999998896,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 1.2697079999998095,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 1.2019579999996495,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 1.2501659999998083,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 1.1042090000000826,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 1.0102499999993597,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.9307079999998678,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.8678330000002461,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.8346659999997428,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.736374999999498,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.7889169999998558,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.959208000000217,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.8843329999999696,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.7192080000004353,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.6810000000004948,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.7150840000003882,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.6412499999996726,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.6543750000000728,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.7169170000006488,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.7162090000001626,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 1.4713330000004134,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.9926249999998618,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.8542919999999867,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.7367919999996957,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.7396249999992506,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.6958340000001044,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.7391660000002958,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.8616250000004584,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.7633749999995416,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.5418339999996533,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.5253749999992579,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.5805829999999332,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.5950000000002547,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.5112079999998969,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.4470000000001164,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.46004199999970297,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.477708999999777,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.4287080000003698,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.546291999999994,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.5167090000004464,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.46583300000020245,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 1.7322500000000218,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.5821249999999054,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.43150000000059663,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.6190839999999298,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.6304579999996349,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 1.5310419999996157,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.433749999999236,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.41654099999959726,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.4491250000000946,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.4100830000006681,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.35333300000002055,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.3412080000007336,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.3724579999998241,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.44070800000008603,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.42533300000013696,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.3615410000002157,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.3794160000006741,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.3637909999997646,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.35666699999910634,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.3418330000004062,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.34545799999978044,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.3989160000000993,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.3359580000005735,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.3272919999999431,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.35420799999974406,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.3802909999994881,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.3429580000001806,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.40220899999985704,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.3876250000002983,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.3457079999998314,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.3306250000005093,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.35437499999989086,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.37712499999997817,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.43416700000034325,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.339125000000422,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.32458299999962037,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.31841700000040873,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.35112499999922875,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.3828749999993306,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.3943749999998545,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.29899999999997817,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.3317080000006172,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.31387500000073487,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.3299589999996897,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.3480839999992895,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.31045799999992596,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.2977499999997235,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.3254579999993439,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.3500420000000304,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.31004200000006676,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.28304100000059407,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.3108750000001237,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.28879200000028504,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.27516599999944447,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.29799999999977445,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.2899170000000595,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.5524160000004485,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.3584160000000338,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.2865830000000642,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.27924999999959255,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.295999999999367,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.2947089999997843,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.29441599999972823,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.2955419999998412,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.2737910000005286,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.3309160000007978,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.34799999999995634,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.2876249999999345,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.26966600000014296,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.2952500000001237,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.28883399999995163,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.2747089999993477,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.285584000000199,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.2841249999992215,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.29466599999977916,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.3249580000001515,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.27179100000012113,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.31375000000025466,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.3227919999999358,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.29595900000003894,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.2825829999992493,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.300042000000758,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.34412500000053114,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.2910830000000715,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.34908400000040274,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.30558400000063557,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.3650840000000244,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.3200829999996131,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.2832909999997355,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.275749999999789,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.27116599999953905,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.27333400000043184,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.2711669999998776,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.3391670000000886,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.2962499999994179,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.35124999999970896,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.31091600000036124,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.27075000000058935,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.2867079999996349,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.32462500000019645,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.26033300000017334,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.27954200000021956,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.2593750000005457,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.25970799999959127,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.2826660000000629,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.2593329999999696,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.2517500000003565,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.2562079999997877,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.25525000000016007,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.2632080000003043,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.28325000000040745,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.2915419999999358,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.26791599999978644,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.28400000000056025,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.2824170000003505,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.2770829999999478,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.267083000000639,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.22883400000046095,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.25304200000027777,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.27283299999999144,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.23962500000016007,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.22670800000014424,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.32983300000068994,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.25141699999949196,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.23699999999917054,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.25904199999968114,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.2626669999999649,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "top",
+      "elapsedMs": 0.26345799999944575,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "new",
+      "elapsedMs": 0.2430420000000595,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "best",
+      "elapsedMs": 0.23174999999991996,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "ask",
+      "elapsedMs": 0.3499579999997877,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "show",
+      "elapsedMs": 0.22825000000011642,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "category": "job",
+      "elapsedMs": 0.19741700000031415,
+      "count": 30,
+      "fresh": true,
+      "snapshotUnchanged": true
+    }
+  ],
+  "cleanup": {
+    "signal": "SIGTERM",
+    "closed": true,
+    "appExit": {
+      "code": null,
+      "signal": "SIGTERM"
+    },
+    "port3000Free": true
+  },
+  "envPresenceOnly": [
+    {
+      "relative": ".env",
+      "present": false
+    },
+    {
+      "relative": ".env.local",
+      "present": false
+    },
+    {
+      "relative": ".env.production",
+      "present": false
+    },
+    {
+      "relative": ".env.production.local",
+      "present": false
+    },
+    {
+      "relative": "client/.env",
+      "present": false
+    },
+    {
+      "relative": "client/.env.local",
+      "present": false
+    },
+    {
+      "relative": "client/.env.production",
+      "present": false
+    },
+    {
+      "relative": "client/.env.production.local",
+      "present": false
+    }
+  ],
+  "pid": 78503,
+  "health": {
+    "status": "ok",
+    "cache": {
+      "entries": 0
+    }
+  },
+  "assets": [
+    {
+      "asset": "/assets/index-CYd16-z1.js",
+      "status": 200,
+      "bytes": 219556
+    },
+    {
+      "asset": "/assets/index-Dm_gFIxO.css",
+      "status": 200,
+      "bytes": 9384
+    }
+  ],
+  "warmup": [
+    {
+      "category": "top",
+      "count": 30,
+      "snapshot": "2026-10-12T19:18:53.711Z"
+    },
+    {
+      "category": "new",
+      "count": 30,
+      "snapshot": "2026-10-12T19:18:54.937Z"
+    },
+    {
+      "category": "best",
+      "count": 30,
+      "snapshot": "2026-10-12T19:18:55.795Z"
+    },
+    {
+      "category": "ask",
+      "count": 30,
+      "snapshot": "2026-10-12T19:18:56.513Z"
+    },
+    {
+      "category": "show",
+      "count": 30,
+      "snapshot": "2026-10-12T19:18:57.358Z"
+    },
+    {
+      "category": "job",
+      "count": 30,
+      "snapshot": "2026-10-12T19:18:58.368Z"
+    }
+  ],
+  "measurementStartedAt": "2026-10-12T19:18:59.835Z",
+  "performance": {
+    "sampleCount": 180,
+    "samplesPerCategory": 30,
+    "p95Ms": 1.2697079999998095,
+    "categoryP95Ms": {
+      "top": 1.3192079999998896,
+      "new": 1.2697079999998095,
+      "best": 1.2019579999996495,
+      "ask": 1.2501659999998083,
+      "show": 1.317124999999578,
+      "job": 1.2818749999996726
+    },
+    "method": "Sequential loopback HTTP socket fetch through complete body and JSON; six categories, warmed cache, fresh/nonempty and stable snapshots on every response; not browser interaction or public upstream latency."
+  },
+  "browserProcess": {
+    "code": 0,
+    "signal": null
+  },
+  "browser": {
+    "status": "pass",
+    "screenshots": [
+      "category-top-375.png",
+      "category-new-375.png",
+      "category-best-375.png",
+      "category-ask-375.png",
+      "category-show-375.png",
+      "category-job-375.png",
+      "theme-dark-list-320.png",
+      "theme-light-list-320.png",
+      "top-page-two-320.png",
+      "detail-default-depth8-320.png",
+      "detail-dark-320.png",
+      "detail-collapsed-320.png",
+      "detail-responsive-320.png",
+      "detail-responsive-375.png",
+      "listing-return-scroll-320.png",
+      "direct-detail-375.png"
+    ],
+    "categories": [
+      {
+        "category": "top",
+        "label": "Top",
+        "rowCount": 30,
+        "emptyState": []
+      },
+      {
+        "category": "new",
+        "label": "New",
+        "rowCount": 30,
+        "emptyState": []
+      },
+      {
+        "category": "best",
+        "label": "Best",
+        "rowCount": 30,
+        "emptyState": []
+      },
+      {
+        "category": "ask",
+        "label": "Ask",
+        "rowCount": 30,
+        "emptyState": []
+      },
+      {
+        "category": "show",
+        "label": "Show",
+        "rowCount": 30,
+        "emptyState": []
+      },
+      {
+        "category": "job",
+        "label": "Jobs",
+        "rowCount": 30,
+        "emptyState": []
+      }
+    ],
+    "detailTarget": {
+      "id": 50047422,
+      "type": "story",
+      "title": "The gap in shared understanding of LLM capability is widening",
+      "listingCommentCount": 938,
+      "met200Threshold": true,
+      "sourcePage": 1
+    },
+    "comments": {
+      "requestPath": "/api/items/50047422/comments",
+      "depthQueryOmitted": true,
+      "defaultDepthMaxExpected": 8,
+      "observedMaxDepth": 3,
+      "returnedNodeCount": 500,
+      "renderedNodeCount": 500,
+      "truncated": true,
+      "listedPublicCommentCount": 938,
+      "publicCountLabel": "live BFF ListingItem.commentCount; not a fabricated fixture count"
+    },
+    "limitations": []
+  },
+  "finishedAt": "2026-10-12T19:19:13.638Z"
+}

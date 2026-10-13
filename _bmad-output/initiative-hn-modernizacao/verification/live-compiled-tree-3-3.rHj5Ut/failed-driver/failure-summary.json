@@ -1,0 +1,32 @@
+{
+  "status": "failed",
+  "startedAt": "2026-10-12T11:19:41.336Z",
+  "finishedAt": "2026-10-12T11:19:41.758Z",
+  "runtime": {
+    "node": "v24.21.0",
+    "browser": "156.0.8078.4"
+  },
+  "failure": {
+    "message": "Expected values to be strictly equal:\n\ntrue !== 'string'\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\ntrue !== 'string'\n\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:131:14)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at exercise (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:271:5)"
+  },
+  "completedPhases": [
+    "initialListing"
+  ],
+  "screenshots": [],
+  "origins": [
+    "http://127.0.0.1:54463"
+  ],
+  "bffRequestCounts": {
+    "GET /api/items/98310000": 1,
+    "GET /api/items/98310000/comments": 1,
+    "GET /api/stories?category=top": 1
+  },
+  "errors": {
+    "page": [],
+    "console": [],
+    "http": [],
+    "requests": [],
+    "popups": []
+  }
+}

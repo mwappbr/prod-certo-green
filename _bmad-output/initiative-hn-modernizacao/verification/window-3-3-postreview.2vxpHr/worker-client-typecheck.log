@@ -1,0 +1,11 @@
+snapshot=/tmp/hn-3.3-p2-typecheck-snapshot.6DOHrd/source.tar
+log=/tmp/hn-3.3-p2-typecheck.bMLPQy
+node=v24.21.0
+npm=11.19.0
+exec=/opt/homebrew/Cellar/node@24/24.21.0_1/bin/node
+command=npm run typecheck -w @hn/client (no emit)
+
+> @hn/client@0.0.0 typecheck
+> tsc -p tsconfig.json --noEmit
+
+CLIENT_TYPECHECK_exit_status=0

@@ -1,0 +1,29 @@
+node=v24.21.0
+npm=11.19.0
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+ ❯ server/test/dev-runner.test.ts (10 tests | 1 failed) 644ms
+   ❯ development process runner (10)
+     × bounds and terminates its own hung taskkill helper 32ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  server/test/dev-runner.test.ts > development process runner > bounds and terminates its own hung taskkill helper
+AssertionError: expected Error: taskkill.exe timeout ao encerrar a… to be a function
+ ❯ server/test/dev-runner.test.ts:224:26
+    222|
+    223|     const cleanupError = await operation.catch((error: unknown) => err…
+    224|     expect(cleanupError).toThrow(/timeout/i);
+       |                          ^
+    225|     expect((cleanupError as Error).cause).toBeInstanceOf(AggregateErro…
+    226|     expect(containsErrorCode((cleanupError as Error).cause, 'EPERM')).…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 14 passed (15)
+   Start at  10:12:44
+   Duration  810ms (tests 94%, import 4%, transform 2%)
+

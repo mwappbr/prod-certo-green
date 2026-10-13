@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-12T18:25:28.275Z",
+  "stable": true,
+  "paths": [
+    "client/src/features/listing/StoryListPage.tsx",
+    "e2e/keyboard-focus-semantics.spec.ts",
+    "client/src/features/listing/listing.css",
+    "client/src/features/detail/detail.css",
+    "package.json",
+    "package-lock.json"
+  ]
+}

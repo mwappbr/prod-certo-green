@@ -1,0 +1,9 @@
+run_dir=/tmp/hn-4-3-keyboard.0YTBIh
+node=v24.21.0
+npm=11.19.0
+playwright=Version 1.64.0
+4173_pre=free
+playwright_exit=1
+4173_post=free
+log=/tmp/hn-4-3-keyboard.0YTBIh/focal.log
+runtime=/tmp/hn-4-3-keyboard.0YTBIh/runtime.txt

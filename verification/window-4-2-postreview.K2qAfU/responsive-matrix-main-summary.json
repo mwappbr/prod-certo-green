@@ -1,0 +1,13 @@
+{
+  "capturedAt": "2026-10-12T15:54:49.107Z",
+  "sourceLog": "e2e.log",
+  "nodeVersion": "v24.21.0",
+  "browserName": "chromium",
+  "browserVersion": "156.0.8078.4",
+  "matrixScenarioCount": 16,
+  "measuredTargets": 144,
+  "issues": [],
+  "simulation": "test-only per-element computed font-size 2x and original numeric computed line-height 2x; no html/root/viewport/DPR/zoom mutation",
+  "nativeZoomClaim": false,
+  "atClaim": false
+}

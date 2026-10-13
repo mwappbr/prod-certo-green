@@ -1,0 +1,11 @@
+
+Running 6 tests using 1 worker
+
+  ✓  1 e2e/theme.spec.ts:25:3 › Tema claro e escuro › PRE_THEME: sistema escuro aplica tokens na lista e detalhe antes do bundle (103ms)
+  ✓  2 e2e/theme.spec.ts:40:3 › Tema claro e escuro › bootstrap manual aplica a escolha antes do bundle e dos componentes React (60ms)
+  ✓  3 e2e/theme.spec.ts:51:3 › Tema claro e escuro › toggle semântico funciona nas duas telas e acompanha mudança do sistema antes da escolha manual (187ms)
+  ✓  4 e2e/theme.spec.ts:81:3 › Tema claro e escuro › manual preference survives SPA navigation and reload but not an independent tab (846ms)
+  ✓  5 e2e/theme.spec.ts:138:3 › Tema claro e escuro › invalid preference follows the system and can then be replaced manually (114ms)
+  ✓  6 e2e/theme.spec.ts:155:3 › Tema claro e escuro › blocked sessionStorage reads and writes do not break in-tab theme changes (141ms)
+
+  6 passed (2.2s)

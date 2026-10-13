@@ -1,0 +1,9 @@
+
+> dev
+> npm run build -w @hn/shared && node scripts/dev.mjs
+
+
+> @hn/shared@0.0.0 build
+> tsc -p tsconfig.json
+
+Configuração do servidor inválida: PORT: PORT deve ser numérico.. Revise as variáveis de ambiente.

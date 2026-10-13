@@ -1,0 +1,10 @@
+command=["docker","build","--network=none","--pull=false","--no-cache","--file","Dockerfile.example","--tag","hnqa-202610121917-77282-68563536ded8-env-example-probe:local","/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191714-77282-e4831cb91f/dockerignore-synthetic-context"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=45000
+
+#0 building with "rancher-desktop" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.example
+#1 transferring dockerfile: 2B done
+#1 DONE 0.0s
+ERROR: failed to build: failed to solve: failed to read dockerfile: open Dockerfile.example: no such file or directory

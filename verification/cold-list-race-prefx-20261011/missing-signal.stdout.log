@@ -1,0 +1,28 @@
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+[isolated-missing-signal-probe] Transformed only /Users/maurowidman/Projects/AI/prod-certo-green/server/test/stories-route.test.ts; exact signal/deadline match counts: 1/1.
+ ❯ server/test/stories-route.test.ts (11 tests | 1 failed | 10 skipped) 1961ms
+   ❯ GET /api/stories (11)
+     × reuses one cold list publication for concurrent first-page snapshots 1961ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  server/test/stories-route.test.ts > GET /api/stories > reuses one cold list publication for concurrent first-page snapshots
+Error: Timed out waiting for both cold-list callers.
+ ❯ Timeout.<anonymous> server/test/stories-route.test.ts:273:26
+    271|         const barrierDeadline = new Promise<never>((_, reject) => {
+    272|           barrierTimeout = setTimeout(
+    273|             () => reject(new Error('Timed out waiting for both cold-li…
+       |                          ^
+    274|             4_000,
+    275|           );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 skipped (11)
+   Start at  00:08:36
+   Duration  2.12s (tests 95%, import 3%, transform 2%)
+

@@ -1,0 +1,50 @@
+{
+  "status": "failed",
+  "checkedAt": "2026-10-12T02:05:33.454Z",
+  "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ '2026-10-12T02:05:32.913Z'\n- '2026-10-12T02:05:30.459Z'\n                     ^\n",
+  "checkedCategories": [
+    {
+      "category": "top",
+      "rows": 30,
+      "types": [
+        "story"
+      ],
+      "firstIds": [
+        50049411,
+        50045984,
+        50047091
+      ],
+      "upstreamIdCount": 500,
+      "snapshot": "2026-10-12T02:05:30.103Z",
+      "interactionToApiBodyMs": 1608.41,
+      "renderedAtMs": 1653.33
+    },
+    {
+      "category": "new",
+      "rows": 30,
+      "types": [
+        "story"
+      ],
+      "firstIds": [
+        50050397,
+        50050380,
+        50050374
+      ],
+      "upstreamIdCount": 500,
+      "snapshot": "2026-10-12T02:05:31.854Z",
+      "interactionToApiBodyMs": 867.67,
+      "renderedAtMs": 879.15
+    }
+  ],
+  "consoleErrors": [],
+  "httpErrors": [],
+  "failedRequests": [],
+  "browserRequests": [
+    "http://127.0.0.1:3000/",
+    "http://127.0.0.1:3000/assets/index-I3Hagf7E.js",
+    "http://127.0.0.1:3000/assets/index-fg_tglC6.css",
+    "http://127.0.0.1:3000/api/stories?category=top",
+    "http://127.0.0.1:3000/api/stories?category=new",
+    "http://127.0.0.1:3000/api/stories?category=best"
+  ]
+}

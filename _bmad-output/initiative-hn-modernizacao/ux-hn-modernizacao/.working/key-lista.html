@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mock: lista (key-lista)</title>
+<style>
+/*
+  Governado por:
+  - DESIGN.md: colors (primary, surface, ink, border-hairline), typography (title, meta, label), rounded, spacing, components.story-row, components.tab-category-active, components.freshness-label.
+  - EXPERIENCE.md: Information Architecture (Lista), Component Patterns (Faixa de categorias, Story row, Carregar mais, Indicador de atualização), State Patterns (Carregando lista, Erro na página seguinte, Categoria vazia), Responsive (320-767 px).
+  Exemplo ilustrativo. Títulos e autores são fictícios.
+*/
+:root {
+  --surface-base: #F8FAFC;
+  --surface-raised: #FFFFFF;
+  --ink-primary: #0F172A;
+  --ink-secondary: #475569;
+  --primary: #1D4ED8;
+  --primary-foreground: #FFFFFF;
+  --border-hairline: #E2E8F0;
+  --error-ink: #0F172A;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface-base: #0B1120;
+    --surface-raised: #131C2E;
+    --ink-primary: #E2E8F0;
+    --ink-secondary: #94A3B8;
+    --primary: #60A5FA;
+    --primary-foreground: #0B1120;
+    --border-hairline: #1E2A40;
+  }
+}
+:root[data-theme="dark"] {
+  --surface-base: #0B1120;
+  --surface-raised: #131C2E;
+  --ink-primary: #E2E8F0;
+  --ink-secondary: #94A3B8;
+  --primary: #60A5FA;
+  --primary-foreground: #0B1120;
+  --border-hairline: #1E2A40;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--surface-base);
+  color: var(--ink-primary);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.device {
+  width: 360px;
+  max-width: 100%;
+  background: var(--surface-base);
+  border: 1px solid var(--border-hairline);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.caption {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  margin: 0 0 8px;
+  width: 360px;
+}
+header.top {
+  padding: 16px 16px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+header.top h1 { font-size: 16px; margin: 0; font-weight: 600; }
+.freshness { font-size: 12px; font-weight: 600; color: var(--ink-secondary); }
+nav.tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 0 16px 8px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+nav.tabs a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+nav.tabs a[aria-current="page"] {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+ol.stories { list-style: none; margin: 0; padding: 0; }
+li.story {
+  background: var(--surface-raised);
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 8px 16px;
+}
+.title { font-size: 16px; font-weight: 600; line-height: 1.35; color: var(--ink-primary); }
+.domain { font-size: 12px; font-weight: 600; color: var(--ink-secondary); margin-left: 8px; }
+.meta { font-size: 13px; color: var(--ink-secondary); margin-top: 4px; }
+.index { color: var(--ink-secondary); margin-right: 8px; font-size: 13px; }
+.more {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 12px 16px 16px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+  font-size: 14px;
+}
+.skeleton {
+  height: 56px;
+  margin: 8px 16px;
+  border-radius: 4px;
+  background: var(--border-hairline);
+}
+.alert {
+  margin: 8px 16px;
+  padding: 12px;
+  border: 1px solid var(--border-hairline);
+  border-radius: 12px;
+  background: var(--surface-raised);
+  color: var(--error-ink);
+  font-size: 13px;
+}
+.alert button {
+  min-height: 44px;
+  margin-top: 8px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  border-radius: 8px;
+  padding: 0 12px;
+  font-weight: 600;
+}
+.empty { padding: 24px 16px; color: var(--ink-secondary); font-size: 15px; }
+</style>
+</head>
+<body>
+
+<div>
+  <p class="caption">Estado normal: categoria top, com "carregar mais" e atualização visível</p>
+  <div class="device" aria-label="Lista top em estado normal">
+    <header class="top">
+      <h1>HN Moderno</h1>
+      <span class="freshness">atualizado em 14:32</span>
+    </header>
+    <nav class="tabs" aria-label="Categorias">
+      <a href="#" aria-current="page">top</a>
+      <a href="#">new</a>
+      <a href="#">best</a>
+      <a href="#">ask</a>
+      <a href="#">show</a>
+      <a href="#">job</a>
+    </nav>
+    <ol class="stories" aria-busy="false">
+      <li class="story">
+        <div class="title"><span class="index">1.</span>Exemplo de história técnica com título longo que quebra em duas linhas</div>
+        <div class="meta">412 pontos · autor-exemplo-a · há 3 h · 186 comentários <span class="domain">exemplo.dev</span></div>
+      </li>
+      <li class="story">
+        <div class="title"><span class="index">2.</span>Ask: exemplo de pergunta da comunidade</div>
+        <div class="meta">96 pontos · autor-exemplo-b · há 1 h · 41 comentários</div>
+      </li>
+      <li class="story">
+        <div class="title"><span class="index">3.</span>Show: projeto de demonstração feito por uma pessoa</div>
+        <div class="meta">230 pontos · autor-exemplo-c · há 5 h · 52 comentários <span class="domain">demo.example</span></div>
+      </li>
+    </ol>
+    <button class="more" type="button">Carregar mais</button>
+  </div>
+</div>
+
+<div>
+  <p class="caption">Estado de erro na página seguinte: itens permanecem visíveis (RF-08)</p>
+  <div class="device" aria-label="Lista top com erro na página seguinte">
+    <header class="top">
+      <h1>HN Moderno</h1>
+      <span class="freshness">atualizado em 14:32</span>
+    </header>
+    <nav class="tabs" aria-label="Categorias">
+      <a href="#" aria-current="page">top</a>
+      <a href="#">new</a>
+      <a href="#">best</a>
+      <a href="#">ask</a>
+      <a href="#">show</a>
+      <a href="#">job</a>
+    </nav>
+    <ol class="stories">
+      <li class="story">
+        <div class="title"><span class="index">1.</span>Exemplo de história técnica com título longo que quebra em duas linhas</div>
+        <div class="meta">412 pontos · autor-exemplo-a · há 3 h · 186 comentários <span class="domain">exemplo.dev</span></div>
+      </li>
+      <li class="story">
+        <div class="title"><span class="index">2.</span>Ask: exemplo de pergunta da comunidade</div>
+        <div class="meta">96 pontos · autor-exemplo-b · há 1 h · 41 comentários</div>
+      </li>
+    </ol>
+    <div class="alert" role="alert">
+      Não foi possível carregar mais histórias.
+      <br>
+      <button type="button">Tentar de novo</button>
+    </div>
+  </div>
+</div>
+
+<div>
+  <p class="caption">Estado vazio: categoria sem itens (RF-13)</p>
+  <div class="device" aria-label="Categoria vazia">
+    <header class="top">
+      <h1>HN Moderno</h1>
+      <span class="freshness">atualizado em 14:32</span>
+    </header>
+    <nav class="tabs" aria-label="Categorias">
+      <a href="#">top</a>
+      <a href="#" aria-current="page">new</a>
+      <a href="#">best</a>
+      <a href="#">ask</a>
+      <a href="#">show</a>
+      <a href="#">job</a>
+    </nav>
+    <p class="empty">Nenhuma história em new agora.</p>
+  </div>
+</div>
+
+</body>
+</html>

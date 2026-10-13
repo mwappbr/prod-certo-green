@@ -1,0 +1,12 @@
+command=["docker","compose","--env-file","/dev/null","--project-directory","/Users/maurowidman/Projects/AI/prod-certo-green","--file","/Users/maurowidman/Projects/AI/prod-certo-green/docker-compose.yml","--project-name","hnqa-202610121929-86572-10958969d046","up","-d","--no-build","--wait","--wait-timeout","90","app"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=110000
+
+ Network hnqa-202610121929-86572-10958969d046_default Creating 
+ Network hnqa-202610121929-86572-10958969d046_default Created 
+ Container hnqa-202610121929-86572-10958969d046-app-1 Creating 
+ Container hnqa-202610121929-86572-10958969d046-app-1 Created 
+ Container hnqa-202610121929-86572-10958969d046-app-1 Starting 
+ Container hnqa-202610121929-86572-10958969d046-app-1 Started 
+ Container hnqa-202610121929-86572-10958969d046-app-1 Waiting 
+ Container hnqa-202610121929-86572-10958969d046-app-1 Healthy 

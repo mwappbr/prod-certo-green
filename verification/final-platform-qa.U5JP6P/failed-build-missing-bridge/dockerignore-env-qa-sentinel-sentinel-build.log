@@ -1,0 +1,30 @@
+command=["docker","build","--network=none","--pull=false","--no-cache","--file","/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138/dockerignore-synthetic-context/Dockerfile.env-pattern","--tag","hnqa-202610121919-79674-0e90c11b4d86-env-qa-sentinel-probe:local","/tmp/hn-final-platform-qa-20261012-f62d9b/runs/run-20261012191932-79674-3d271b2138/dockerignore-synthetic-context"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=45000
+
+#0 building with "rancher-desktop" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.env-pattern
+#1 transferring dockerfile: 105B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 215B done
+#2 DONE 0.0s
+
+#3 [internal] load build context
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/1] COPY .env.qa-sentinel /synthetic-forbidden
+#4 ERROR: failed to calculate checksum of ref 82btcm9zgy88f4gooknbf5sl4::vdza69uhx3wm8x8gjp3hc5wws: "/.env.qa-sentinel": not found
+------
+ > [1/1] COPY .env.qa-sentinel /synthetic-forbidden:
+------
+Dockerfile.env-pattern:2
+--------------------
+   1 |     FROM scratch
+   2 | >>> COPY .env.qa-sentinel /synthetic-forbidden
+   3 |     
+--------------------
+ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref 82btcm9zgy88f4gooknbf5sl4::vdza69uhx3wm8x8gjp3hc5wws: "/.env.qa-sentinel": not found

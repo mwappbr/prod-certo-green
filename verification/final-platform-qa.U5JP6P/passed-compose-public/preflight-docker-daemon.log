@@ -1,0 +1,5 @@
+command=["docker","info","--format","{{.ServerVersion}}"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=12000
+
+29.1.3

@@ -1,0 +1,6 @@
+captured_at=2026-10-12T17:58:44Z
+node=v24.21.0
+npm=11.19.0
+node_path=/Users/maurowidman/.vite-plus/js_runtime/node/24.21.0/bin/node
+root=/Users/maurowidman/Projects/AI/prod-certo-green
+evidence=/tmp/hn-4-3-actual-compiled.AtgaCh/actual

@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-12T04:57:01.980Z",
+  "node": "v24.21.0",
+  "baseURL": "http://127.0.0.1:3000",
+  "listCacheTtlMs": 2000,
+  "originalSnapshot": "2026-10-12T04:56:58.576Z",
+  "replacementSnapshot": "2026-10-12T04:57:01.884Z",
+  "retainedContinuation": {
+    "url": "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A56%3A58.576Z",
+    "status": 200,
+    "snapshot": "2026-10-12T04:56:58.576Z",
+    "stale": true,
+    "rows": 30
+  },
+  "publishedSnapshot": {
+    "url": "http://127.0.0.1:3000/api/stories?category=top",
+    "snapshot": "2026-10-12T04:57:01.884Z",
+    "stale": false,
+    "rows": 30
+  },
+  "beforeRows": 60,
+  "afterRows": 30,
+  "expiration": {
+    "status": 410,
+    "error": {
+      "code": "SNAPSHOT_EXPIRED",
+      "message": "A lista solicitada não está mais disponível. Atualize as histórias."
+    }
+  },
+  "firstCachedAt": "2026-10-12T04:56:58.576Z",
+  "replacementCachedAt": "2026-10-12T04:56:59.399Z",
+  "requests": [
+    "http://127.0.0.1:3000/",
+    "http://127.0.0.1:3000/assets/index-CCZiZLxr.js",
+    "http://127.0.0.1:3000/assets/index-BOuFo2NL.css",
+    "http://127.0.0.1:3000/api/stories?category=top",
+    "http://127.0.0.1:3000/api/stories?category=top&page=2&limit=30&snapshot=2026-10-12T04%3A56%3A58.576Z",
+    "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A56%3A58.576Z",
+    "http://127.0.0.1:3000/api/stories?category=top"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 410 (Gone)",
+      "location": {
+        "url": "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A56%3A58.576Z",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "httpErrors": [
+    {
+      "url": "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A56%3A58.576Z",
+      "status": 410
+    }
+  ],
+  "scope": "Actual compiled browser/BFF/live HN with a short list TTL and unchanged default stale retention. A Node BFF continuation proves TTL-expired retained data remain valid/stale; another real P1 client publishes a newer snapshot. The browser then receives SNAPSHOT_EXPIRED for its old token and automatically recovers P1 without that token, discarding its old buffer and announcing the reset at the top. No real detail/comments/theme/AT/human acceptance claim."
+}

@@ -1,0 +1,156 @@
+{
+  "validatedAt": "2026-10-12T18:11:23.671Z",
+  "status": "passed",
+  "runtime": {
+    "node": "v24.21.0",
+    "browser": "156.0.8078.4",
+    "elapsedMs": 2208
+  },
+  "startedAt": "2026-10-12T18:07:56.711Z",
+  "finishedAt": "2026-10-12T18:07:58.919Z",
+  "screenshotCount": 8,
+  "screenshotNames": [
+    "top-tab-focused",
+    "jobs-tab-focused",
+    "theme-dark-focused",
+    "load-more-before-activation-focused",
+    "load-more-after-append-focused",
+    "comment-collapsed-light-focused",
+    "comment-expanded-light-focused",
+    "comment-expanded-dark-focused"
+  ],
+  "phaseNames": [
+    "topPage",
+    "category-job",
+    "category-top",
+    "category-new",
+    "category-best",
+    "category-ask",
+    "category-show",
+    "listing theme Enter to dark",
+    "listing theme Space to light",
+    "loadMoreBusy",
+    "loadMore",
+    "commentCollapseEnter",
+    "commentExpandSpace",
+    "childCommentCollapseSpace",
+    "childCommentExpandEnter",
+    "detail theme Space to dark",
+    "commentCollapseDarkEnter",
+    "commentExpandDarkSpace",
+    "detail",
+    "completedAt"
+  ],
+  "zeroNetworkCheckCount": 28,
+  "coldHn": true,
+  "positiveHnItemCount": 285,
+  "allPositiveHnOnce": true,
+  "hnLists": {
+    "top": 1,
+    "new": 1,
+    "best": 1,
+    "ask": 1,
+    "show": 1,
+    "job": 1
+  },
+  "bff": {
+    "GET /api/items/98410311": 1,
+    "GET /api/items/98410311/comments": 1,
+    "GET /api/stories?category=ask": 1,
+    "GET /api/stories?category=best": 1,
+    "GET /api/stories?category=job": 2,
+    "GET /api/stories?category=new": 1,
+    "GET /api/stories?category=show": 1,
+    "GET /api/stories?category=top": 3,
+    "GET /api/stories?category=top&page=2&limit=30&snapshot=2026-10-12T18%3A07%3A57.381Z": 1
+  },
+  "detail": {
+    "url": "http://127.0.0.1:65292/item/98410311",
+    "storyId": 98410311,
+    "visibleCommentCount": 220,
+    "totalCommentCount": 221,
+    "defaultDepth": 8,
+    "depthNineContinuation": 98310009,
+    "markers": {
+      "deadId": 98310100,
+      "deletedId": 98310101
+    },
+    "commentsPayloadRootCount": 4,
+    "itemTitle": "Keyboard fixture primary story — focus-wrap-token-focus-wrap-token-focus-wrap-token-focus-wrap-token-focus-wrap-token-end",
+    "theme": "dark"
+  },
+  "pagination": {
+    "page": 2,
+    "itemCount": 30,
+    "hasMore": true,
+    "snapshot": "2026-10-12T18:07:57.381Z",
+    "focusRetained": true,
+    "focusedControlVisible": true,
+    "scrollY": 8290
+  },
+  "postAppend": {
+    "rect": {
+      "x": 16,
+      "y": 728.296875,
+      "width": 130.921875,
+      "height": 44,
+      "right": 146.921875,
+      "bottom": 772.296875
+    },
+    "ring": {
+      "left": 11,
+      "top": 723.296875,
+      "right": 151.921875,
+      "bottom": 777.296875
+    },
+    "viewportFull": true,
+    "focusVisible": true
+  },
+  "motion": {
+    "normalActive": 4,
+    "reducedActive": 0,
+    "reducedStatus": null
+  },
+  "browserOrigins": [
+    "http://127.0.0.1:65292"
+  ],
+  "starter": {
+    "pid": 9109,
+    "exitCode": 0,
+    "forced": false,
+    "stopSignal": "SIGTERM",
+    "closeCompleted": true
+  },
+  "ports": {
+    "checkedAt": "2026-10-12T18:11:23.510Z",
+    "ports": [
+      {
+        "port": 65292,
+        "status": 1,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "port": 65291,
+        "status": 1,
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  },
+  "errors": {
+    "page": [],
+    "console": [],
+    "http": [],
+    "requests": [],
+    "unexpectedBff": []
+  },
+  "limits": {
+    "assistiveTechnologyTest": false,
+    "fullWcagAcceptance": false,
+    "nativeOSKeyboardTest": false,
+    "publicHnAccess": false,
+    "performanceClaim": false,
+    "reducedMotion": "Only inspect real compiled CSS animation while the private held page-2 loader is present; skip if no normal-motion pulse is observable."
+  }
+}

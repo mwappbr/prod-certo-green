@@ -1,0 +1,267 @@
+
+> dev
+> npm run build -w @hn/shared && node scripts/dev.mjs
+
+
+> @hn/shared@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/server@0.0.0 dev
+> npm run build && node dist/main.js
+
+
+> @hn/client@0.0.0 dev
+> vite
+
+
+> @hn/server@0.0.0 build
+> tsc -p tsconfig.json
+
+4:37:47 PM [vite] (client) Re-optimizing dependencies because lockfile has changed
+
+  VITE v8.3.4  ready in 164 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+{"level":30,"time":1791833868132,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://127.0.0.1:3000"}
+{"level":30,"time":1791833868132,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://192.168.101.202:3000"}
+{"level":30,"time":1791833868132,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://100.110.228.47:3000"}
+{"level":30,"time":1791833868132,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://192.168.64.1:3000"}
+{"level":30,"time":1791833868357,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833868363,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1","res":{"statusCode":200},"responseTime":5.336540999999954,"msg":"request completed"}
+{"level":30,"time":1791833868621,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833868621,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2","res":{"statusCode":200},"responseTime":0.6066250000000082,"msg":"request completed"}
+{"level":30,"time":1791833868876,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-3","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833868877,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-3","res":{"statusCode":200},"responseTime":0.3548749999999927,"msg":"request completed"}
+{"level":30,"time":1791833869130,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-4","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833869131,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-4","res":{"statusCode":200},"responseTime":0.7588749999999891,"msg":"request completed"}
+{"level":30,"time":1791833869386,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-5","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833869386,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-5","res":{"statusCode":200},"responseTime":0.28891700000008314,"msg":"request completed"}
+{"level":30,"time":1791833869640,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-6","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833869640,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-6","res":{"statusCode":200},"responseTime":0.3634999999999309,"msg":"request completed"}
+{"level":30,"time":1791833869893,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-7","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833869894,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-7","res":{"statusCode":200},"responseTime":0.3370840000000044,"msg":"request completed"}
+{"level":30,"time":1791833870148,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-8","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833870149,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-8","res":{"statusCode":200},"responseTime":1.0410829999996167,"msg":"request completed"}
+{"level":30,"time":1791833870403,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-9","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833870403,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-9","res":{"statusCode":200},"responseTime":0.5088749999999891,"msg":"request completed"}
+{"level":30,"time":1791833870661,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-a","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833870663,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-a","res":{"statusCode":200},"responseTime":0.9457499999998618,"msg":"request completed"}
+{"level":30,"time":1791833870933,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-b","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833870933,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-b","res":{"statusCode":200},"responseTime":0.30987499999991996,"msg":"request completed"}
+{"level":30,"time":1791833871186,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-c","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833871186,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-c","res":{"statusCode":200},"responseTime":0.3330410000003212,"msg":"request completed"}
+{"level":30,"time":1791833871440,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-d","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833871440,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-d","res":{"statusCode":200},"responseTime":0.34291599999960454,"msg":"request completed"}
+{"level":30,"time":1791833871693,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-e","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833871693,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-e","res":{"statusCode":200},"responseTime":0.33787500000016735,"msg":"request completed"}
+{"level":30,"time":1791833871947,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-f","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833871948,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-f","res":{"statusCode":200},"responseTime":0.6295420000001286,"msg":"request completed"}
+{"level":30,"time":1791833872202,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-g","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833872202,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-g","res":{"statusCode":200},"responseTime":0.2476249999999709,"msg":"request completed"}
+{"level":30,"time":1791833872455,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-h","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833872455,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-h","res":{"statusCode":200},"responseTime":0.35599999999976717,"msg":"request completed"}
+{"level":30,"time":1791833872709,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-i","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833872709,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-i","res":{"statusCode":200},"responseTime":0.33100000000013097,"msg":"request completed"}
+{"level":30,"time":1791833872962,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-j","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833872963,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-j","res":{"statusCode":200},"responseTime":0.20479100000011385,"msg":"request completed"}
+{"level":30,"time":1791833873216,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-k","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833873216,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-k","res":{"statusCode":200},"responseTime":0.18412499999976717,"msg":"request completed"}
+{"level":30,"time":1791833873469,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-l","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833873469,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-l","res":{"statusCode":200},"responseTime":0.18570900000031543,"msg":"request completed"}
+{"level":30,"time":1791833873723,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-m","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833873723,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-m","res":{"statusCode":200},"responseTime":0.37150000000019645,"msg":"request completed"}
+{"level":30,"time":1791833873977,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-n","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833873978,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-n","res":{"statusCode":200},"responseTime":0.233499999999367,"msg":"request completed"}
+{"level":30,"time":1791833874231,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-o","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833874232,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-o","res":{"statusCode":200},"responseTime":0.3737090000004173,"msg":"request completed"}
+{"level":30,"time":1791833874484,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-p","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833874484,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-p","res":{"statusCode":200},"responseTime":0.25112499999977445,"msg":"request completed"}
+{"level":30,"time":1791833874737,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-q","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833874738,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-q","res":{"statusCode":200},"responseTime":0.39187499999934516,"msg":"request completed"}
+{"level":30,"time":1791833874992,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-r","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833874992,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-r","res":{"statusCode":200},"responseTime":0.2694579999997586,"msg":"request completed"}
+{"level":30,"time":1791833875246,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-s","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833875246,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-s","res":{"statusCode":200},"responseTime":0.2695830000002388,"msg":"request completed"}
+{"level":30,"time":1791833875500,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-t","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833875500,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-t","res":{"statusCode":200},"responseTime":0.3087919999998121,"msg":"request completed"}
+{"level":30,"time":1791833875752,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-u","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833875752,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-u","res":{"statusCode":200},"responseTime":0.20233299999927112,"msg":"request completed"}
+{"level":30,"time":1791833876004,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-v","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833876004,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-v","res":{"statusCode":200},"responseTime":0.37054100000023027,"msg":"request completed"}
+{"level":30,"time":1791833876258,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-w","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833876259,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-w","res":{"statusCode":200},"responseTime":0.31004199999915727,"msg":"request completed"}
+{"level":30,"time":1791833876513,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-x","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833876514,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-x","res":{"statusCode":200},"responseTime":0.30733300000065356,"msg":"request completed"}
+{"level":30,"time":1791833876767,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-y","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833876768,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-y","res":{"statusCode":200},"responseTime":0.3807919999999285,"msg":"request completed"}
+{"level":30,"time":1791833877021,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-z","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833877021,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-z","res":{"statusCode":200},"responseTime":0.2665419999993901,"msg":"request completed"}
+{"level":30,"time":1791833877274,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-10","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833877274,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-10","res":{"statusCode":200},"responseTime":0.22016699999949196,"msg":"request completed"}
+{"level":30,"time":1791833877526,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-11","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833877526,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-11","res":{"statusCode":200},"responseTime":0.18954200000007404,"msg":"request completed"}
+{"level":30,"time":1791833877779,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-12","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833877779,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-12","res":{"statusCode":200},"responseTime":0.23595800000111922,"msg":"request completed"}
+{"level":30,"time":1791833878032,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-13","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833878033,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-13","res":{"statusCode":200},"responseTime":0.2928330000013375,"msg":"request completed"}
+{"level":30,"time":1791833878286,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-14","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833878286,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-14","res":{"statusCode":200},"responseTime":0.15829200000007404,"msg":"request completed"}
+{"level":30,"time":1791833878538,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-15","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833878538,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-15","res":{"statusCode":200},"responseTime":0.20520800000122108,"msg":"request completed"}
+{"level":30,"time":1791833878792,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-16","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833878792,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-16","res":{"statusCode":200},"responseTime":0.19941600000129256,"msg":"request completed"}
+{"level":30,"time":1791833879044,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-17","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833879044,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-17","res":{"statusCode":200},"responseTime":0.27683299999989686,"msg":"request completed"}
+{"level":30,"time":1791833879297,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-18","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833879298,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-18","res":{"statusCode":200},"responseTime":0.3053749999999127,"msg":"request completed"}
+{"level":30,"time":1791833879551,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-19","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833879551,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-19","res":{"statusCode":200},"responseTime":0.16045800000028976,"msg":"request completed"}
+{"level":30,"time":1791833879805,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1a","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833879805,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1a","res":{"statusCode":200},"responseTime":0.24191699999937555,"msg":"request completed"}
+{"level":30,"time":1791833880057,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1b","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833880058,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1b","res":{"statusCode":200},"responseTime":0.2952079999995476,"msg":"request completed"}
+{"level":30,"time":1791833880311,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1c","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833880311,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1c","res":{"statusCode":200},"responseTime":0.26054199999998673,"msg":"request completed"}
+{"level":30,"time":1791833880563,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1d","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833880563,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1d","res":{"statusCode":200},"responseTime":0.2788749999999709,"msg":"request completed"}
+{"level":30,"time":1791833880816,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1e","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833880817,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1e","res":{"statusCode":200},"responseTime":0.25291699999979755,"msg":"request completed"}
+{"level":30,"time":1791833881069,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1f","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833881070,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1f","res":{"statusCode":200},"responseTime":0.2915000000011787,"msg":"request completed"}
+{"level":30,"time":1791833881323,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1g","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833881323,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1g","res":{"statusCode":200},"responseTime":0.2494169999990845,"msg":"request completed"}
+{"level":30,"time":1791833881577,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1h","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833881578,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1h","res":{"statusCode":200},"responseTime":0.5344160000004194,"msg":"request completed"}
+{"level":30,"time":1791833881831,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1i","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833881831,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1i","res":{"statusCode":200},"responseTime":0.1898750000000291,"msg":"request completed"}
+{"level":30,"time":1791833882084,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1j","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833882085,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1j","res":{"statusCode":200},"responseTime":0.2336249999989377,"msg":"request completed"}
+{"level":30,"time":1791833882337,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1k","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833882338,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1k","res":{"statusCode":200},"responseTime":0.2872080000015558,"msg":"request completed"}
+{"level":30,"time":1791833882590,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1l","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833882590,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1l","res":{"statusCode":200},"responseTime":0.22383299999819428,"msg":"request completed"}
+{"level":30,"time":1791833882842,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1m","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833882843,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1m","res":{"statusCode":200},"responseTime":0.2069580000006681,"msg":"request completed"}
+{"level":30,"time":1791833883095,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1n","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833883096,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1n","res":{"statusCode":200},"responseTime":0.3069579999992129,"msg":"request completed"}
+{"level":30,"time":1791833883349,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1o","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833883349,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1o","res":{"statusCode":200},"responseTime":0.30841700000019046,"msg":"request completed"}
+{"level":30,"time":1791833883602,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1p","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833883602,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1p","res":{"statusCode":200},"responseTime":0.21362500000032014,"msg":"request completed"}
+{"level":30,"time":1791833883855,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1q","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833883855,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1q","res":{"statusCode":200},"responseTime":0.23712499999965075,"msg":"request completed"}
+{"level":30,"time":1791833884107,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1r","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833884108,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1r","res":{"statusCode":200},"responseTime":0.25954099999944447,"msg":"request completed"}
+{"level":30,"time":1791833884361,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1s","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833884361,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1s","res":{"statusCode":200},"responseTime":0.12550000000010186,"msg":"request completed"}
+{"level":30,"time":1791833884613,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1t","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833884614,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1t","res":{"statusCode":200},"responseTime":0.346916999998939,"msg":"request completed"}
+{"level":30,"time":1791833884870,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1u","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833884870,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1u","res":{"statusCode":200},"responseTime":0.09970800000155577,"msg":"request completed"}
+{"level":30,"time":1791833885123,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1v","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833885123,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1v","res":{"statusCode":200},"responseTime":0.2854170000027807,"msg":"request completed"}
+{"level":30,"time":1791833885376,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1w","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833885377,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1w","res":{"statusCode":200},"responseTime":0.3068330000023707,"msg":"request completed"}
+{"level":30,"time":1791833885629,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1x","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833885630,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1x","res":{"statusCode":200},"responseTime":0.15204099999755272,"msg":"request completed"}
+{"level":30,"time":1791833885882,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1y","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833885882,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1y","res":{"statusCode":200},"responseTime":0.46420800000123563,"msg":"request completed"}
+{"level":30,"time":1791833886136,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1z","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833886136,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1z","res":{"statusCode":200},"responseTime":0.19308399999863468,"msg":"request completed"}
+{"level":30,"time":1791833886389,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-20","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833886389,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-20","res":{"statusCode":200},"responseTime":0.22854200000074343,"msg":"request completed"}
+{"level":30,"time":1791833886641,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-21","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833886641,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-21","res":{"statusCode":200},"responseTime":0.12116700000115088,"msg":"request completed"}
+{"level":30,"time":1791833886893,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-22","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833886893,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-22","res":{"statusCode":200},"responseTime":0.20666700000219862,"msg":"request completed"}
+{"level":30,"time":1791833887145,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-23","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833887145,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-23","res":{"statusCode":200},"responseTime":0.12020900000061374,"msg":"request completed"}
+{"level":30,"time":1791833887398,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-24","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833887398,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-24","res":{"statusCode":200},"responseTime":0.21729200000117999,"msg":"request completed"}
+{"level":30,"time":1791833887651,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-25","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833887651,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-25","res":{"statusCode":200},"responseTime":0.35583300000143936,"msg":"request completed"}
+{"level":30,"time":1791833887904,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-26","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833887904,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-26","res":{"statusCode":200},"responseTime":0.24804199999925913,"msg":"request completed"}
+{"level":30,"time":1791833888156,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-27","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833888157,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-27","res":{"statusCode":200},"responseTime":0.22641699999803677,"msg":"request completed"}
+{"level":30,"time":1791833888411,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-28","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833888411,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-28","res":{"statusCode":200},"responseTime":0.24412500000107684,"msg":"request completed"}
+{"level":30,"time":1791833888664,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-29","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833888664,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-29","res":{"statusCode":200},"responseTime":0.2080000000023574,"msg":"request completed"}
+{"level":30,"time":1791833888917,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2a","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833888918,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2a","res":{"statusCode":200},"responseTime":0.45233299999745213,"msg":"request completed"}
+{"level":30,"time":1791833889172,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2b","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833889173,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2b","res":{"statusCode":200},"responseTime":0.3233330000002752,"msg":"request completed"}
+{"level":30,"time":1791833889426,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2c","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833889427,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2c","res":{"statusCode":200},"responseTime":0.43624999999883585,"msg":"request completed"}
+{"level":30,"time":1791833889680,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2d","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833889681,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2d","res":{"statusCode":200},"responseTime":0.3589579999970738,"msg":"request completed"}
+{"level":30,"time":1791833889934,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2e","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833889935,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2e","res":{"statusCode":200},"responseTime":0.34495800000149757,"msg":"request completed"}
+{"level":30,"time":1791833890188,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2f","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833890188,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2f","res":{"statusCode":200},"responseTime":0.2948340000002645,"msg":"request completed"}
+{"level":30,"time":1791833890441,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2g","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833890441,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2g","res":{"statusCode":200},"responseTime":0.17620800000076997,"msg":"request completed"}
+{"level":30,"time":1791833890693,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2h","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833890693,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2h","res":{"statusCode":200},"responseTime":0.24016699999992852,"msg":"request completed"}
+{"level":30,"time":1791833890947,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2i","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833890947,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2i","res":{"statusCode":200},"responseTime":0.0795410000027914,"msg":"request completed"}
+{"level":30,"time":1791833891198,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2j","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833891198,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2j","res":{"statusCode":200},"responseTime":0.09099999999671127,"msg":"request completed"}
+{"level":30,"time":1791833891451,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2k","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833891451,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2k","res":{"statusCode":200},"responseTime":0.1742919999996957,"msg":"request completed"}
+{"level":30,"time":1791833891703,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2l","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833891704,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2l","res":{"statusCode":200},"responseTime":0.2879999999968277,"msg":"request completed"}
+{"level":30,"time":1791833891957,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2m","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833891957,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2m","res":{"statusCode":200},"responseTime":0.23754099999860046,"msg":"request completed"}
+{"level":30,"time":1791833892209,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2n","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833892209,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2n","res":{"statusCode":200},"responseTime":0.3147919999973965,"msg":"request completed"}
+{"level":30,"time":1791833892462,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2o","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833892463,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2o","res":{"statusCode":200},"responseTime":0.1735420000004524,"msg":"request completed"}
+{"level":30,"time":1791833892714,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2p","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833892714,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2p","res":{"statusCode":200},"responseTime":0.21629100000063772,"msg":"request completed"}
+{"level":30,"time":1791833892967,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2q","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833892967,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2q","res":{"statusCode":200},"responseTime":0.26658300000053714,"msg":"request completed"}
+{"level":30,"time":1791833893219,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2r","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833893219,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2r","res":{"statusCode":200},"responseTime":0.20837500000197906,"msg":"request completed"}
+{"level":30,"time":1791833893472,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2s","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833893473,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2s","res":{"statusCode":200},"responseTime":0.21716699999888078,"msg":"request completed"}
+{"level":30,"time":1791833893725,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2t","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833893725,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2t","res":{"statusCode":200},"responseTime":0.14324999999735155,"msg":"request completed"}
+{"level":30,"time":1791833893978,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2u","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833893978,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2u","res":{"statusCode":200},"responseTime":0.2075829999994312,"msg":"request completed"}
+{"level":30,"time":1791833894230,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2v","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833894231,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2v","res":{"statusCode":200},"responseTime":0.4155830000017886,"msg":"request completed"}
+{"level":30,"time":1791833894483,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2w","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833894483,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2w","res":{"statusCode":200},"responseTime":0.23441599999932805,"msg":"request completed"}
+{"level":30,"time":1791833894736,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2x","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833894736,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2x","res":{"statusCode":200},"responseTime":0.25929200000246055,"msg":"request completed"}
+{"level":30,"time":1791833894989,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2y","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833894989,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2y","res":{"statusCode":200},"responseTime":0.2571669999997539,"msg":"request completed"}
+{"level":30,"time":1791833895242,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2z","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833895242,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2z","res":{"statusCode":200},"responseTime":0.29962500000328873,"msg":"request completed"}
+{"level":30,"time":1791833895495,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-30","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833895495,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-30","res":{"statusCode":200},"responseTime":0.2770830000008573,"msg":"request completed"}
+{"level":30,"time":1791833895748,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-31","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833895749,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-31","res":{"statusCode":200},"responseTime":0.24529099999926984,"msg":"request completed"}
+{"level":30,"time":1791833896002,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-32","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833896002,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-32","res":{"statusCode":200},"responseTime":0.2361669999991136,"msg":"request completed"}
+{"level":30,"time":1791833896254,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-33","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833896254,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-33","res":{"statusCode":200},"responseTime":0.08187500000349246,"msg":"request completed"}
+{"level":30,"time":1791833896505,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-34","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833896505,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-34","res":{"statusCode":200},"responseTime":0.08350000000064028,"msg":"request completed"}
+{"level":30,"time":1791833896756,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-35","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833896756,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-35","res":{"statusCode":200},"responseTime":0.13879200000155834,"msg":"request completed"}
+{"level":30,"time":1791833897008,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-36","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833897008,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-36","res":{"statusCode":200},"responseTime":0.27333399999770336,"msg":"request completed"}
+{"level":30,"time":1791833897260,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-37","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":55731},"msg":"incoming request"}
+{"level":30,"time":1791833897260,"pid":93866,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-37","res":{"statusCode":200},"responseTime":0.2867079999996349,"msg":"request completed"}
+npm error Lifecycle script `dev` failed with error:
+npm error code 143
+npm error path /Users/maurowidman/Projects/AI/prod-certo-green/client
+npm error workspace @hn/client@0.0.0
+npm error location /Users/maurowidman/Projects/AI/prod-certo-green/client
+npm error command failed
+npm error command sh -c vite

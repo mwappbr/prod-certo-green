@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-12T13:08:51.763Z",
+  "node": "v24.21.0",
+  "traces": [
+    "pre-theme/results/theme-Tema-claro-e-escuro--8941b--break-in-tab-theme-changes/trace.zip",
+    "pre-theme/results/theme-Tema-claro-e-escuro--91edb-n-then-be-replaced-manually/trace.zip",
+    "pre-theme/results/theme-Tema-claro-e-escuro--aff5e-a-e-detalhe-antes-do-bundle/trace.zip",
+    "pre-theme/results/theme-Tema-claro-e-escuro--d3b71--but-not-an-independent-tab/trace.zip",
+    "pre-theme/results/theme-Tema-claro-e-escuro--d3f83-ema-antes-da-escolha-manual/trace.zip",
+    "pre-theme/results/theme-Tema-claro-e-escuro--e533e-dle-e-dos-componentes-React/trace.zip"
+  ],
+  "traceCount": 6,
+  "port4173": {
+    "status": 1,
+    "stdout": "",
+    "stderr": "",
+    "error": null
+  },
+  "success": true
+}

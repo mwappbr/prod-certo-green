@@ -1,0 +1,9 @@
+{
+  "startedAt": "2026-10-12T15:24:46Z",
+  "finishedAt": "2026-10-12T15:24:46Z",
+  "nodeVersion": "v24.19.0",
+  "npmVersion": "11.17.0",
+  "command": "npm run typecheck --workspace @hn/client",
+  "exitStatus": 0,
+  "log": "/tmp/hn-4-2/run.c79f19/followup/client-typecheck.log"
+}

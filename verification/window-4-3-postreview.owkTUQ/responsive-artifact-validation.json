@@ -1,0 +1,40 @@
+{
+  "validatedAt": "2026-10-12T17:58:06.125Z",
+  "node": "v24.21.0",
+  "topKeys": [
+    "capturedAt",
+    "nodeVersion",
+    "browserName",
+    "browserVersion",
+    "simulation",
+    "apiRequests",
+    "results",
+    "issues"
+  ],
+  "arrays": {
+    "apiRequests": {
+      "length": 33,
+      "firstKeys": null
+    },
+    "results": {
+      "length": 16,
+      "firstKeys": [
+        "surface",
+        "theme",
+        "viewport",
+        "scale",
+        "innerWidth",
+        "documentClientWidth",
+        "documentScrollWidth",
+        "targets",
+        "textClipping",
+        "categoryStrip"
+      ]
+    },
+    "issues": {
+      "length": 0,
+      "firstKeys": null
+    }
+  },
+  "issues": []
+}

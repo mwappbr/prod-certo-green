@@ -1,0 +1,33 @@
+{
+  "startedAt": "2026-10-12T15:24:12Z",
+  "finishedAt": "2026-10-12T15:24:21Z",
+  "nodeVersion": "v24.19.0",
+  "npmVersion": "11.17.0",
+  "playwrightVersion": "1.64.0",
+  "browserVersion": "156.0.8078.4",
+  "testCount": 2,
+  "matrixScenarioCount": 16,
+  "exitStatus": 1,
+  "log": "/tmp/hn-4-2/run.c79f19/followup/red.log",
+  "measureJson": "/tmp/hn-4-2/run.c79f19/followup/red-measures.json",
+  "measurementsCaptured": true,
+  "issueCount": 16,
+  "issues": [
+    "light/listing/320/normal: target below 44x44: Abrir x.io em nova aba [.story-row__source]=19.92x44",
+    "light/listing/320/simulated-200: target below 44x44: Abrir x.io em nova aba [.story-row__source]=35.41x44",
+    "light/listing/375/normal: target below 44x44: Abrir x.io em nova aba [.story-row__source]=19.92x44",
+    "light/listing/375/simulated-200: target below 44x44: Abrir x.io em nova aba [.story-row__source]=35.41x44",
+    "light/detail/320/normal: target below 44x44: Abrir x.io em nova aba [.detail__source]=21.27x44",
+    "light/detail/320/simulated-200: target below 44x44: Abrir x.io em nova aba [.detail__source]=38.34x44",
+    "light/detail/375/normal: target below 44x44: Abrir x.io em nova aba [.detail__source]=21.27x44",
+    "light/detail/375/simulated-200: target below 44x44: Abrir x.io em nova aba [.detail__source]=38.34x44",
+    "dark/listing/320/normal: target below 44x44: Abrir x.io em nova aba [.story-row__source]=19.92x44",
+    "dark/listing/320/simulated-200: target below 44x44: Abrir x.io em nova aba [.story-row__source]=35.41x44",
+    "dark/listing/375/normal: target below 44x44: Abrir x.io em nova aba [.story-row__source]=19.92x44",
+    "dark/listing/375/simulated-200: target below 44x44: Abrir x.io em nova aba [.story-row__source]=35.41x44",
+    "dark/detail/320/normal: target below 44x44: Abrir x.io em nova aba [.detail__source]=21.27x44",
+    "dark/detail/320/simulated-200: target below 44x44: Abrir x.io em nova aba [.detail__source]=38.34x44",
+    "dark/detail/375/normal: target below 44x44: Abrir x.io em nova aba [.detail__source]=21.27x44",
+    "dark/detail/375/simulated-200: target below 44x44: Abrir x.io em nova aba [.detail__source]=38.34x44"
+  ]
+}

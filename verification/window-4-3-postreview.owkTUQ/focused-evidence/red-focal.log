@@ -1,0 +1,118 @@
+
+Running 6 tests using 1 worker
+
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✘  1 e2e/keyboard-focus-semantics.spec.ts:197:3 › uses keyboard traversal for all six category tabs at 320px (210ms)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✘  2 e2e/keyboard-focus-semantics.spec.ts:197:3 › uses keyboard traversal for all six category tabs at 375px (222ms)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✘  3 e2e/keyboard-focus-semantics.spec.ts:271:1 › toggles theme and loads the next page through keyboard with focus retained (5.2s)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  4 e2e/keyboard-focus-semantics.spec.ts:375:1 › uses keyboard for theme and comment-tree disclosure without extra API requests (200ms)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  5 e2e/keyboard-focus-semantics.spec.ts:466:1 › disables actual list and detail loader motion when reduced motion is preferred (134ms)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  6 e2e/keyboard-focus-semantics.spec.ts:546:1 › rejects a test-only invisible keyboard focus outline (95ms)
+
+
+  1) e2e/keyboard-focus-semantics.spec.ts:197:3 › uses keyboard traversal for all six category tabs at 320px 
+
+    Error: focus rectangle is outside the viewport: {"rect":{"left":268.28125,"top":24,"right":334.109375,"bottom":68,"width":65.828125,"height":44},"viewport":{"width":320,"height":812}}
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      159 |   expect(evidence.outlineStyle).not.toBe('none');
+      160 |   expect(evidence.outlineWidth).toBeGreaterThanOrEqual(2);
+    > 161 |   expect(evidence.rectVisible, `focus rectangle is outside the viewport: ${JSON.stringify({ rect: evidence.rect, viewport: evidence.viewport })}`).toBe(true);
+          |                                                                                                                                                    ^
+      162 | }
+      163 |
+      164 | async function expectTabInsideStrip(tab: Locator, requireScroll: boolean) {
+        at expectVisibleKeyboardFocus (/Users/maurowidman/Projects/AI/prod-certo-green/e2e/keyboard-focus-semantics.spec.ts:161:148)
+        at focusedElementIsTab (/Users/maurowidman/Projects/AI/prod-certo-green/e2e/keyboard-focus-semantics.spec.ts:187:3)
+        at /Users/maurowidman/Projects/AI/prod-certo-green/e2e/keyboard-focus-semantics.spec.ts:222:20
+
+    Error Context: test-results/keyboard-focus-semantics-u-10645--six-category-tabs-at-320px/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/keyboard-focus-semantics-u-10645--six-category-tabs-at-320px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/keyboard-focus-semantics-u-10645--six-category-tabs-at-320px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) e2e/keyboard-focus-semantics.spec.ts:197:3 › uses keyboard traversal for all six category tabs at 375px 
+
+    Error: focus rectangle is outside the viewport: {"rect":{"left":342.109375,"top":24,"right":402.84375,"bottom":68,"width":60.734375,"height":44},"viewport":{"width":375,"height":812}}
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      159 |   expect(evidence.outlineStyle).not.toBe('none');
+      160 |   expect(evidence.outlineWidth).toBeGreaterThanOrEqual(2);
+    > 161 |   expect(evidence.rectVisible, `focus rectangle is outside the viewport: ${JSON.stringify({ rect: evidence.rect, viewport: evidence.viewport })}`).toBe(true);
+          |                                                                                                                                                    ^
+      162 | }
+      163 |
+      164 | async function expectTabInsideStrip(tab: Locator, requireScroll: boolean) {
+        at expectVisibleKeyboardFocus (/Users/maurowidman/Projects/AI/prod-certo-green/e2e/keyboard-focus-semantics.spec.ts:161:148)
+        at focusedElementIsTab (/Users/maurowidman/Projects/AI/prod-certo-green/e2e/keyboard-focus-semantics.spec.ts:187:3)
+        at /Users/maurowidman/Projects/AI/prod-certo-green/e2e/keyboard-focus-semantics.spec.ts:222:20
+
+    Error Context: test-results/keyboard-focus-semantics-u-9cfaa--six-category-tabs-at-375px/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/keyboard-focus-semantics-u-9cfaa--six-category-tabs-at-375px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/keyboard-focus-semantics-u-9cfaa--six-category-tabs-at-375px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) e2e/keyboard-focus-semantics.spec.ts:271:1 › toggles theme and loads the next page through keyboard with focus retained 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('button', { name: /Carregar mais|Carregando mais/ })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('button', { name: /Carregar mais|Carregando mais/ }) with timeout 5000ms
+      - waiting for getByRole('button', { name: /Carregar mais|Carregando mais/ })
+        14 × locator resolved to <button type="button" aria-busy="false" class="listing__button listing__load-more">Carregar mais</button>
+           - unexpected value "inactive"
+
+
+      153 |
+      154 | async function expectVisibleKeyboardFocus(locator: Locator) {
+    > 155 |   await expect(locator).toBeFocused();
+          |                         ^
+      156 |   const evidence = await focusEvidence(locator);
+      157 |   expect(evidence.active).toBe(true);
+      158 |   expect(evidence.focusVisible).toBe(true);
+        at expectVisibleKeyboardFocus (/Users/maurowidman/Projects/AI/prod-certo-green/e2e/keyboard-focus-semantics.spec.ts:155:25)
+        at /Users/maurowidman/Projects/AI/prod-certo-green/e2e/keyboard-focus-semantics.spec.ts:365:11
+
+    Error Context: test-results/keyboard-focus-semantics-t-bbfc7-eyboard-with-focus-retained/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/keyboard-focus-semantics-t-bbfc7-eyboard-with-focus-retained/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/keyboard-focus-semantics-t-bbfc7-eyboard-with-focus-retained/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    e2e/keyboard-focus-semantics.spec.ts:197:3 › uses keyboard traversal for all six category tabs at 320px 
+    e2e/keyboard-focus-semantics.spec.ts:197:3 › uses keyboard traversal for all six category tabs at 375px 
+    e2e/keyboard-focus-semantics.spec.ts:271:1 › toggles theme and loads the next page through keyboard with focus retained 
+  3 passed (7.7s)

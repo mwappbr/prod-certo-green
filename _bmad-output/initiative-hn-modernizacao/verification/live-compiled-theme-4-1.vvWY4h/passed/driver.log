@@ -1,0 +1,4 @@
+COMMAND=node drive-theme-fixture-app.mjs ROOT /tmp/hn-4-1-actual-data-postfix.euH6Wj
+v24.21.0
+11.19.0
+{"status":"passed","resultPath":"/tmp/hn-4-1-actual-data-postfix.euH6Wj/actual-result.json","screenshots":7,"failure":null}

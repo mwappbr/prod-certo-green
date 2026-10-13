@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-12T12:37:33.667Z",
+  "node": "v24.21.0",
+  "success": true,
+  "observations": [
+    {
+      "port": 3000,
+      "status": 1,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "port": 33877,
+      "status": 1,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "port": 5173,
+      "status": 1,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "port": 4173,
+      "status": 1,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    }
+  ]
+}

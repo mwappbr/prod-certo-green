@@ -1,0 +1,7 @@
+{
+  "status": "stopped",
+  "stoppedAt": "2026-10-12T15:56:12.453Z",
+  "helperPid": 16613,
+  "signal": "SIGTERM",
+  "closeCompleted": true
+}

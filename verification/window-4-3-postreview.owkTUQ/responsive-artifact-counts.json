@@ -1,0 +1,11 @@
+{
+  "validatedAt": "2026-10-12T18:03:00.004Z",
+  "validationNode": "v24.21.0",
+  "executionNode": "v24.21.0",
+  "browser": "156.0.8078.4",
+  "responsiveScenarioCount": 16,
+  "targetMeasurements": 144,
+  "issues": [],
+  "rawPreserved": true,
+  "notNativeZoomOrAT": true
+}

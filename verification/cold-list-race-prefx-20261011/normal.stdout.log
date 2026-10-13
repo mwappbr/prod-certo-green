@@ -1,0 +1,9 @@
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 10 skipped (11)
+   Start at  00:08:59
+   Duration  2.14s (tests 95%, import 3%, transform 2%)
+

@@ -1,0 +1,6 @@
+command=["docker","image","inspect","hnqa-202610121917-77282-68563536ded8-app"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=8000
+
+[]
+Error response from daemon: No such image: hnqa-202610121917-77282-68563536ded8-app:latest

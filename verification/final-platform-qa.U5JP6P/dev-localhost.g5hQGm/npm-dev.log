@@ -1,0 +1,45 @@
+
+> dev
+> npm run build -w @hn/shared && node scripts/dev.mjs
+
+
+> @hn/shared@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/server@0.0.0 dev
+> npm run build && node dist/main.js
+
+
+> @hn/client@0.0.0 dev
+> vite
+
+
+> @hn/server@0.0.0 build
+> tsc -p tsconfig.json
+
+
+  VITE v8.3.4  ready in 146 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+{"level":30,"time":1791835177018,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://127.0.0.1:3000"}
+{"level":30,"time":1791835177018,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://192.168.101.202:3000"}
+{"level":30,"time":1791835177018,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://100.110.228.47:3000"}
+{"level":30,"time":1791835177018,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://192.168.64.1:3000"}
+{"level":30,"time":1791835177265,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1","req":{"method":"GET","url":"/api/health","host":"127.0.0.1:3000","remoteAddress":"127.0.0.1","remotePort":57549},"msg":"incoming request"}
+{"level":30,"time":1791835177271,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1","res":{"statusCode":200},"responseTime":5.297458000000006,"msg":"request completed"}
+{"level":30,"time":1791835177303,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2","req":{"method":"GET","url":"/api/health","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57553},"msg":"incoming request"}
+{"level":30,"time":1791835177304,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-2","res":{"statusCode":200},"responseTime":0.3564169999999649,"msg":"request completed"}
+{"level":30,"time":1791835177657,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-3","req":{"method":"GET","url":"/api/stories?category=top","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57562},"msg":"incoming request"}
+{"level":30,"time":1791835177667,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-4","req":{"method":"GET","url":"/api/stories?category=top","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57564},"msg":"incoming request"}
+{"level":30,"time":1791835179216,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-4","res":{"statusCode":200},"responseTime":1548.179,"msg":"request completed"}
+{"level":30,"time":1791835179536,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-5","req":{"method":"GET","url":"/api/stories?category=job","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57582},"msg":"incoming request"}
+{"level":30,"time":1791835180439,"pid":6413,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-5","res":{"statusCode":200},"responseTime":902.8604999999998,"msg":"request completed"}
+npm error Lifecycle script `dev` failed with error:
+npm error code 143
+npm error path /Users/maurowidman/Projects/AI/prod-certo-green/client
+npm error workspace @hn/client@0.0.0
+npm error location /Users/maurowidman/Projects/AI/prod-certo-green/client
+npm error command failed
+npm error command sh -c vite

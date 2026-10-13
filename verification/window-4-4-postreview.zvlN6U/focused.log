@@ -1,0 +1,13 @@
+
+Running 4 tests using 1 worker
+
+{"scenario":"list-light","runtime":{"nodeVersion":"v24.21.0","browserName":"chromium","browserVersion":"156.0.8078.4","viewport":{"width":375,"height":812},"colorScheme":"light","route":"/?category=top"},"testEngine":{"name":"axe-core","version":"4.13.0"},"counts":{"violations":0,"incomplete":1,"passes":37,"inapplicable":52},"violations":[],"incomplete":[{"id":"color-contrast","impact":"serious","nodes":[{"target":["#category-tab-job"],"failureSummary":"Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"}]}],"criticalOrSerious":[]}
+  ✓  1 e2e/accessibility.spec.ts:21:5 › Axe accessibility audit › list-light at 375px (368ms)
+{"scenario":"list-dark","runtime":{"nodeVersion":"v24.21.0","browserName":"chromium","browserVersion":"156.0.8078.4","viewport":{"width":375,"height":812},"colorScheme":"dark","route":"/?category=top"},"testEngine":{"name":"axe-core","version":"4.13.0"},"counts":{"violations":0,"incomplete":1,"passes":37,"inapplicable":52},"violations":[],"incomplete":[{"id":"color-contrast","impact":"serious","nodes":[{"target":["#category-tab-job"],"failureSummary":"Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"}]}],"criticalOrSerious":[]}
+  ✓  2 e2e/accessibility.spec.ts:21:5 › Axe accessibility audit › list-dark at 375px (338ms)
+{"scenario":"detail-light","runtime":{"nodeVersion":"v24.21.0","browserName":"chromium","browserVersion":"156.0.8078.4","viewport":{"width":375,"height":812},"colorScheme":"light","route":"/item/98310000"},"testEngine":{"name":"axe-core","version":"4.13.0"},"counts":{"violations":0,"incomplete":0,"passes":32,"inapplicable":57},"violations":[],"incomplete":[],"criticalOrSerious":[]}
+  ✓  3 e2e/accessibility.spec.ts:21:5 › Axe accessibility audit › detail-light at 375px (1.9s)
+{"scenario":"detail-dark","runtime":{"nodeVersion":"v24.21.0","browserName":"chromium","browserVersion":"156.0.8078.4","viewport":{"width":375,"height":812},"colorScheme":"dark","route":"/item/98310000"},"testEngine":{"name":"axe-core","version":"4.13.0"},"counts":{"violations":0,"incomplete":0,"passes":32,"inapplicable":57},"violations":[],"incomplete":[],"criticalOrSerious":[]}
+  ✓  4 e2e/accessibility.spec.ts:21:5 › Axe accessibility audit › detail-dark at 375px (1.7s)
+
+  4 passed (5.1s)

@@ -1,0 +1,25 @@
+node=v24.21.0
+npm=11.19.0
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+ ✓ client/src/vite-proxy.test.ts > Vite API proxy > uses the central PORT default when PORT is absent 67ms
+ ✓ client/src/vite-proxy.test.ts > Vite API proxy > uses the central validated PORT override 2ms
+ ✓ client/src/vite-proxy.test.ts > Vite API proxy > rejects an invalid PORT through the central server config 1ms
+ ✓ server/test/dev-runner.test.ts > development process runner > starts both workspace scripts through the current Node and npm CLI 22ms
+ ✓ server/test/dev-runner.test.ts > development process runner > fails invalid PORT and missing npm_execpath before spawning children 1ms
+ ✓ server/test/dev-runner.test.ts > development process runner > terminates only its own POSIX process groups on stop 1ms
+ ✓ server/test/dev-runner.test.ts > development process runner > stops the sibling after a child error or exit 1ms
+ ✓ server/test/dev-runner.test.ts > development process runner > uses a bounded Windows taskkill tree strategy anchored to owned PIDs 2ms
+ ✓ server/test/dev-runner.test.ts > development process runner > routes parent signals into bounded child cleanup 1ms
+ ✓ server/test/config.test.ts > loadConfig > maps defaults from an empty environment 1ms
+ ✓ server/test/config.test.ts > loadConfig > coerces explicit values and preserves an intentional zero retry count 0ms
+ ✓ server/test/config.test.ts > loadConfig > rejects blank retry values instead of coercing whitespace to zero 0ms
+ ✓ server/test/config.test.ts > loadConfig > rejects blank and non-numeric PORT values from explicit fixtures 0ms
+ ✓ server/test/config.test.ts > loadConfig > rejects values outside their range and inconsistent page sizes 0ms
+
+ Test Files  3 passed (3)
+      Tests  14 passed (14)
+   Start at  09:16:07
+   Duration  295ms (tests 70%, import 18%, transform 9%, worker 3%)
+

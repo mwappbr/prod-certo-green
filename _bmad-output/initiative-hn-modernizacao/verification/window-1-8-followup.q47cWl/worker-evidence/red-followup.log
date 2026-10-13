@@ -1,0 +1,86 @@
+node=v24.21.0
+npm=11.19.0
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+ ❯ server/test/dev-runner.test.ts (9 tests | 4 failed) 6566ms
+   ❯ development process runner (9)
+     × drains a POSIX group after its wrapper exits and kills a TERM-resistant descendant 3ms
+     × uses a bounded Windows taskkill tree strategy anchored to owned PIDs 5005ms
+     × bounds and terminates its own hung taskkill helper 8ms
+     × propagates cleanup failure as nonzero and makes parent stop idempotent 1513ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  server/test/dev-runner.test.ts > development process runner > drains a POSIX group after its wrapper exits and kills a TERM-resistant descendant
+AssertionError: expected [] to deeply equal [ 'SIGTERM', 'SIGKILL' ]
+
+- Expected
++ Received
+
+- [
+-   "SIGTERM",
+-   "SIGKILL",
+- ]
++ []
+
+ ❯ server/test/dev-runner.test.ts:144:21
+    142|     await supervisor.stop('join-wrapper-cleanup');
+    143|
+    144|     expect(signals).toEqual(['SIGTERM', 'SIGKILL']);
+       |                     ^
+    145|     expect(groupAlive).toBe(false);
+    146|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  server/test/dev-runner.test.ts > development process runner > uses a bounded Windows taskkill tree strategy anchored to owned PIDs
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ server/test/dev-runner.test.ts:164:3
+    162|   });
+    163|
+    164|   it('uses a bounded Windows taskkill tree strategy anchored to owned …
+       |   ^
+    165|     const runner = await loadRunner();
+    166|     const gracefulHarness = createHarness('win32');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  server/test/dev-runner.test.ts > development process runner > bounds and terminates its own hung taskkill helper
+TypeError: runner.createWindowsTreeTerminator is not a function
+ ❯ server/test/dev-runner.test.ts:204:30
+    202|     });
+    203|     const spawnTerminator = vi.fn(() => helper);
+    204|     const operation = runner.createWindowsTreeTerminator(4200, false, …
+       |                              ^
+    205|       spawnTerminator,
+    206|       killTimeoutMs: 15,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  server/test/dev-runner.test.ts > development process runner > propagates cleanup failure as nonzero and makes parent stop idempotent
+AssertionError: expected [Function] to throw error matching /EPERM|permission denied/i but got 'Falha ao limpar processos próprios (p…'
+
+- Expected:
+/EPERM|permission denied/i
+
++ Received:
+"Falha ao limpar processos próprios (parent-SIGINT)."
+
+ ❯ server/test/dev-runner.test.ts:235:28
+    233|     const secondStop = session.stop('repeat-parent-stop');
+    234|     expect(firstStop).toBe(secondStop);
+    235|     await expect(firstStop).rejects.toThrow(/EPERM|permission denied/i…
+       |                            ^
+    236|     await new Promise((resolveWait) => setImmediate(resolveWait));
+    237|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  4 failed | 10 passed (14)
+   Start at  09:52:19
+   Duration  6.73s (tests 99%)
+

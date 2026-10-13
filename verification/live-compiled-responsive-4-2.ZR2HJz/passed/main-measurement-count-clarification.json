@@ -1,0 +1,12 @@
+{
+  "capturedAt": "2026-10-12T16:09:19.464Z",
+  "nodeVersion": "v24.21.0",
+  "rawBoundsRecords": 700,
+  "distinctElementMeasurementsAcrossCases": 360,
+  "meaning": "700 bounds records include overlapping groups: tabs/buttons/theme and buttons/commentToggle. 360 per-element/per-render measurements; neither count means globally distinct DOM controls.",
+  "typographyRowsValidated": 3970,
+  "normalLineHeightMethod": "normal-derived-1.2em in actual helper, explicitly synthetic",
+  "nativeBrowserZoom": false,
+  "systemScale": false,
+  "AT": false
+}

@@ -1,0 +1,22 @@
+RUN_DIR=/tmp/hn-4.1-client-build.ZBjO6h
+LOG=/tmp/hn-4.1-client-build.ZBjO6h/run.log
+NODE_PATH=/opt/homebrew/opt/node@24/bin/node
+NODE_VERSION=v24.21.0
+NPM_PATH=/opt/homebrew/opt/node@24/bin/npm
+NPM_VERSION=11.19.0
+COMMAND=npm run build -w @hn/client
+
+> @hn/client@0.0.0 build
+> tsc -p tsconfig.json --noEmit && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 39 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.77 kB │ gzip:  0.44 kB
+dist/assets/index-CDorObZO.css    9.25 kB │ gzip:  2.11 kB
+dist/assets/index-BdxN0Lnm.js   218.11 kB │ gzip: 67.39 kB
+
+✓ built in 61ms
+CLIENT_ONLY_BUILD_EXIT_STATUS=0

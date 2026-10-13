@@ -1,0 +1,21 @@
+{
+  "startedAt": "2026-10-12T19:59:36.238Z",
+  "node": "v24.21.0",
+  "status": "passed",
+  "errors": [],
+  "cleanup": {
+    "signal": "SIGTERM",
+    "closed": true,
+    "exit": {
+      "code": null,
+      "signal": "SIGTERM"
+    },
+    "port3000Free": true,
+    "port5173Free": true
+  },
+  "pid": 6125,
+  "topRows": 30,
+  "jobRows": 30,
+  "proxyHealth": "ok",
+  "finishedAt": "2026-10-12T19:59:40.932Z"
+}

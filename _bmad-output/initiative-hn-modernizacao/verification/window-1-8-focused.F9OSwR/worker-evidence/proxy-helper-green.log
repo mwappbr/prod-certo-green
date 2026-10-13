@@ -1,0 +1,14 @@
+node=v24.21.0
+npm=11.19.0
+
+ RUN  v5.0.3 /Users/maurowidman/Projects/AI/prod-certo-green
+
+ ✓ client/src/vite-proxy.test.ts > Vite API proxy > uses the central PORT default when PORT is absent 67ms
+ ✓ client/src/vite-proxy.test.ts > Vite API proxy > uses the central validated PORT override 1ms
+ ✓ client/src/vite-proxy.test.ts > Vite API proxy > rejects an invalid PORT through the central server config 1ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  09:14:42
+   Duration  134ms (tests 85%, transform 9%, import 4%, worker 2%)
+

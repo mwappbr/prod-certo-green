@@ -1,0 +1,55 @@
+{
+  "protocolVersion": 1,
+  "status": "failed",
+  "startedAt": "2026-10-12T11:19:41.336Z",
+  "helperPid": 38655,
+  "runtime": {
+    "node": "v24.21.0",
+    "browser": "156.0.8078.4"
+  },
+  "screenshots": [],
+  "phases": {
+    "initialListing": {
+      "responseUrl": "http://127.0.0.1:54463/api/stories?category=top",
+      "itemIds": [
+        98310000
+      ],
+      "bff": {
+        "GET /api/stories?category=top": 1
+      }
+    }
+  },
+  "errors": {
+    "page": [],
+    "console": [],
+    "http": [],
+    "requests": [],
+    "popups": []
+  },
+  "fixture": {
+    "baseUrl": "http://127.0.0.1:54463",
+    "helperPid": 38400,
+    "storyId": 98310000,
+    "jobId": 98311311,
+    "markerIds": {
+      "deadId": 98310100,
+      "deletedId": 98310101
+    },
+    "visibleCommentCount": 220,
+    "totalCommentCount": 221,
+    "readyAt": "2026-10-12T11:19:26.766Z"
+  },
+  "failure": {
+    "message": "Expected values to be strictly equal:\n\ntrue !== 'string'\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\ntrue !== 'string'\n\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:131:14)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at expectedTreeChecks (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:129:9)\n    at exercise (file:///private/tmp/qa-3-3-compiled-bff-spa/scripts/drive-fixture-app.mjs:271:5)"
+  },
+  "finishedAt": "2026-10-12T11:19:41.758Z",
+  "origins": [
+    "http://127.0.0.1:54463"
+  ],
+  "bffRequestCounts": {
+    "GET /api/items/98310000": 1,
+    "GET /api/items/98310000/comments": 1,
+    "GET /api/stories?category=top": 1
+  }
+}

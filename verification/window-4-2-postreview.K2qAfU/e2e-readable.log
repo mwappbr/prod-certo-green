@@ -1,0 +1,82 @@
+
+> e2e
+> npm run build && playwright test
+
+
+> build
+> npm run build -w @hn/shared && npm run build -w @hn/server && npm run build -w @hn/client
+
+
+> @hn/shared@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/server@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/client@0.0.0 build
+> tsc -p tsconfig.json --noEmit && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 39 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.77 kB │ gzip:  0.44 kB
+dist/assets/index-Dm_gFIxO.css    9.38 kB │ gzip:  2.12 kB
+dist/assets/index-txOBwtbo.js   218.11 kB │ gzip: 67.39 kB
+
+✓ built in 47ms
+
+Running 46 tests using 4 workers
+
+  ✓   1 e2e/theme.spec.ts:25:3 › Tema claro e escuro › PRE_THEME: sistema escuro aplica tokens na lista e detalhe antes do bundle (232ms)
+  ✓   3 e2e/listing.spec.ts:3:1 › shows a normalized top page from the local HN fixture (237ms)
+  ✓   4 e2e/detail.spec.ts:79:1 › renders story metadata and the first comment from the shared envelopes (241ms)
+  ✓   5 e2e/theme.spec.ts:40:3 › Tema claro e escuro › bootstrap manual aplica a escolha antes do bundle e dos componentes React (77ms)
+  ✓   6 e2e/listing.spec.ts:27:1 › renders the backend-normalized Job item in the Jobs category (110ms)
+  ✓   9 e2e/listing.spec.ts:50:1 › offers a retry action when the API is unavailable (167ms)
+  ✓   8 e2e/theme.spec.ts:51:3 › Tema claro e escuro › toggle semântico funciona nas duas telas e acompanha mudança do sistema antes da escolha manual (211ms)
+  ✓  10 e2e/listing.spec.ts:207:1 › uses singular labels for one point and one comment (106ms)
+  ✓  12 e2e/listing.spec.ts:227:1 › wraps long listing content and keeps Jobs reachable at 320px (221ms)
+  ✓  13 e2e/listing.spec.ts:277:1 › wraps unbroken listing error messages at 320px (80ms)
+  ✓  14 e2e/listing.spec.ts:293:1 › appends the next page from its snapshot and keeps the control disabled while loading (217ms)
+  ✓   7 e2e/detail.spec.ts:105:1 › renders the 3.3 HN fixture tree, collapse state, and warm item cache through the local BFF (1.1s)
+  ✓  11 e2e/theme.spec.ts:81:3 › Tema claro e escuro › manual preference survives SPA navigation and reload but not an independent tab (840ms)
+  ✓  17 e2e/theme.spec.ts:138:3 › Tema claro e escuro › invalid preference follows the system and can then be replaced manually (126ms)
+  ✓  16 e2e/detail.spec.ts:314:3 › restores a collapsed comment body when replies become leaf after SPA revisit (UI-only) (284ms)
+  ✓  15 e2e/listing.spec.ts:338:1 › keeps advancing after an empty page and never loads automatically on scroll (458ms)
+  ✓  18 e2e/theme.spec.ts:155:3 › Tema claro e escuro › blocked sessionStorage reads and writes do not break in-tab theme changes (153ms)
+  ✓  20 e2e/listing.spec.ts:372:1 › treats a missing hasMore flag as unknown rather than end of list (208ms)
+  ✓  19 e2e/detail.spec.ts:314:3 › restores a collapsed comment body when replies become cutoff after SPA revisit (UI-only) (321ms)
+  ✓  21 e2e/listing.spec.ts:391:1 › keeps existing rows below an incremental error and retries identical parameters (233ms)
+  ✓  22 e2e/detail.spec.ts:392:1 › keeps collapsed markers and generic continuation/truncation states in a UI-only envelope (175ms)
+  ✓  24 e2e/detail.spec.ts:439:1 › renders two comments in envelope order with author and relative-time metadata (105ms)
+  ✓  23 e2e/listing.spec.ts:435:1 › discards an expired sequence and announces the refreshed first page (226ms)
+  ✓  25 e2e/detail.spec.ts:463:1 › preserves valid authors for deleted and dead markers without rendering their bodies (88ms)
+  ✓  27 e2e/detail.spec.ts:502:3 › shows stale data when only the item envelope is stale (83ms)
+  ✓  28 e2e/detail.spec.ts:502:3 › shows stale data when only the comments envelope is stale (82ms)
+  ✓  29 e2e/detail.spec.ts:523:1 › announces an empty successful comments envelope only after loading (86ms)
+  ✓  26 e2e/listing.spec.ts:482:1 › restores loaded pages, category, and scroll when returning from real item detail (383ms)
+  ✓  30 e2e/detail.spec.ts:559:1 › starts item and comments before release and retries only failed comments (215ms)
+  ✓  32 e2e/detail.spec.ts:626:1 › keeps successful comments while the item fails and retries only the item (201ms)
+  ✓  33 e2e/detail.spec.ts:693:1 › keeps the new detail after native-history SPA id change and late fulfill attempts (91ms)
+  ✓  34 e2e/detail.spec.ts:781:1 › requests comments for a Job and shows the API empty state (83ms)
+  ✓  31 e2e/listing.spec.ts:529:3 › preserves new pages across Back, Forward, and Voltar (561ms)
+  ✓  35 e2e/detail.spec.ts:811:1 › keeps a comment root typed and neutral while its replies endpoint remains usable (82ms)
+  ✓  37 e2e/detail.spec.ts:842:1 › keeps the detail surface inside a 320px viewport (78ms)
+  ✓  36 e2e/listing.spec.ts:529:3 › preserves job pages across Back, Forward, and Voltar (577ms)
+  ✓  38 e2e/listing.spec.ts:587:1 › cancels a queued page scroll restore when changing category (318ms)
+  ✓  39 e2e/listing.spec.ts:668:3 › shows an accessible route error for /not-a-route and returns to the listing (114ms)
+  ✓  40 e2e/listing.spec.ts:668:3 › shows an accessible route error for /item/not-a-number and returns to the listing (116ms)
+  ✓  41 e2e/listing.spec.ts:668:3 › shows an accessible route error for /item/9007199254740992 and returns to the listing (116ms)
+  ✓  42 e2e/listing.spec.ts:691:1 › ignores a late page response after changing category (176ms)
+  ✓  43 e2e/listing.spec.ts:732:1 › supports query-backed tabs for all categories and resets scroll (557ms)
+  ✓  44 e2e/listing.spec.ts:816:1 › isolates category loading and ignores late responses from an abandoned category (180ms)
+  ✓  45 e2e/listing.spec.ts:873:1 › announces loading, stale content, and an empty category (195ms)
+RESPONSIVE_MEASURE_SUMMARY {"capturedAt":"2026-10-12T15:54:49.107Z","sourceLog":"e2e.log","nodeVersion":"v24.21.0","browserName":"chromium","browserVersion":"156.0.8078.4","matrixScenarioCount":16,"measuredTargets":144,"issues":[],"simulation":"test-only per-element computed font-size 2x and original numeric computed line-height 2x; no html/root/viewport/DPR/zoom mutation","nativeZoomClaim":false,"atClaim":false}
+  ✓   2 e2e/responsive-text.spec.ts:406:1 › measures responsive layout, text reflow simulation and 44px targets on list and detail (6.5s)
+  ✓  46 e2e/responsive-text.spec.ts:504:1 › rejects a fixture story source hidden from target measurement (534ms)
+
+  46 passed (7.9s)

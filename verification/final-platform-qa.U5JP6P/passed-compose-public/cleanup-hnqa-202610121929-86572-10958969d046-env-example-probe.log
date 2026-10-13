@@ -1,0 +1,6 @@
+command=["docker","image","rm","hnqa-202610121929-86572-10958969d046-env-example-probe:local"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=12000
+
+Untagged: hnqa-202610121929-86572-10958969d046-env-example-probe:local
+Deleted: sha256:ddac120db838929e104071b318d85f4f2e7ed5007844fd528432e0715f50c82c

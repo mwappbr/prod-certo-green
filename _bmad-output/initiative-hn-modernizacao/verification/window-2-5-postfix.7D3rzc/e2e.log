@@ -1,0 +1,57 @@
+
+> e2e
+> npm run build && playwright test
+
+
+> build
+> npm run build -w @hn/shared && npm run build -w @hn/server && npm run build -w @hn/client
+
+
+> @hn/shared@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/server@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/client@0.0.0 build
+> tsc -p tsconfig.json --noEmit && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 27 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:  0.28 kB
+dist/assets/index-BOuFo2NL.css    4.76 kB │ gzip:  1.47 kB
+dist/assets/index-CCZiZLxr.js   206.51 kB │ gzip: 64.71 kB
+
+✓ built in 43ms
+
+Running 22 tests using 1 worker
+
+  ✓   1 e2e/listing.spec.ts:3:1 › shows a normalized top page from the local HN fixture (105ms)
+  ✓   2 e2e/listing.spec.ts:27:1 › renders the backend-normalized Job item in the Jobs category (84ms)
+  ✓   3 e2e/listing.spec.ts:50:1 › offers a retry action when the API is unavailable (153ms)
+  ✓   4 e2e/listing.spec.ts:179:1 › uses singular labels for one point and one comment (77ms)
+  ✓   5 e2e/listing.spec.ts:199:1 › wraps long listing content and keeps Jobs reachable at 320px (188ms)
+  ✓   6 e2e/listing.spec.ts:249:1 › wraps unbroken listing error messages at 320px (70ms)
+  ✓   7 e2e/listing.spec.ts:265:1 › appends the next page from its snapshot and keeps the control disabled while loading (185ms)
+  ✓   8 e2e/listing.spec.ts:310:1 › keeps advancing after an empty page and never loads automatically on scroll (396ms)
+  ✓   9 e2e/listing.spec.ts:344:1 › treats a missing hasMore flag as unknown rather than end of list (140ms)
+  ✓  10 e2e/listing.spec.ts:363:1 › keeps existing rows below an incremental error and retries identical parameters (195ms)
+  ✓  11 e2e/listing.spec.ts:407:1 › discards an expired sequence and announces the refreshed first page (144ms)
+  ✓  12 e2e/listing.spec.ts:454:1 › restores loaded pages, category, and scroll when returning from the item placeholder (294ms)
+  ✓  13 e2e/listing.spec.ts:500:3 › preserves new pages across Back, Forward, and Voltar (409ms)
+  ✓  14 e2e/listing.spec.ts:500:3 › preserves job pages across Back, Forward, and Voltar (411ms)
+  ✓  15 e2e/listing.spec.ts:554:1 › cancels a queued page scroll restore when changing category (315ms)
+  ✓  16 e2e/listing.spec.ts:635:3 › shows an accessible route error for /not-a-route and returns to the listing (113ms)
+  ✓  17 e2e/listing.spec.ts:635:3 › shows an accessible route error for /item/not-a-number and returns to the listing (111ms)
+  ✓  18 e2e/listing.spec.ts:635:3 › shows an accessible route error for /item/9007199254740992 and returns to the listing (111ms)
+  ✓  19 e2e/listing.spec.ts:658:1 › ignores a late page response after changing category (152ms)
+  ✓  20 e2e/listing.spec.ts:699:1 › supports query-backed tabs for all categories and resets scroll (527ms)
+  ✓  21 e2e/listing.spec.ts:783:1 › isolates category loading and ignores late responses from an abandoned category (171ms)
+  ✓  22 e2e/listing.spec.ts:840:1 › announces loading, stale content, and an empty category (186ms)
+
+  22 passed (5.3s)

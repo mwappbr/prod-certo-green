@@ -1,0 +1,17 @@
+{
+  "validatedAt": "2026-10-12T18:33:11.019Z",
+  "validationNode": "v24.21.0",
+  "originalRuntime": {
+    "node": "v24.21.0",
+    "browser": "chromium",
+    "version": "156.0.8078.4"
+  },
+  "caseCount": 16,
+  "targetMeasurements": 144,
+  "issues": [],
+  "rawPreserved": true,
+  "priorValidationAttempt": {
+    "result": "failed-schema-assumption",
+    "reason": "Read issues as per-case; actual artifact has top-level issues. No product or source failure; original Root still passed."
+  }
+}

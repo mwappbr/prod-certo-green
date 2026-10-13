@@ -1,0 +1,4 @@
+command=["docker","network","ls","-q","--filter","label=com.docker.compose.project=hnqa-202610121929-86572-10958969d046"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=8000
+

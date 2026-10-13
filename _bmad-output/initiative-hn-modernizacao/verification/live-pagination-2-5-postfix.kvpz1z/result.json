@@ -1,0 +1,92 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-12T04:51:49.162Z",
+  "node": "v24.21.0",
+  "baseURL": "http://127.0.0.1:3000",
+  "topPages": [
+    {
+      "page": 1,
+      "rows": 30,
+      "snapshot": "2026-10-12T04:51:44.034Z",
+      "cachedAt": "2026-10-12T04:51:44.034Z",
+      "hasMore": true
+    },
+    {
+      "page": 2,
+      "rows": 30,
+      "snapshot": "2026-10-12T04:51:44.034Z",
+      "cachedAt": "2026-10-12T04:51:44.034Z",
+      "hasMore": true
+    },
+    {
+      "page": 3,
+      "rows": 30,
+      "snapshot": "2026-10-12T04:51:44.034Z",
+      "cachedAt": "2026-10-12T04:51:44.034Z",
+      "hasMore": true
+    }
+  ],
+  "topRenderedRows": 90,
+  "jobsPages": [
+    {
+      "page": 1,
+      "rows": 30,
+      "hasMore": true
+    },
+    {
+      "page": 2,
+      "rows": 1,
+      "hasMore": false
+    }
+  ],
+  "jobsRenderedRows": 31,
+  "width": {
+    "viewport": 320,
+    "document": 320
+  },
+  "beforeAppend": 2259,
+  "retryPosition": 5126,
+  "beforeDetail": 7971,
+  "interactions": [
+    "scroll to the load-more control without an automatic request",
+    "explicit page 2 append with the same snapshot/limit and preserved scroll",
+    "actual browser offline failure retains previously rendered stories and offers retry",
+    "online retry of the same page/category/limit/snapshot appends only after success",
+    "placeholder, native Back/Forward, and Voltar retain the list buffer and scroll",
+    "non-Top Jobs Back/Forward/Voltar preserves category, pages, and scroll without refetch",
+    "real Jobs pages reach BFF hasMore:false and remain within a 320px document",
+    "unknown path, malformed item ID and unsafe integer show accessible route errors and return to the actual Top listing"
+  ],
+  "apiRequests": [
+    "http://127.0.0.1:3000/api/stories?category=top",
+    "http://127.0.0.1:3000/api/stories?category=top&page=2&limit=30&snapshot=2026-10-12T04%3A51%3A44.034Z",
+    "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A51%3A44.034Z",
+    "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A51%3A44.034Z",
+    "http://127.0.0.1:3000/api/stories?category=job",
+    "http://127.0.0.1:3000/api/stories?category=job&page=2&limit=30&snapshot=2026-10-12T04%3A51%3A47.660Z",
+    "http://127.0.0.1:3000/api/stories?category=top",
+    "http://127.0.0.1:3000/api/stories?category=top",
+    "http://127.0.0.1:3000/api/stories?category=top"
+  ],
+  "failedRequests": [
+    {
+      "url": "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A51%3A44.034Z",
+      "error": "net::ERR_INTERNET_DISCONNECTED"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
+      "location": {
+        "url": "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A51%3A44.034Z",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "pageErrors": [],
+  "httpErrors": [],
+  "scope": "Compiled application and live HN through the BFF; deliberately offline browser continuation/retry; pagination and detail placeholder only. Expiration recovery is a separate controlled-TTL run; real detail/comments/theme/accessibility/human acceptance are not claimed."
+}

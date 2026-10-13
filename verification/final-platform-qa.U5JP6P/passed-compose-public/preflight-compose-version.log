@@ -1,0 +1,5 @@
+command=["docker","compose","version","--short"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=8000
+
+5.1.4

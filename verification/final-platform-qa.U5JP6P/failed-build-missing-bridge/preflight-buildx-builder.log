@@ -1,0 +1,49 @@
+command=["docker","buildx","inspect"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=12000
+
+Name:          rancher-desktop
+Driver:        docker
+Last Activity: 2026-10-12 19:17:14 +0000 UTC
+
+Nodes:
+Name:             rancher-desktop
+Endpoint:         rancher-desktop
+Status:           running
+BuildKit version: v0.26.2
+Platforms:        linux/arm64
+Labels:
+ org.mobyproject.buildkit.worker.containerd.namespace: moby
+ org.mobyproject.buildkit.worker.containerd.uuid:      2a9cdfa3-d7b5-4f0a-a200-9408abbb8fce
+ org.mobyproject.buildkit.worker.executor:             containerd
+ org.mobyproject.buildkit.worker.hostname:             lima-rancher-desktop
+ org.mobyproject.buildkit.worker.moby.host-gateway-ip: 172.17.0.1
+ org.mobyproject.buildkit.worker.network:              host
+ org.mobyproject.buildkit.worker.selinux.enabled:      false
+ org.mobyproject.buildkit.worker.snapshotter:          overlayfs
+Devices:
+ Name:                  lima-vm.io/rosetta=cached
+ Automatically allowed: true
+ Annotations:
+  org.mobyproject.buildkit.device.autoallow: true
+GC Policy rule#0:
+ All:            false
+ Filters:        type==source.local,type==exec.cachemount,type==source.git.checkout
+ Keep Duration:  48h0m0s
+ Max Used Space: 1.287GiB
+GC Policy rule#1:
+ All:            false
+ Keep Duration:  1440h0m0s
+ Reserved Space: 9.313GiB
+ Max Used Space: 73.57GiB
+ Min Free Space: 18.63GiB
+GC Policy rule#2:
+ All:            false
+ Reserved Space: 9.313GiB
+ Max Used Space: 73.57GiB
+ Min Free Space: 18.63GiB
+GC Policy rule#3:
+ All:            true
+ Reserved Space: 9.313GiB
+ Max Used Space: 73.57GiB
+ Min Free Space: 18.63GiB

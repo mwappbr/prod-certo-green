@@ -1,0 +1,47 @@
+node=v24.21.0
+npm=11.19.0
+{"event":"dev-start","mode":"default","node":"v24.21.0","pid":81642,"port":3000,"vitePort":5173}
+
+> dev
+> npm run build -w @hn/shared && node scripts/dev.mjs
+
+
+> @hn/shared@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/server@0.0.0 dev
+> npm run build && node dist/main.js
+
+
+> @hn/client@0.0.0 dev
+> vite
+
+
+> @hn/server@0.0.0 build
+> tsc -p tsconfig.json
+
+
+  VITE v8.3.4  ready in 84 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+9:22:32 AM [vite] http proxy error: /api/health
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+{"level":30,"time":1791807752570,"pid":81796,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://127.0.0.1:3000"}
+{"level":30,"time":1791807752570,"pid":81796,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://192.168.101.202:3000"}
+{"level":30,"time":1791807752570,"pid":81796,"hostname":"Mauros-MacBook-Pro-2.local","msg":"Server listening at http://100.110.228.47:3000"}
+{"level":30,"time":1791807752681,"pid":81796,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1","req":{"method":"GET","url":"/api/health","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":58031},"msg":"incoming request"}
+{"level":30,"time":1791807752685,"pid":81796,"hostname":"Mauros-MacBook-Pro-2.local","reqId":"req-1","res":{"statusCode":200},"responseTime":3.243832999999995,"msg":"request completed"}
+{"event":"smoke-error","mode":"default","message":"locator.waitFor: Timeout 8000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Nenhuma história em top agora.') to be visible\u001b[22m\n"}
+{"event":"root-group-signal","signal":"SIGINT","pgid":81642}
+npm error Lifecycle script `dev` failed with error:
+npm error code 143
+npm error path /Users/maurowidman/Projects/AI/prod-certo-green/client
+npm error workspace @hn/client@0.0.0
+npm error location /Users/maurowidman/Projects/AI/prod-certo-green/client
+npm error command failed
+npm error command sh -c vite
+{"event":"dev-stopped","mode":"default","stopped":true,"exitInfo":{"code":130,"signal":null},"serverPortFree":true,"vitePortFree":true}

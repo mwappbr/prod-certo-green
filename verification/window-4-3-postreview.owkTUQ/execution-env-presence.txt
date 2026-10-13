@@ -1,0 +1,8 @@
+/Users/maurowidman/Projects/AI/prod-certo-green/.env=absent
+/Users/maurowidman/Projects/AI/prod-certo-green/.env.local=absent
+/Users/maurowidman/Projects/AI/prod-certo-green/.env.production=absent
+/Users/maurowidman/Projects/AI/prod-certo-green/.env.production.local=absent
+/Users/maurowidman/Projects/AI/prod-certo-green/client/.env=absent
+/Users/maurowidman/Projects/AI/prod-certo-green/client/.env.local=absent
+/Users/maurowidman/Projects/AI/prod-certo-green/client/.env.production=absent
+/Users/maurowidman/Projects/AI/prod-certo-green/client/.env.production.local=absent

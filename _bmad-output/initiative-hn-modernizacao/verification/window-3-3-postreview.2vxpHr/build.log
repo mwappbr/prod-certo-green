@@ -1,0 +1,26 @@
+
+> build
+> npm run build -w @hn/shared && npm run build -w @hn/server && npm run build -w @hn/client
+
+
+> @hn/shared@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/server@0.0.0 build
+> tsc -p tsconfig.json
+
+
+> @hn/client@0.0.0 build
+> tsc -p tsconfig.json --noEmit && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 35 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:  0.28 kB
+dist/assets/index-gBV_on0w.css    8.12 kB │ gzip:  1.95 kB
+dist/assets/index-COnV9ZRd.js   216.30 kB │ gzip: 66.89 kB
+
+✓ built in 47ms

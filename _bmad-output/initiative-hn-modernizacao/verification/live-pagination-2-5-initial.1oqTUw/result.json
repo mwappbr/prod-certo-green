@@ -1,0 +1,38 @@
+{
+  "status": "failed",
+  "checkedAt": "2026-10-12T04:20:42.257Z",
+  "node": "v24.21.0",
+  "message": "locator.getAttribute: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.story-row h2 a').last()\u001b[22m\n",
+  "interactions": [
+    "scroll to the load-more control without an automatic request",
+    "explicit page 2 append with the same snapshot/limit and preserved scroll",
+    "actual browser offline failure retains previously rendered stories and offers retry",
+    "online retry of the same page/category/limit/snapshot appends only after success"
+  ],
+  "apiRequests": [
+    "http://127.0.0.1:3000/api/stories?category=top",
+    "http://127.0.0.1:3000/api/stories?category=top&page=2&limit=30&snapshot=2026-10-12T04%3A20%3A08.887Z",
+    "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A20%3A08.887Z",
+    "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A20%3A08.887Z"
+  ],
+  "failedRequests": [
+    {
+      "url": "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A20%3A08.887Z",
+      "error": "net::ERR_INTERNET_DISCONNECTED"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
+      "location": {
+        "url": "http://127.0.0.1:3000/api/stories?category=top&page=3&limit=30&snapshot=2026-10-12T04%3A20%3A08.887Z",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "pageErrors": [],
+  "httpErrors": []
+}

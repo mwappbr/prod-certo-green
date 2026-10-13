@@ -1,0 +1,51 @@
+command=["docker","compose","--env-file","/dev/null","--project-directory","/Users/maurowidman/Projects/AI/prod-certo-green","--file","/Users/maurowidman/Projects/AI/prod-certo-green/docker-compose.yml","--project-name","hnqa-202610121929-86572-10958969d046","config","--format","json"]
+cwd=/Users/maurowidman/Projects/AI/prod-certo-green
+timeoutMs=12000
+
+{
+  "name": "hnqa-202610121929-86572-10958969d046",
+  "networks": {
+    "default": {
+      "name": "hnqa-202610121929-86572-10958969d046_default",
+      "ipam": {}
+    }
+  },
+  "services": {
+    "app": {
+      "build": {
+        "context": "/Users/maurowidman/Projects/AI/prod-certo-green",
+        "dockerfile": "Dockerfile"
+      },
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "NODE_ENV": "production",
+        "PORT": "3000"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/api/health').then((response) =\u003e process.exit(response.ok ? 0 : 1)).catch(() =\u003e process.exit(1))"
+        ],
+        "timeout": "3s",
+        "interval": "10s",
+        "retries": 5,
+        "start_period": "5s"
+      },
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 3000,
+          "published": "55072",
+          "protocol": "tcp"
+        }
+      ]
+    }
+  }
+}

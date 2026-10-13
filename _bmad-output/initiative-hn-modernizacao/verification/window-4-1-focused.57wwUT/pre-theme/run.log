@@ -1,0 +1,217 @@
+RUN_DIR=/tmp/hn-4.1-PRE_THEME.dJl7qF
+LOG=/tmp/hn-4.1-PRE_THEME.dJl7qF/run.log
+RESULTS=/tmp/hn-4.1-PRE_THEME.dJl7qF/results
+NODE_PATH=/opt/homebrew/opt/node@24/bin/node
+NODE_VERSION=v24.21.0
+NPM_PATH=/opt/homebrew/opt/node@24/bin/npm
+NPM_VERSION=11.19.0
+COMMAND=npm exec -- playwright test e2e/theme.spec.ts --workers=1 --output=/tmp/hn-4.1-PRE_THEME.dJl7qF/results --reporter=list
+
+Running 6 tests using 1 worker
+
+  ✘  1 e2e/theme.spec.ts:17:3 › Tema claro e escuro › PRE_THEME: sistema escuro aplica tokens na lista e detalhe antes do bundle (5.0s)
+  ✘  2 e2e/theme.spec.ts:32:3 › Tema claro e escuro › bootstrap manual aplica a escolha antes do bundle e dos componentes React (5.0s)
+  ✘  3 e2e/theme.spec.ts:43:3 › Tema claro e escuro › toggle semântico funciona nas duas telas e acompanha mudança do sistema antes da escolha manual (5.1s)
+  ✘  4 e2e/theme.spec.ts:70:3 › Tema claro e escuro › manual preference survives SPA navigation and reload but not an independent tab (5.1s)
+  ✘  5 e2e/theme.spec.ts:100:3 › Tema claro e escuro › invalid preference follows the system and can then be replaced manually (5.1s)
+  ✘  6 e2e/theme.spec.ts:117:3 › Tema claro e escuro › blocked sessionStorage reads and writes do not break in-tab theme changes (5.1s)
+
+
+  1) e2e/theme.spec.ts:17:3 › Tema claro e escuro › PRE_THEME: sistema escuro aplica tokens na lista e detalhe antes do bundle 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "rgb(11, 17, 32)"
+    Received: "rgb(248, 250, 252)"
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      20 |
+      21 |     await page.goto('/', { waitUntil: 'domcontentloaded' });
+    > 22 |     await expect.poll(() => bodyBackground(page)).toBe(darkBackground);
+         |                                                   ^
+      23 |     await expect.poll(() => themeValue(page)).toBe('');
+      24 |     expect(await page.locator('#root').evaluate((root) => root.childElementCount)).toBe(0);
+      25 |
+        at /Users/maurowidman/Projects/AI/prod-certo-green/e2e/theme.spec.ts:22:51
+
+    Error Context: ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--aff5e-a-e-detalhe-antes-do-bundle/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--aff5e-a-e-detalhe-antes-do-bundle/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--aff5e-a-e-detalhe-antes-do-bundle/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) e2e/theme.spec.ts:32:3 › Tema claro e escuro › bootstrap manual aplica a escolha antes do bundle e dos componentes React 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "dark"
+    Received: ""
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      36 |
+      37 |     await page.goto('/', { waitUntil: 'domcontentloaded' });
+    > 38 |     await expect.poll(() => themeValue(page)).toBe('dark');
+         |                                               ^
+      39 |     await expect.poll(() => bodyBackground(page)).toBe(darkBackground);
+      40 |     expect(await page.locator('#root').evaluate((root) => root.childElementCount)).toBe(0);
+      41 |   });
+        at /Users/maurowidman/Projects/AI/prod-certo-green/e2e/theme.spec.ts:38:47
+
+    Error Context: ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--e533e-dle-e-dos-componentes-React/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--e533e-dle-e-dos-componentes-React/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--e533e-dle-e-dos-componentes-React/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) e2e/theme.spec.ts:43:3 › Tema claro e escuro › toggle semântico funciona nas duas telas e acompanha mudança do sistema antes da escolha manual 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Alternar tema claro e escuro' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Alternar tema claro e escuro' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Alternar tema claro e escuro' })
+
+
+      46 |
+      47 |     const toggle = page.getByRole('button', { name: toggleName });
+    > 48 |     await expect(toggle).toBeVisible();
+         |                          ^
+      49 |     await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+      50 |     await expect(toggle).toHaveCSS('min-height', '44px');
+      51 |     await expect(toggle).toHaveCSS('min-width', '44px');
+        at /Users/maurowidman/Projects/AI/prod-certo-green/e2e/theme.spec.ts:48:26
+
+    Error Context: ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--d3f83-ema-antes-da-escolha-manual/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--d3f83-ema-antes-da-escolha-manual/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--d3f83-ema-antes-da-escolha-manual/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) e2e/theme.spec.ts:70:3 › Tema claro e escuro › manual preference survives SPA navigation and reload but not an independent tab 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Alternar tema claro e escuro' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Alternar tema claro e escuro' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Alternar tema claro e escuro' })
+
+
+      73 |
+      74 |     const detailToggle = page.getByRole('button', { name: toggleName });
+    > 75 |     await expect(detailToggle).toBeVisible();
+         |                                ^
+      76 |     await detailToggle.click();
+      77 |     await expect(detailToggle).toHaveAttribute('aria-pressed', 'true');
+      78 |     await expect.poll(() => themeValue(page)).toBe('dark');
+        at /Users/maurowidman/Projects/AI/prod-certo-green/e2e/theme.spec.ts:75:32
+
+    Error Context: ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--d3b71--but-not-an-independent-tab/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--d3b71--but-not-an-independent-tab/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--d3b71--but-not-an-independent-tab/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) e2e/theme.spec.ts:100:3 › Tema claro e escuro › invalid preference follows the system and can then be replaced manually 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Alternar tema claro e escuro' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Alternar tema claro e escuro' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Alternar tema claro e escuro' })
+
+
+      104 |
+      105 |     const toggle = page.getByRole('button', { name: toggleName });
+    > 106 |     await expect(toggle).toBeVisible();
+          |                          ^
+      107 |     await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+      108 |     await expect.poll(() => themeValue(page)).toBe('');
+      109 |     await expect.poll(() => bodyBackground(page)).toBe(darkBackground);
+        at /Users/maurowidman/Projects/AI/prod-certo-green/e2e/theme.spec.ts:106:26
+
+    Error Context: ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--91edb-n-then-be-replaced-manually/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--91edb-n-then-be-replaced-manually/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--91edb-n-then-be-replaced-manually/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) e2e/theme.spec.ts:117:3 › Tema claro e escuro › blocked sessionStorage reads and writes do not break in-tab theme changes 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Alternar tema claro e escuro' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Alternar tema claro e escuro' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Alternar tema claro e escuro' })
+
+
+      128 |
+      129 |     const toggle = page.getByRole('button', { name: toggleName });
+    > 130 |     await expect(toggle).toBeVisible();
+          |                          ^
+      131 |     await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+      132 |     await expect.poll(() => bodyBackground(page)).toBe(darkBackground);
+      133 |
+        at /Users/maurowidman/Projects/AI/prod-certo-green/e2e/theme.spec.ts:130:26
+
+    Error Context: ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--8941b--break-in-tab-theme-changes/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--8941b--break-in-tab-theme-changes/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../tmp/hn-4.1-PRE_THEME.dJl7qF/results/theme-Tema-claro-e-escuro--8941b--break-in-tab-theme-changes/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6 failed
+    e2e/theme.spec.ts:17:3 › Tema claro e escuro › PRE_THEME: sistema escuro aplica tokens na lista e detalhe antes do bundle 
+    e2e/theme.spec.ts:32:3 › Tema claro e escuro › bootstrap manual aplica a escolha antes do bundle e dos componentes React 
+    e2e/theme.spec.ts:43:3 › Tema claro e escuro › toggle semântico funciona nas duas telas e acompanha mudança do sistema antes da escolha manual 
+    e2e/theme.spec.ts:70:3 › Tema claro e escuro › manual preference survives SPA navigation and reload but not an independent tab 
+    e2e/theme.spec.ts:100:3 › Tema claro e escuro › invalid preference follows the system and can then be replaced manually 
+    e2e/theme.spec.ts:117:3 › Tema claro e escuro › blocked sessionStorage reads and writes do not break in-tab theme changes 
+COMMAND_EXIT_STATUS=1

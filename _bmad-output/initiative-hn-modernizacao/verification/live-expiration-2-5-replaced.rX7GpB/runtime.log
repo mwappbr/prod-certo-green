@@ -1,0 +1,4 @@
+2026-10-12T04:56:57Z
+v24.21.0
+11.19.0
+LIST_CACHE_TTL_MS=2000; STALE_RETENTION_MS=default900000; separate BFF P1 replaces retained snapshot

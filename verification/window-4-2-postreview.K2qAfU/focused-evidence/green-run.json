@@ -1,0 +1,15 @@
+{
+  "startedAt": "2026-10-12T15:00:07Z",
+  "finishedAt": "2026-10-12T15:00:14Z",
+  "nodeVersion": "v24.19.0",
+  "npmVersion": "11.17.0",
+  "playwrightVersion": "1.64.0",
+  "browserVersion": "156.0.8078.4",
+  "command": "playwright test e2e/responsive-text.spec.ts --config playwright.config.ts --output <tmp>/green-results --reporter=list",
+  "exitStatus": 0,
+  "log": "/tmp/hn-4-2/run.c79f19/green.log",
+  "measureJson": "/tmp/hn-4-2/run.c79f19/green-measures.json",
+  "measurementsCaptured": true,
+  "scenarioCount": 16,
+  "issues": []
+}

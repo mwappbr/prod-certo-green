@@ -1,0 +1,5 @@
+node=v24.21.0
+npm=11.19.0
+path_prefix=/Users/maurowidman/.vite-plus/js_runtime/node/24.21.0/bin
+VITEST_EXIT=0
+TYPECHECK_EXIT=0

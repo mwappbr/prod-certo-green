@@ -1,0 +1,17 @@
+
+Running 6 tests using 1 worker
+
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  1 e2e/keyboard-focus-semantics.spec.ts:232:3 › uses keyboard traversal for all six category tabs at 320px (2.1s)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  2 e2e/keyboard-focus-semantics.spec.ts:232:3 › uses keyboard traversal for all six category tabs at 375px (2.0s)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  3 e2e/keyboard-focus-semantics.spec.ts:315:1 › keeps keyboard pagination focus visible unless the user moves it during a retained response (394ms)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  4 e2e/keyboard-focus-semantics.spec.ts:456:1 › uses keyboard for theme and comment-tree disclosure without extra API requests (157ms)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  5 e2e/keyboard-focus-semantics.spec.ts:547:1 › disables actual list and detail loader motion when reduced motion is preferred (136ms)
+KEYBOARD_FOCUS_RUNTIME node=v24.21.0 browser=chromium version=156.0.8078.4
+  ✓  6 e2e/keyboard-focus-semantics.spec.ts:627:1 › rejects a test-only invisible keyboard focus outline (91ms)
+
+  6 passed (5.7s)
