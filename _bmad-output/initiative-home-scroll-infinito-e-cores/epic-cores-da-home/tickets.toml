@@ -1,0 +1,27 @@
+# Contratos e execução ratificados por ExitPlanMode; status somente nos planos.
+
+[[entry]]
+id = 1
+type = "story"
+title = "Cores semânticas e hierarquia da home"
+description = "Consome controles/estados estáveis de 1.2, registra DESIGN/EXPERIENCE com a aprovação já ocorrida e aplica juntos os cinco tokens e consumidores aprovados no cabeçalho, feed ativo e interações da home, preservando leitura/informações/seleção não cromática e temas com contraste/responsividade e regressão do detalhe."
+verify = "Home executável em claro/escuro explícito e por sistema, a 360 px e desktop, demonstra as três áreas coloridas e preserva informações, foco/teclado, alvos de 44 px e reduced motion; script/browser verificam contraste dos usos reais e paridade de tokens, com screenshots inspecionados, axe, ausência de overflow/corte e detalhe sem regressão."
+covers = ["FR-6", "FR-7", "NFR-1", "NFR-2"]
+after = ["1.2"]
+hitl = false
+risk = "medium"
+plan_checkpoint = false
+done_checkpoint = false
+
+[[entry]]
+id = 2
+type = "story"
+title = "Aceite integrado e documentação da home"
+description = "Verifica no bundle novo a continuação/retorno de 1.2 e a home/UX de 2.1 sem transferir sua implementação, executa check/build/E2E e smoke com upstream público, captura/inspeciona screenshots e atualiza README/SDLC/evidências distinguindo histórico, provas técnicas e o juízo humano de SM-2 ainda requerido."
+verify = "Em Node ≥24 check/build/E2E passam sequencialmente, smoke público percorre lista/continuação/detalhe/retorno/tema sem erros e screenshots claro/escuro de celular/desktop comprovam os usos reais com FR-1–FR-7/NFR-1–NFR-3 rastreados; SM-2 só é aceito após avaliação real da pessoa responsável, registrada separadamente das provas técnicas e da aprovação de paleta."
+covers = ["FR-6", "FR-7", "NFR-1", "NFR-2"]
+after = ["1.2", 1]
+hitl = true
+risk = "medium"
+plan_checkpoint = false
+done_checkpoint = false

@@ -9,6 +9,11 @@
   --primary-foreground: #FFFFFF;
   --primary-hover: #1E40AF;
   --border-hairline: #E2E8F0;
+  --surface-brand: #DBEAFE;
+  --ink-on-brand: #1E3A8A;
+  --surface-accent: #EDE9FE;
+  --accent: #6D28D9;
+  --border-control: #64748B;
 }
 
 :root[data-theme="light"] {
@@ -25,6 +30,11 @@
   --primary-foreground: #0B1120;
   --primary-hover: #93C5FD;
   --border-hairline: #1E2A40;
+  --surface-brand: #172554;
+  --ink-on-brand: #DBEAFE;
+  --surface-accent: #2E1065;
+  --accent: #C4B5FD;
+  --border-control: #94A3B8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +48,11 @@
     --primary-foreground: #0B1120;
     --primary-hover: #93C5FD;
     --border-hairline: #1E2A40;
+    --surface-brand: #172554;
+    --ink-on-brand: #DBEAFE;
+    --surface-accent: #2E1065;
+    --accent: #C4B5FD;
+    --border-control: #94A3B8;
   }
 }
 

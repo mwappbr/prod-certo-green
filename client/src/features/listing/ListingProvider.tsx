@@ -1,8 +1,10 @@
-import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { StoryCategory } from '@hn/shared/contract/stories';
 import { useStories } from '../../api/use-stories';
 
 export type ListingRoute = { type: 'list' } | { type: 'item'; id: number } | { type: 'not-found' };
+
+type PendingScrollRestore = { position: number; navigationCycle: number };
 
 type ListingContextValue = {
   category: StoryCategory;
@@ -12,6 +14,7 @@ type ListingContextValue = {
   backToListing: () => void;
   scrollPosition: number;
   saveScrollPosition: (position: number) => void;
+  readingCycle: number | null;
   stories: ReturnType<typeof useStories>;
 };
 
@@ -68,14 +71,31 @@ export function ListingProvider({ children }: { children: ReactNode }) {
   const [category, setCategoryState] = useState<StoryCategory>(initialCategory);
   const [route, setRoute] = useState<ListingRoute>(routeFromUrl);
   const [scrollPosition, saveScrollPosition] = useState(0);
-  const [pendingScrollRestore, setPendingScrollRestore] = useState<number | null>(null);
   const stories = useStories(category);
+  const [pendingScrollRestore, setPendingScrollRestore] = useState<PendingScrollRestore | null>({ position: 0, navigationCycle: 0 });
+  const [readingCycle, setReadingCycle] = useState<number | null>(null);
+  const pendingScrollRestoreRef = useRef<PendingScrollRestore | null>(pendingScrollRestore);
+  const restoreFrameRef = useRef<number | null>(null);
+  const routeRef = useRef(route);
+  const handledSnapshotExpiryRevisionRef = useRef(0);
+  pendingScrollRestoreRef.current = pendingScrollRestore;
+  routeRef.current = route;
+
+  const beginTransition = useCallback((position: number | null) => {
+    const navigationCycle = stories.beginNavigationCycle();
+    const pending = position === null ? null : { position, navigationCycle };
+    pendingScrollRestoreRef.current = pending;
+    setPendingScrollRestore(pending);
+    setReadingCycle(null);
+    return navigationCycle;
+  }, [stories.beginNavigationCycle]);
 
   const setCategory = useCallback((nextCategory: StoryCategory) => {
     const nextPath = pathForCategory(nextCategory);
     const currentPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
     if (nextCategory === category && nextPath === currentPath) return;
 
+    beginTransition(0);
     const previousState = window.history.state && typeof window.history.state === 'object'
       ? window.history.state as Record<string, unknown>
       : {};
@@ -88,9 +108,8 @@ export function ListingProvider({ children }: { children: ReactNode }) {
     setCategoryState(nextCategory);
     setRoute({ type: 'list' });
     saveScrollPosition(0);
-    setPendingScrollRestore(0);
     window.scrollTo(0, 0);
-  }, [category]);
+  }, [beginTransition, category]);
 
   const openItem = useCallback((id: number) => {
     if (!Number.isSafeInteger(id) || id < 0) return;
@@ -99,6 +118,7 @@ export function ListingProvider({ children }: { children: ReactNode }) {
     const previousState = window.history.state && typeof window.history.state === 'object'
       ? window.history.state as Record<string, unknown>
       : {};
+    beginTransition(null);
     window.history.replaceState(
       { ...previousState, route: 'list', fromItem: true, category, scrollPosition: position },
       '',
@@ -111,7 +131,7 @@ export function ListingProvider({ children }: { children: ReactNode }) {
     );
     saveScrollPosition(position);
     setRoute({ type: 'item', id });
-  }, [category]);
+  }, [beginTransition, category]);
 
   const backToListing = useCallback(() => {
     const state: unknown = window.history.state;
@@ -122,17 +142,18 @@ export function ListingProvider({ children }: { children: ReactNode }) {
       'fromListing' in state &&
       state.fromListing === true
     ) {
+      beginTransition(null);
       window.history.back();
       return;
     }
 
     const path = pathForCategory(category);
+    beginTransition(0);
     window.history.replaceState({ route: 'list', category, scrollPosition: 0 }, '', path);
     setRoute({ type: 'list' });
     saveScrollPosition(0);
-    setPendingScrollRestore(0);
     window.scrollTo(0, 0);
-  }, [category, route]);
+  }, [beginTransition, category, route]);
 
   useEffect(() => {
     const previous = window.history.scrollRestoration;
@@ -149,30 +170,69 @@ export function ListingProvider({ children }: { children: ReactNode }) {
       const nextCategory = nextRoute.type === 'item'
         ? categoryFromHistoryState(state) ?? categoryFromUrl()
         : categoryFromUrl();
+      const navigationCycle = stories.beginNavigationCycle();
+      setReadingCycle(null);
       setCategoryState(nextCategory);
       setRoute(nextRoute);
       if (nextRoute.type === 'list') {
         const position = savedPosition(window.history.state);
+        const pending = { position, navigationCycle };
+        pendingScrollRestoreRef.current = pending;
+        setPendingScrollRestore(pending);
         saveScrollPosition(position);
-        setPendingScrollRestore(position);
       } else {
+        pendingScrollRestoreRef.current = null;
         setPendingScrollRestore(null);
       }
     };
     window.addEventListener('popstate', syncLocation);
     return () => window.removeEventListener('popstate', syncLocation);
-  }, []);
+  }, [stories.beginNavigationCycle]);
+
+  const recoveryPending = stories.recoveryPending;
+  const retryStories = stories.retry;
+  useEffect(() => {
+    // A 410 recovery cancelled by navigation leaves a retryable loading state; it restarts only when the list is shown.
+    if (route.type === 'list' && recoveryPending) retryStories();
+  }, [recoveryPending, retryStories, route.type]);
 
   useLayoutEffect(() => {
-    if (route.type !== 'list' || pendingScrollRestore === null || (stories.loading && !stories.data)) return;
-    const position = pendingScrollRestore;
-    setPendingScrollRestore(null);
-    window.requestAnimationFrame(() => window.scrollTo(0, position));
-  }, [route, pendingScrollRestore, stories.loading, stories.data?.page, stories.data?.items.length]);
+    const revision = stories.snapshotExpiryRevision;
+    if (revision <= handledSnapshotExpiryRevisionRef.current) return;
+    handledSnapshotExpiryRevisionRef.current = revision;
+    if (route.type === 'list') {
+      const navigationCycle = stories.suspendReadingForSnapshot();
+      const pending = { position: 0, navigationCycle };
+      pendingScrollRestoreRef.current = pending;
+      setPendingScrollRestore(pending);
+      setReadingCycle(null);
+    }
+  }, [route.type, stories.snapshotExpiryRevision, stories.suspendReadingForSnapshot]);
+
+  useLayoutEffect(() => {
+    const pending = pendingScrollRestore;
+    if (route.type !== 'list' || pending === null || (stories.loading && !stories.data)) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      if (restoreFrameRef.current !== frame || pendingScrollRestoreRef.current !== pending || routeRef.current.type !== 'list') return;
+      restoreFrameRef.current = null;
+      window.scrollTo(0, pending.position);
+      pendingScrollRestoreRef.current = null;
+      setPendingScrollRestore(null);
+      setReadingCycle(pending.navigationCycle);
+    });
+    restoreFrameRef.current = frame;
+
+    return () => {
+      if (restoreFrameRef.current !== frame) return;
+      window.cancelAnimationFrame(frame);
+      restoreFrameRef.current = null;
+    };
+  }, [pendingScrollRestore, route, stories.data?.items.length, stories.data?.page, stories.loading]);
 
   const value = useMemo(
-    () => ({ category, setCategory, route, openItem, backToListing, scrollPosition, saveScrollPosition, stories }),
-    [category, setCategory, route, openItem, backToListing, scrollPosition, stories],
+    () => ({ category, setCategory, route, openItem, backToListing, scrollPosition, saveScrollPosition, readingCycle, stories }),
+    [category, setCategory, route, openItem, backToListing, scrollPosition, readingCycle, stories],
   );
   return <ListingContext.Provider value={value}>{children}</ListingContext.Provider>;
 }

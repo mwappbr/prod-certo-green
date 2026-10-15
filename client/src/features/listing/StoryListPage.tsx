@@ -1,8 +1,9 @@
-import { useEffect, useRef, type KeyboardEvent } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, type KeyboardEvent } from 'react';
 import type { StoryCategory } from '@hn/shared/contract/stories';
 import { useListing } from './ListingProvider';
 import { StoryRow } from './StoryRow';
 import { ThemeToggle } from '../theme/ThemeToggle';
+import { useInfiniteScroll } from './use-infinite-scroll';
 import './listing.css';
 
 const categories: { value: StoryCategory; label: string }[] = [
@@ -86,12 +87,64 @@ type PendingLoadMoreFocus = {
   href: string;
 };
 
+function isFocusProtected(target: EventTarget | null): boolean {
+  return target instanceof Element && Boolean(target.closest(
+    '.listing__load-more, .listing__notice--incremental, .listing__continuation-toggle',
+  ));
+}
+
 export function StoryListPage() {
-  const { category, setCategory, openItem, saveScrollPosition, stories } = useListing();
-  const { data, loading, error, retry, loadingMore, loadMoreError, snapshotExpired, loadMore } = stories;
-  const isBusy = loading || loadingMore;
+  const { category, setCategory, openItem, saveScrollPosition, readingCycle, route, stories } = useListing();
+  const {
+    data,
+    loading,
+    error,
+    retry,
+    loadingMore,
+    loadMoreError,
+    snapshotExpired,
+    snapshotExpiryRevision,
+    loadMore,
+    setAutomaticPaused,
+    automaticEnabled,
+    loadingMoreOrigin,
+    voluntaryPause,
+  } = stories;
   const loadMoreButtonRef = useRef<HTMLButtonElement>(null);
   const pendingLoadMoreFocusRef = useRef<PendingLoadMoreFocus | null>(null);
+  const scope = stories.getScope();
+  const sentinelRef = useInfiniteScroll<HTMLDivElement>({
+    enabled: automaticEnabled && route.type === 'list',
+    loading: loadingMore,
+    commitKey: `${data?.page ?? 0}:${data?.items.length ?? 0}`,
+    scope,
+    onDemand: (demandScope) => { loadMore('automatic', demandScope); },
+  });
+
+  const reportFocusProtection = useCallback((protectedFocus: boolean) => {
+    stories.setFocusProtection(stories.getScope(), protectedFocus);
+  }, [stories.getScope, stories.setFocusProtection]);
+
+  useLayoutEffect(() => {
+    if (route.type !== 'list' || readingCycle === null) return;
+    const currentScope = stories.getScope();
+    stories.setFocusProtection(currentScope, isFocusProtected(document.activeElement));
+    stories.completeReadingTransition(readingCycle);
+  }, [data?.items.length, data?.page, readingCycle, route.type, stories.completeReadingTransition, stories.getScope, stories.setFocusProtection]);
+
+  useEffect(() => {
+    const onFocusIn = (event: FocusEvent) => reportFocusProtection(isFocusProtected(event.target));
+    const onFocusOut = (event: FocusEvent) => {
+      if (!isFocusProtected(event.target)) return;
+      reportFocusProtection(isFocusProtected(event.relatedTarget));
+    };
+    document.addEventListener('focusin', onFocusIn, true);
+    document.addEventListener('focusout', onFocusOut, true);
+    return () => {
+      document.removeEventListener('focusin', onFocusIn, true);
+      document.removeEventListener('focusout', onFocusOut, true);
+    };
+  }, [reportFocusProtection]);
 
   useEffect(() => {
     const clearRestoreAfterTab = (event: globalThis.KeyboardEvent) => {
@@ -152,11 +205,12 @@ export function StoryListPage() {
       ? { button, category, href: window.location.href }
       : null;
     saveScrollPosition(window.scrollY);
-    loadMore();
+    loadMore('manual', stories.getScope());
   }
 
   return (
-    <main className="listing" aria-busy={isBusy}>
+    // The restart notice is announced inside main; keep main busy only for loads that are not a sequence restart.
+    <main className="listing" aria-busy={loading && !snapshotExpired}>
       <CategoryTabs category={category} onChange={handleCategoryChange} />
       <section
         id="listing-panel"
@@ -177,7 +231,8 @@ export function StoryListPage() {
         </header>
 
         {snapshotExpired && (
-          <p className="listing__notice" role="status">
+          // Keyed by revision so each restart inserts a new status node that assistive technology announces.
+          <p key={snapshotExpiryRevision} className="listing__notice" role="status">
             A lista mudou e foi atualizada. A sequência anterior foi reiniciada.
           </p>
         )}
@@ -213,19 +268,29 @@ export function StoryListPage() {
         )}
 
         {data && data.items.length > 0 && (
-          <ol className="story-list" aria-label={`Histórias em ${categoryLabel(category)}`}>
+          <ol
+            className="story-list"
+            aria-busy={loadingMore}
+            aria-label={`Histórias em ${categoryLabel(category)}`}
+          >
             {data.items.map((item) => <li key={item.id}><StoryRow item={item} onOpen={openItem} /></li>)}
           </ol>
+        )}
+
+        {data && data.items.length > 0 && data.hasMore === false && !loading && !error && (
+          <p className="listing__end" role="status">Você chegou ao fim</p>
         )}
 
         {loading && data && <p className="listing__loading-more" role="status">Atualizando histórias…</p>}
 
         {loadingMore && <LoadingMoreStories />}
 
+        <div aria-hidden="true" className="listing__sentinel" ref={sentinelRef} />
+
         {loadMoreError && (
           <section className="listing__notice listing__notice--incremental" role="alert">
             <p>{loadMoreError.message}</p>
-            <button className="listing__button" type="button" onClick={handleLoadMore}>Tentar de novo</button>
+            <button className="listing__button" type="button" onClick={handleLoadMore}>Tentar novamente</button>
           </section>
         )}
 
@@ -234,11 +299,21 @@ export function StoryListPage() {
             ref={loadMoreButtonRef}
             aria-busy={loadingMore}
             className="listing__button listing__load-more"
-            disabled={loadingMore}
+            disabled={loadingMore && loadingMoreOrigin !== 'automatic'}
             type="button"
             onClick={handleLoadMore}
           >
             {loadingMore ? 'Carregando mais…' : 'Carregar mais'}
+          </button>
+        )}
+
+        {data && data.hasMore === true && !loading && (
+          <button
+            className="listing__button listing__continuation-toggle"
+            type="button"
+            onClick={() => setAutomaticPaused(!voluntaryPause)}
+          >
+            {voluntaryPause ? 'Retomar automático' : 'Pausar automático'}
           </button>
         )}
       </section>

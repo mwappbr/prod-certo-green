@@ -128,7 +128,7 @@ function mockListingItem(category: Category, index: number) {
   const cachedAt = '2026-10-11T12:00:00.000Z';
   if (category === 'job') {
     return {
-      id: 80_000 + categoryIndex * 100 + index,
+      id: 80_000 + categoryIndex * 10_000 + index,
       type: 'job',
       title: `Vaga ${category} ${index + 1}`,
       url: null,
@@ -143,7 +143,7 @@ function mockListingItem(category: Category, index: number) {
 
   const noDomain = category === 'ask';
   return {
-    id: 80_000 + categoryIndex * 100 + index,
+    id: 80_000 + categoryIndex * 10_000 + index,
     type: 'story',
     title: `História ${category} ${index + 1}`,
     url: noDomain ? null : `https://example.com/${category}/${index}`,
@@ -177,9 +177,9 @@ function mockStoriesPage(
 }
 
 function mockItemEnvelope(id: number) {
-  const categoryIndex = Math.max(0, Math.floor((id - 80_000) / 100));
+  const categoryIndex = Math.max(0, Math.floor((id - 80_000) / 10_000));
   const category = categories[categoryIndex]?.value ?? 'top';
-  const index = (id - 80_000) % 100;
+  const index = (id - 80_000) % 10_000;
   const item = mockListingItem(category, index);
   return { item, cachedAt: item.cachedAt, stale: false };
 }
@@ -335,7 +335,291 @@ test('appends the next page from its snapshot and keeps the control disabled whi
   await expect(page.locator('.listing__load-more')).toHaveCount(0);
 });
 
-test('keeps advancing after an empty page and never loads automatically on scroll', async ({ page }) => {
+for (const category of categories) {
+  test(`continues automatically through three user-demand episodes for ${category.value}`, async ({ page }) => {
+    const requestedPages: number[] = [];
+    await page.route('**/api/stories**', async (route) => {
+      const url = new URL(route.request().url());
+      const requestedCategory = (url.searchParams.get('category') ?? 'top') as Category;
+      const requestedPage = Number(url.searchParams.get('page') ?? '1');
+      requestedPages.push(requestedPage);
+      const response = mockStoriesPage(requestedCategory, 30, false, requestedPage, requestedPage < 4);
+      await route.fulfill({ contentType: 'application/json', body: JSON.stringify(response) });
+    });
+
+    await page.goto(category.value === 'top' ? '/' : `/?category=${category.value}`);
+    await expect(page.locator('.story-row')).toHaveCount(30);
+    await page.evaluate(() => {
+      document.body.tabIndex = 0;
+      document.body.focus();
+    });
+
+    for (const expectedPage of [2, 3, 4]) {
+      // A press before the reading-ready transition is discarded by design (AD-2), so repeat the
+      // real End press until the detector is armed; each press either requests the page or does nothing.
+      const requestCount = () => requestedPages.filter((pageNumber) => pageNumber === expectedPage).length;
+      for (let attempt = 0; attempt < 20 && requestCount() === 0; attempt += 1) {
+        await page.keyboard.press('End');
+        await page.waitForTimeout(100);
+      }
+      await expect.poll(
+        requestCount,
+        { message: `page ${expectedPage} requests; seen ${JSON.stringify(requestedPages)}` },
+      ).toBe(1);
+      await expect(page.locator('.story-row')).toHaveCount(expectedPage * 30);
+    }
+
+    expect(requestedPages).toEqual([1, 2, 3, 4]);
+    const ids = await page.locator('.story-row').evaluateAll((rows) => rows.map((row) => {
+      const href = row.querySelector('a.story-row__detail')?.getAttribute('href');
+      return href?.split('/').at(-1) ?? '';
+    }));
+    expect(ids).toHaveLength(120);
+    expect(new Set(ids).size).toBe(120);
+    expect(ids).toEqual([...ids].sort((left, right) => Number(left) - Number(right)));
+  });
+}
+
+test('accepts a keyboard scroll from a focused story link as demand', async ({ page }) => {
+  const requestedPages: number[] = [];
+  await page.route('**/api/stories**', async (route) => {
+    const url = new URL(route.request().url());
+    const requestedPage = Number(url.searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    await route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify(mockStoriesPage('top', 30, false, requestedPage, requestedPage < 3)),
+    });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.locator('a.story-row__detail').first().focus();
+  await page.keyboard.press('End');
+  await expect(page.locator('.story-row')).toHaveCount(60);
+  expect(requestedPages).toEqual([1, 2]);
+});
+
+test('automatic completion does not restore captured scroll or alter focus after continued movement', async ({ page }) => {
+  const requestedPages: number[] = [];
+  let releasePageTwo!: () => void;
+  let signalPageTwo!: () => void;
+  const pageTwoResponse = new Promise<void>((resolve) => { releasePageTwo = resolve; });
+  const pageTwoStarted = new Promise<void>((resolve) => { signalPageTwo = resolve; });
+
+  await page.route('**/api/stories**', async (route) => {
+    const requestedPage = Number(new URL(route.request().url()).searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    if (requestedPage === 2) {
+      signalPageTwo();
+      await pageTwoResponse;
+    }
+    await route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify(mockStoriesPage('top', 30, false, requestedPage, requestedPage < 3)),
+    });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.evaluate(() => {
+    document.body.tabIndex = 0;
+    document.body.focus();
+  });
+  // The detector is armed after the reading-ready transition; repeat the real End press until page 2 starts.
+  for (let attempt = 0; attempt < 20 && !requestedPages.includes(2); attempt += 1) {
+    await page.keyboard.press('End');
+    await page.waitForTimeout(100);
+  }
+  await pageTwoStarted;
+  await page.keyboard.press('Home');
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  releasePageTwo();
+  await expect(page.locator('.story-row')).toHaveCount(60);
+  expect(await page.evaluate(() => document.activeElement === document.body)).toBe(true);
+  expect(await page.evaluate(() => window.scrollY)).toBe(0);
+  expect(requestedPages).toEqual([1, 2]);
+});
+
+test('discards busy signals, cancels automatic work when focus reaches the fallback, and keeps manual load available', async ({ page }) => {
+  const requestedPages: number[] = [];
+  let pageTwoAttempts = 0;
+  let releaseFirstPageTwo!: () => void;
+  let signalFirstPageTwo!: () => void;
+  let signalFirstPageTwoSettled!: () => void;
+  const firstPageTwoResponse = new Promise<void>((resolve) => { releaseFirstPageTwo = resolve; });
+  const firstPageTwoStarted = new Promise<void>((resolve) => { signalFirstPageTwo = resolve; });
+  const firstPageTwoSettled = new Promise<void>((resolve) => { signalFirstPageTwoSettled = resolve; });
+
+  await page.route('**/api/stories**', async (route) => {
+    const url = new URL(route.request().url());
+    const requestedPage = Number(url.searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    if (requestedPage === 2 && ++pageTwoAttempts === 1) {
+      signalFirstPageTwo();
+      await firstPageTwoResponse;
+      try {
+        await route.fulfill({ contentType: 'application/json', body: JSON.stringify(mockStoriesPage('top', 30, false, 2, true)) });
+      } catch {
+        // Focusing the fallback cancels the automatic request before it can append.
+      } finally {
+        signalFirstPageTwoSettled();
+      }
+      return;
+    }
+    const response = requestedPage === 1
+      ? mockStoriesPage('top', 30, false, 1, true)
+      : mockStoriesPage('top', 30, false, requestedPage, requestedPage < 3);
+    await route.fulfill({ contentType: 'application/json', body: JSON.stringify(response) });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.evaluate(() => {
+    document.body.tabIndex = 0;
+    document.body.focus();
+  });
+  await page.keyboard.press('End');
+  await firstPageTwoStarted;
+  await expect(page.getByRole('button', { name: 'Carregando mais…' })).toBeEnabled();
+
+  await page.keyboard.press('End');
+  await page.keyboard.press('End');
+  expect(requestedPages).toEqual([1, 2]);
+
+  const loadMore = page.getByRole('button', { name: 'Carregando mais…' });
+  await loadMore.focus();
+  await expect(page.getByRole('button', { name: 'Carregar mais' })).toBeEnabled();
+  releaseFirstPageTwo();
+  await firstPageTwoSettled;
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  expect(requestedPages).toEqual([1, 2]);
+
+  await page.getByRole('button', { name: 'Carregar mais' }).click();
+  await expect(page.locator('.story-row')).toHaveCount(60);
+  expect(requestedPages).toEqual([1, 2, 2]);
+});
+
+test('pauses automatic continuation on a duplicate-only page but preserves the cursor and manual control', async ({ page }) => {
+  const requestedPages: number[] = [];
+  await page.route('**/api/stories**', async (route) => {
+    const url = new URL(route.request().url());
+    const requestedPage = Number(url.searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    if (requestedPage === 2) {
+      const duplicatePage = mockStoriesPage('top', 30, false, 2, true);
+      const originalItems = mockStoriesPage('top', 30, false, 1, true).items;
+      await route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({ ...duplicatePage, items: originalItems.map((item) => ({ ...item, title: 'Later duplicate' })) }),
+      });
+      return;
+    }
+    const response = requestedPage === 1
+      ? mockStoriesPage('top', 30, false, 1, true)
+      : { ...mockStoriesPage('top', 1, false, requestedPage, false), items: [mockListingItem('top', 60)] };
+    await route.fulfill({ contentType: 'application/json', body: JSON.stringify(response) });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.evaluate(() => {
+    document.body.tabIndex = 0;
+    document.body.focus();
+  });
+  await page.keyboard.press('End');
+  await expect.poll(() => requestedPages.filter((pageNumber) => pageNumber === 2).length).toBe(1);
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.keyboard.press('End');
+  expect(requestedPages).toEqual([1, 2]);
+  await expect(page.getByRole('button', { name: 'Carregar mais' })).toBeEnabled();
+  await expect(page.getByRole('heading', { name: 'História top 1', level: 2, exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Later duplicate', level: 2, exact: true })).toHaveCount(0);
+
+  await page.getByRole('button', { name: 'Carregar mais' }).click();
+  await expect(page.getByRole('heading', { name: 'História top 61', level: 2, exact: true })).toBeVisible();
+  expect(requestedPages).toEqual([1, 2, 3]);
+});
+
+test('uses manual continuation when IntersectionObserver is unavailable', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(window, 'IntersectionObserver', { configurable: true, value: undefined });
+  });
+  const requestedPages: number[] = [];
+  await page.route('**/api/stories**', async (route) => {
+    const requestedPage = Number(new URL(route.request().url()).searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    await route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify(mockStoriesPage('top', 30, false, requestedPage, requestedPage === 1)),
+    });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+  expect(requestedPages).toEqual([1]);
+  await page.getByRole('button', { name: 'Carregar mais' }).click();
+  await expect(page.locator('.story-row')).toHaveCount(60);
+  expect(requestedPages).toEqual([1, 2]);
+});
+
+test('cancels automatic continuation before leaving for detail and ignores a late snapshot expiry', async ({ page }) => {
+  const requestedPages: number[] = [];
+  let releasePageTwo!: () => void;
+  let signalPageTwo!: () => void;
+  let signalPageTwoSettled!: () => void;
+  const pageTwoResponse = new Promise<void>((resolve) => { releasePageTwo = resolve; });
+  const pageTwoStarted = new Promise<void>((resolve) => { signalPageTwo = resolve; });
+  const pageTwoSettled = new Promise<void>((resolve) => { signalPageTwoSettled = resolve; });
+  await installDetailApiMocks(page);
+  await page.route('**/api/stories**', async (route) => {
+    const url = new URL(route.request().url());
+    const requestedPage = Number(url.searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    if (requestedPage === 2) {
+      signalPageTwo();
+      await pageTwoResponse;
+      try {
+        await route.fulfill({
+          status: 409,
+          contentType: 'application/json',
+          body: JSON.stringify({ error: { code: 'SNAPSHOT_EXPIRED', message: 'A lista expirou.' } }),
+        });
+      } catch {
+        // Navigation aborts the request before the expired response is applied.
+      } finally {
+        signalPageTwoSettled();
+      }
+      return;
+    }
+    await route.fulfill({ contentType: 'application/json', body: JSON.stringify(mockStoriesPage('top', 30, false, 1, true)) });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.evaluate(() => {
+    document.body.tabIndex = 0;
+    document.body.focus();
+  });
+  await page.keyboard.press('End');
+  await pageTwoStarted;
+  await page.locator('a.story-row__detail[href="/item/80000"]').click();
+  await expect(page).toHaveURL(/\/item\/80000$/);
+  releasePageTwo();
+  await pageTwoSettled;
+  await expect(page.getByRole('heading', { name: 'História top 1', level: 1 })).toBeVisible();
+  expect(requestedPages).toEqual([1, 2]);
+
+  await page.getByRole('button', { name: 'Voltar' }).click();
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await expect(page.getByRole('status')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Carregar mais' })).toBeVisible();
+  expect(requestedPages).toEqual([1, 2]);
+});
+
+test('keeps advancing after an empty page and ignores programmatic scroll as demand', async ({ page }) => {
   const requestedPages: number[] = [];
   await page.route('**/api/stories**', async (route) => {
     const url = new URL(route.request().url());
@@ -367,6 +651,63 @@ test('keeps advancing after an empty page and never loads automatically on scrol
   await expect(page.getByRole('heading', { name: 'História top 61', level: 2, exact: true })).toBeVisible();
   expect(requestedPages).toEqual([1, 2, 3]);
   await expect(page.locator('.listing__load-more')).toHaveCount(0);
+});
+
+test('does not reuse a window wheel signal when a later scroll without input reveals the sentinel', async ({ page }) => {
+  const requestedPages: number[] = [];
+  await page.route('**/api/stories**', async (route) => {
+    const url = new URL(route.request().url());
+    const requestedPage = Number(url.searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    await route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify(mockStoriesPage('top', 30, false, requestedPage, requestedPage < 3)),
+    });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.mouse.move(40, 40);
+  await page.mouse.wheel(0, 100);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+  await page.waitForTimeout(600);
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.waitForTimeout(300);
+  expect(requestedPages).toEqual([1]);
+});
+
+test('expires a wheel signal that scrolls only an inner container before programmatic page movement', async ({ page }) => {
+  const requestedPages: number[] = [];
+  await page.route('**/api/stories**', async (route) => {
+    const url = new URL(route.request().url());
+    const requestedPage = Number(url.searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    await route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify(mockStoriesPage('top', 30, false, requestedPage, requestedPage < 3)),
+    });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.evaluate(() => {
+    const scrollBox = document.createElement('div');
+    scrollBox.id = 'wheel-signal-box';
+    scrollBox.style.cssText = 'position:fixed;inset:0 auto auto 0;width:160px;height:120px;overflow:auto;z-index:9999;';
+    const content = document.createElement('div');
+    content.style.height = '1000px';
+    scrollBox.append(content);
+    document.body.append(scrollBox);
+  });
+
+  await page.mouse.move(40, 40);
+  await page.mouse.wheel(0, 400);
+  await expect.poll(() => page.locator('#wheel-signal-box').evaluate((element) => element.scrollTop)).toBeGreaterThan(0);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  await page.waitForTimeout(250);
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.waitForTimeout(100);
+  expect(requestedPages).toEqual([1]);
 });
 
 test('treats a missing hasMore flag as unknown rather than end of list', async ({ page }) => {
@@ -425,7 +766,7 @@ test('keeps existing rows below an incremental error and retries identical param
   });
   expect(errorIsBelowRows).toBe(true);
 
-  await incrementalError.getByRole('button', { name: 'Tentar de novo' }).click();
+  await incrementalError.getByRole('button', { name: 'Tentar novamente' }).click();
   await expect(page.getByRole('heading', { name: 'História top 31', level: 2, exact: true })).toBeVisible();
   expect(pageTwoAttempts).toBe(2);
   expect(pageTwoUrls.map((url) => url.search)).toEqual([pageTwoUrls[0]?.search, pageTwoUrls[0]?.search]);
@@ -479,6 +820,82 @@ test('discards an expired sequence and announces the refreshed first page', asyn
   expect(requests.at(-1)?.searchParams.has('snapshot')).toBe(false);
 });
 
+test('restores to the top for every repeated active snapshot expiry', async ({ page }) => {
+  const requestedPages: number[] = [];
+  let firstPageCalls = 0;
+  await page.addInitScript(() => {
+    const calls: Array<[number, number]> = [];
+    Object.defineProperty(window, '__capturedScrollToCalls', { value: calls, configurable: true });
+    window.scrollTo = new Proxy(window.scrollTo, {
+      apply(target, thisArg, args) {
+        const first = args[0];
+        if (typeof first === 'number') calls.push([first, Number(args[1] ?? 0)]);
+        else if (first && typeof first === 'object') {
+          const options = first as ScrollToOptions;
+          calls.push([options.left ?? window.scrollX, options.top ?? window.scrollY]);
+        }
+        return Reflect.apply(target, thisArg, args);
+      },
+    });
+  });
+
+  await page.route('**/api/stories**', async (route) => {
+    const url = new URL(route.request().url());
+    const requestedPage = Number(url.searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    if (requestedPage > 1) {
+      await route.fulfill({
+        status: 409,
+        contentType: 'application/json',
+        body: JSON.stringify({ error: { code: 'SNAPSHOT_EXPIRED', message: 'A lista expirou.' } }),
+      });
+      return;
+    }
+
+    firstPageCalls += 1;
+    const response = mockStoriesPage('new', 20, false, 1, true);
+    const items = response.items.map((item, index) => ({
+      ...item,
+      title: firstPageCalls === 1
+        ? `História vencida ${index + 1}`
+        : `História atualizada ${firstPageCalls} ${index + 1}`,
+    }));
+    await route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify({ ...response, items, snapshot: `snapshot-generation-${firstPageCalls}` }),
+    });
+  });
+
+  await page.goto('/?category=new');
+  await expect(page.getByRole('article', { name: 'História vencida 1', exact: true })).toBeVisible();
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.getByRole('button', { name: 'Carregar mais' }).click();
+  await expect(page.getByRole('article', { name: 'História atualizada 2 1', exact: true })).toBeVisible();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  await expect(page.getByRole('status').filter({ hasText: 'A lista mudou' })).toHaveCount(1);
+  await page.evaluate(() => {
+    document.querySelector('.listing__notice')?.setAttribute('data-first-restart', 'true');
+  });
+
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  const scrollCallsBeforeSecondExpiry = await page.evaluate(() =>
+    (window as unknown as { __capturedScrollToCalls: Array<[number, number]> }).__capturedScrollToCalls.length,
+  );
+  await page.getByRole('button', { name: 'Carregar mais' }).click();
+  await expect(page.getByRole('article', { name: 'História atualizada 3 1', exact: true })).toBeVisible();
+  await expect.poll(() => page.evaluate(() =>
+    (window as unknown as { __capturedScrollToCalls: Array<[number, number]> }).__capturedScrollToCalls.length,
+  )).toBe(scrollCallsBeforeSecondExpiry + 1);
+  const scrollCallsAfterSecondExpiry = await page.evaluate(() =>
+    (window as unknown as { __capturedScrollToCalls: Array<[number, number]> }).__capturedScrollToCalls,
+  );
+  expect(scrollCallsAfterSecondExpiry.slice(scrollCallsBeforeSecondExpiry)).toEqual([[0, 0]]);
+  // A second restart must insert a new status node so assistive technology announces it again.
+  await expect(page.locator('[data-first-restart="true"]')).toHaveCount(0);
+  await expect(page.getByRole('status').filter({ hasText: 'A lista mudou' })).toHaveCount(1);
+  expect(requestedPages).toEqual([1, 2, 1, 2, 1]);
+});
+
 test('restores loaded pages, category, and scroll when returning from real item detail', async ({ page }) => {
   const requestedPages: number[] = [];
   const detailApiRequests: string[] = [];
@@ -505,10 +922,10 @@ test('restores loaded pages, category, and scroll when returning from real item 
   await targetRow.scrollIntoViewIfNeeded();
   const savedPosition = await page.evaluate(() => window.scrollY);
   await page.getByRole('link', { name: /História new 15/ }).click();
-  await expect(page).toHaveURL(/\/item\/80114$/);
+  await expect(page).toHaveURL(/\/item\/90014$/);
   await expect(page.getByRole('heading', { name: 'História new 15', level: 1 })).toBeVisible();
   await expect(page.getByText('Sem comentários ainda.', { exact: true })).toBeVisible();
-  expect(detailApiRequests.sort()).toEqual(['/api/items/80114', '/api/items/80114/comments']);
+  expect(detailApiRequests.sort()).toEqual(['/api/items/90014', '/api/items/90014/comments']);
 
   await page.goBack();
   await expect(page).toHaveURL(/\/?category=new$/);
@@ -584,7 +1001,7 @@ for (const category of ['new', 'job'] as const) {
   });
 }
 
-test('cancels a queued page scroll restore when changing category', async ({ page }) => {
+test('does not restore a captured load position and cancels an in-flight page on category change', async ({ page }) => {
   let releasePageThree!: () => void;
   let signalPageThree!: () => void;
   let signalPageThreeSettled!: () => void;
@@ -645,7 +1062,7 @@ test('cancels a queued page scroll restore when changing category', async ({ pag
   await expect(page.getByRole('button', { name: 'Carregar mais' })).toBeEnabled();
   await expect.poll(() => page.evaluate(
     () => (window as WindowWithControlledRaf).__controlledRaf?.pendingCount() ?? 0,
-  )).toBeGreaterThan(0);
+  )).toBe(0);
 
   await page.getByRole('button', { name: 'Carregar mais' }).click();
   await pageThreeStarted;
@@ -783,6 +1200,8 @@ test('supports query-backed tabs for all categories and resets scroll', async ({
   await expect(page.getByRole('tab', { name: 'New' })).toHaveAttribute('aria-selected', 'true');
   await expect(page.getByRole('article', { name: 'História new 1', exact: true })).toBeVisible();
   await expect(page.locator('.story-row')).toHaveCount(20);
+  // Let the category's pending position restore run before this test scrolls, so it cannot reset the position.
+  await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
   await page.getByRole('tab', { name: 'Best' }).click();
@@ -895,9 +1314,181 @@ test('announces loading, stale content, and an empty category', async ({ page })
   await expect(page.getByRole('main')).toHaveAttribute('aria-busy', 'true');
   await expect(page.getByLabel('Carregando histórias')).toBeVisible();
   finishTop();
-  await expect(page.getByRole('status')).toContainText('Exibindo dados de');
+  await expect(page.getByRole('status').filter({ hasText: 'Exibindo dados de' })).toContainText('Exibindo dados de');
   await expect(page.getByText('Atualizado em')).toBeVisible();
 
   await page.getByRole('tab', { name: 'Ask' }).click();
   await expect(page.getByText('Nenhuma história em ask agora.', { exact: true })).toBeVisible();
+});
+
+test('confirms the end only from hasMore false and stops every continuation', async ({ page }) => {
+  const requestedPages: number[] = [];
+  await page.route('**/api/stories**', async (route) => {
+    const requestedPage = Number(new URL(route.request().url()).searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    const response = requestedPage === 1
+      ? mockStoriesPage('top', 30, false, 1, true)
+      : mockStoriesPage('top', 2, false, 2, false);
+    await route.fulfill({ contentType: 'application/json', body: JSON.stringify(response) });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.getByRole('button', { name: 'Carregar mais' }).click();
+  await expect(page.locator('.story-row')).toHaveCount(32);
+  await expect(page.getByRole('status').filter({ hasText: 'Você chegou ao fim' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Carregar mais' })).toHaveCount(0);
+
+  await page.evaluate(() => {
+    document.body.tabIndex = 0;
+    document.body.focus();
+  });
+  await page.keyboard.press('End');
+  await page.waitForTimeout(100);
+  expect(requestedPages).toEqual([1, 2]);
+});
+
+test('keeps a voluntary pause through scroll gestures until the person resumes', async ({ page }) => {
+  const requestedPages: number[] = [];
+  await page.route('**/api/stories**', async (route) => {
+    const requestedPage = Number(new URL(route.request().url()).searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    await route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify(mockStoriesPage('top', 30, false, requestedPage, requestedPage < 4)),
+    });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.getByRole('button', { name: 'Pausar automático' }).click();
+  await expect(page.getByRole('button', { name: 'Retomar automático' })).toBeVisible();
+
+  await page.evaluate(() => {
+    (document.activeElement as HTMLElement | null)?.blur();
+    document.body.tabIndex = 0;
+    document.body.focus();
+  });
+  await page.keyboard.press('End');
+  await page.waitForTimeout(250);
+  await page.keyboard.press('End');
+  await page.waitForTimeout(100);
+  expect(requestedPages).toEqual([1]);
+  await expect(page.locator('.story-row')).toHaveCount(30);
+
+  // Resume from a mid-list position: a baseline taken at the list bottom would leave no room for a downward gesture.
+  await page.evaluate(() => {
+    (document.activeElement as HTMLElement | null)?.blur();
+    document.body.focus();
+  });
+  await page.keyboard.press('Home');
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  await page.getByRole('button', { name: 'Retomar automático' }).evaluate((element) => (element as HTMLButtonElement).click());
+  await expect(page.getByRole('button', { name: 'Pausar automático' })).toBeVisible();
+  expect(requestedPages).toEqual([1]);
+  await page.evaluate(() => {
+    (document.activeElement as HTMLElement | null)?.blur();
+    document.body.focus();
+  });
+  await page.keyboard.press('End');
+  await expect.poll(() => requestedPages.length).toBe(2);
+  await expect(page.locator('.story-row')).toHaveCount(60);
+});
+
+test('announces incremental loading outside the busy list and keeps the list busy only while loading', async ({ page }) => {
+  let releasePageTwo!: () => void;
+  let signalPageTwo!: () => void;
+  const pageTwoResponse = new Promise<void>((resolve) => { releasePageTwo = resolve; });
+  const pageTwoStarted = new Promise<void>((resolve) => { signalPageTwo = resolve; });
+  await page.route('**/api/stories**', async (route) => {
+    const requestedPage = Number(new URL(route.request().url()).searchParams.get('page') ?? '1');
+    if (requestedPage === 2) {
+      signalPageTwo();
+      await pageTwoResponse;
+    }
+    await route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify(mockStoriesPage('top', 30, false, requestedPage, requestedPage < 3)),
+    });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.getByRole('button', { name: 'Carregar mais' }).click();
+  await pageTwoStarted;
+
+  const status = page.getByRole('status', { name: 'Carregando mais histórias' });
+  await expect(status).toBeVisible();
+  expect(await status.evaluate((element) => Boolean(element.closest('[aria-busy="true"]')))).toBe(false);
+  expect(await status.evaluate((element) => Boolean(element.closest('ol.story-list')))).toBe(false);
+  await expect(page.locator('ol.story-list')).toHaveAttribute('aria-busy', 'true');
+
+  releasePageTwo();
+  await expect(page.locator('.story-row')).toHaveCount(60);
+  await expect(page.locator('ol.story-list')).toHaveAttribute('aria-busy', 'false');
+  await expect(status).toHaveCount(0);
+});
+
+test('returns from detail during a 410 recovery to a loaded list without a stuck error', async ({ page }) => {
+  await installDetailApiMocks(page);
+  const requestedPages: number[] = [];
+  let signalRecovery!: () => void;
+  let releaseRecovery!: () => void;
+  const recoveryStarted = new Promise<void>((resolve) => { signalRecovery = resolve; });
+  const recoveryResponse = new Promise<void>((resolve) => { releaseRecovery = resolve; });
+  let pageOneCalls = 0;
+  await page.route('**/api/stories**', async (route) => {
+    const requestedPage = Number(new URL(route.request().url()).searchParams.get('page') ?? '1');
+    requestedPages.push(requestedPage);
+    if (requestedPage === 2) {
+      await route.fulfill({
+        status: 410,
+        contentType: 'application/json',
+        body: JSON.stringify({ error: { code: 'SNAPSHOT_EXPIRED', message: 'A lista expirou.' } }),
+      });
+      return;
+    }
+    pageOneCalls += 1;
+    if (pageOneCalls === 2) {
+      signalRecovery();
+      await recoveryResponse;
+      try {
+        await route.fulfill({
+          contentType: 'application/json',
+          body: JSON.stringify(mockStoriesPage('top', 30, false, 1, true)),
+        });
+      } catch {
+        // Returning to the detail aborts the recovery before its response can apply.
+      }
+      return;
+    }
+    await route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify(mockStoriesPage('top', 30, false, 1, true)),
+    });
+  });
+
+  await page.goto('/');
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await page.locator('a.story-row__detail[href="/item/80000"]').click();
+  await expect(page).toHaveURL(/\/item\/80000$/);
+  await page.goBack();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.locator('.story-row')).toHaveCount(30);
+
+  await page.evaluate(() => {
+    document.body.tabIndex = 0;
+    document.body.focus();
+  });
+  await page.keyboard.press('End');
+  await recoveryStarted;
+  await page.goForward();
+  await expect(page).toHaveURL(/\/item\/80000$/);
+  releaseRecovery();
+
+  await page.goBack();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.locator('.story-row')).toHaveCount(30);
+  await expect(page.getByRole('alert')).toHaveCount(0);
+  expect(requestedPages).toEqual([1, 2, 1, 1]);
 });

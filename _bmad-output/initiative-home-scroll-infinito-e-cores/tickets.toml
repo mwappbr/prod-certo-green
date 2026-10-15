@@ -1,0 +1,15 @@
+# Árvore aprovada por ExitPlanMode em 2026-10-13; estado das folhas pertence aos planos.
+# Ordem de build e dependências reais estão explicitadas nos dois níveis.
+
+[[epic]]
+id = 1
+slug = "epic-scroll-infinito-e-continuidade"
+title = "Scroll infinito e continuidade da leitura"
+covers = ["FR-1", "FR-2", "FR-3", "FR-4", "FR-5", "NFR-2", "NFR-3"]
+
+[[epic]]
+id = 2
+slug = "epic-cores-da-home"
+title = "Home mais colorida e legível"
+covers = ["FR-6", "FR-7", "NFR-1", "NFR-2"]
+after = [{ epic = 1, needs = "a continuação, os estados e os controles acessíveis estabilizados por 1.2, consumidos pelo CSS/UX de 2.1 e pelo aceite integrado de 2.2" }]

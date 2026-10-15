@@ -1,6 +1,0 @@
-node=v24.21.0
-npm=11.19.0
-
-> @hn/server@0.0.0 typecheck
-> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json --noEmit
-

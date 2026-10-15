@@ -1,6 +1,78 @@
 # Inventário reconciliado de artefatos do SDLC
 
-**Reconciliação documental:** 2026-10-12. Este inventário mapeia as sete fases didáticas do Addendum aos artefatos e evidências reais encontrados. Os resultados de execução são transcritos dos registros da MAIN; não foram reexecutados nesta tarefa documental.
+Este documento tem duas entregas separadas: a **entrega atual** da iniciativa de home (2026-10-13), descrita primeiro, e o **encerramento histórico de 2026-10-12**, que segue abaixo sem alteração de escopo.
+
+## Entrega atual: home contínua e colorida (2026-10-13)
+
+**Iniciativa:** `_bmad-output/initiative-home-scroll-infinito-e-cores/` (árvore nova, sem restaurar artefatos excluídos). Épicos: `epic-scroll-infinito-e-continuidade` (1.1 tracer de continuação, 1.2 recuperação e interrupção acessível) e `epic-cores-da-home` (2.1 cores semânticas e hierarquia, 2.2 aceite integrado e documentação, este registro).
+
+**Fontes desta iniciativa:** `decisions-approved.md`, `initiative-home-scroll-infinito-e-cores.md`, `ux-cores-home/DESIGN.md` e `EXPERIENCE.md`, `validation-ticket-tree.md`, planos de história em `epic-*/`. PRD e arquitetura ficam em `_bmad-output/initiative-hn-modernizacao/prd-home-scroll-infinito-e-cores/` e `_bmad-output/initiative-hn-modernizacao/architecture-home-scroll-infinito-e-cores/`.
+
+**Estado de versionamento:** não versionada no momento desta verificação. A árvore da iniciativa, os dois diretórios PRD/arquitetura e `client/src/features/listing/use-infinite-scroll.ts` aparecem como não rastreados; as alterações de `client/src/`, `e2e/` e `scripts/` estão no working tree sem commit. Nenhum commit, push, stash ou reset foi feito.
+
+**Status formal:** o plano de 2.2 (`story-aceite-integrado-e-documentacao-da-home-plan.md`) permanece `in-progress`. Os planos de 1.1 e 1.2 e de 2.1 estão `done` no seu próprio registro. **SM-2 está pendente**: o juízo humano da pessoa responsável sobre as capturas ainda não ocorreu, e a aprovação da paleta não o substitui. Não há declaração de conformidade WCAG completa nem teste humano com tecnologia assistiva.
+
+### Verificações executadas em 2026-10-13 (Node 24.21.0)
+
+Executadas sequencialmente com `PATH=/opt/homebrew/opt/node@24/bin:$PATH`:
+
+| Comando | Resultado |
+|---|---|
+| `npm run check` | Passa. Typecheck dos três workspaces e lint do servidor sem erro; Vitest: 20 arquivos e 131 testes aprovados; `scripts/check-theme.mjs` aprova os valores de tokens e os limiares de contraste em claro e escuro. |
+| `npm run build` | Passa. `shared` e `server` compilados; cliente com `tsc --noEmit` e Vite: 40 módulos, CSS 10,32 kB e JS 226,11 kB (gzip 69,77 kB). |
+| `npm run e2e` | Passa: **86 testes aprovados, 0 falhas**, 17,9 s. Usa o upstream de fixtures locais do `e2e/start-server.mjs`. Nenhum timeout foi aumentado. |
+
+### Smoke de produção
+
+Servidor iniciado com `NODE_ENV=production PORT=3917 node server/dist/main.js` e encerrado ao final pelo listener da porta. Upstream: API pública do Hacker News, sem fixtures. A verificação percorreu a home no celular de 390 px:
+
+- **Dados reais:** lista Top com 30 notícias na primeira carga (`Apple HomeView`, `11 year old unsoundness bugs found in Rust borrow checker`, …).
+- **Continuação:** três incrementos automáticos por rolagem do usuário, chegando a 60, 90 e 120 notícias, com 120 IDs únicos. Requisições reais: `page=2`, `page=3` e `page=4` com o mesmo `snapshot`, todas com status 200. Após os incrementos a lista não chegou ao fim; o botão "Carregar mais" e o controle "Pausar automático" estão visíveis.
+- **Detalhe:** história `50060694` (`Codex CLI installs a persistent, self-updating background daemon by default`), 589 pontos, 285 comentários no HN. O DOM renderizou 313 itens (`commentsRendered`), com 56 comentários de primeiro nível. A divisão entre corpos e marcadores e a profundidade máxima não foram registradas em log salvo.
+- **Retorno:** voltar ao detalhe mantém a categoria Top, as 120 notícias e a posição de rolagem (6039 px antes e depois).
+- **Tema:** o botão alterna o tema (`data-theme` de nulo para `dark`, fundo `rgb(248, 250, 252)` para `rgb(11, 17, 32)`) e mantém `aria-pressed` correto. A preferência ficou em `sessionStorage`.
+- **Erros:** nenhum erro de página nem de console. O navegador não fez requisições a origens diferentes da do servidor.
+- **Fixtures:** nenhum valor de fixture foi usado neste smoke. As falhas e expirações de fixture estão cobertas apenas pelos testes de `npm run e2e`.
+
+Os valores do HN são dinâmicos; contagens e horários diferem entre execuções.
+
+### Capturas de tela
+
+Capturadas em 360 px e 1280 px, claro e escuro (preferência do sistema), em `scratchpad` local da sessão, fora do repositório: `…/scratchpad/screenshots/{360-light,360-dark,desktop-light,desktop-dark}-viewport.png` e `…-full.png`. As métricas estão em `…/scratchpad/screenshots/metrics.json`.
+
+- Largura do documento igual à viewport em todas as quatro: 360 px com `scrollWidth` 360; 1280 px com `scrollWidth` 1280. Excesso horizontal da página: 0 px.
+- Nenhum elemento fora da viewport, exceto a faixa de categorias, que tem rolagem própria em 360 px (a aba "Jobs" fica parcialmente visível e acessível por rolagem horizontal).
+- Altura mínima das abas medida: 44 px.
+- As capturas foram inspecionadas tecnicamente: cabeçalho azul, aba ativa violeta com sublinhado, notícias em área neutra. **Não é avaliação humana visual.** SM-2 continua pendente.
+
+### Rastreio FR/NFR → provas
+
+| Requisito | Prova técnica | Limite declarado |
+|---|---|---|
+| FR-1 continuação sem ação, sem repetição, sem salto | `e2e/listing.spec.ts` "continues automatically through three user-demand episodes" (seis categorias); "automatic completion does not restore captured scroll…"; "keeps advancing after an empty page…"; smoke: 120 IDs únicos | Upstream dinâmico no smoke |
+| FR-2 carga inicial/incremental, preservação após falha, retry idêntico | `listing.spec.ts` "keeps existing rows below an incremental error and retries identical parameters"; "appends the next page from its snapshot…" | — |
+| FR-3 fim confirmado, fallback, isolamento, reinício de sequência | `listing.spec.ts` "treats a missing hasMore flag as unknown…"; "confirms the end only from hasMore false…"; "discards an expired sequence…"; "isolates category loading…" | — |
+| FR-4 retorno com categoria, páginas e posição | `listing.spec.ts` "restores loaded pages, category, and scroll when returning from real item detail"; "preserves … pages across Back, Forward, and Voltar"; smoke: 6039 px antes e depois | — |
+| FR-5 teclado, foco visível, anúncios, controles após a lista | `listing.spec.ts` "announces incremental loading outside the busy list…"; "keeps a voluntary pause…"; `keyboard-focus-semantics.spec.ts` "keeps keyboard pagination focus visible…" | Não é teste de tecnologia assistiva |
+| FR-6 mudança perceptível em celular e desktop | `theme.spec.ts` "Cores semânticas da home" (tokens aplicados e contraste medido nas vias claro/escuro); `responsive-text.spec.ts` "home a 360 px com cabeçalho azul"; capturas 360/1280 px | Avaliação visual humana pendente (SM-2) |
+| FR-7 conteúdo preservado, seleção não cromática, foco | `theme.spec.ts` "seleção ativa tem indicador não cromático…"; `theme.spec.ts` "detalhe não herda o cabeçalho azul…"; `listing.spec.ts` "wraps long listing content and keeps Jobs reachable at 320px" | Preservação de informação verificada por texto e teste, não por revisão visual humana |
+| NFR-1 contraste dos pares usados, claro e escuro | `scripts/check-theme.mjs` (incluído em `npm run check`); `theme.spec.ts` contraste renderizado; `accessibility.spec.ts` Axe nas vias claro/escuro | Não declara conformidade WCAG completa |
+| NFR-2 360 px e desktop sem overflow, faixa navegável, alvos 44 px, reduced motion | `responsive-text.spec.ts` "measures responsive layout…"; `keyboard-focus-semantics.spec.ts` "disables actual list and detail loader motion when reduced motion is preferred"; métricas das capturas (overflow 0 px; altura mínima das abas ≥44 px, sem medição dos demais alvos nas capturas) | Zoom/reflow nativo não testado |
+| NFR-3 lotes sob demanda no limite, parada em erro/fim, três incrementos | `listing.spec.ts` "continues automatically…" (três episódios por categoria); smoke: requisições de páginas 2–4 com status 200; ausência de antecipação não registrada por horário | Limite de 30 por página é o existente do servidor |
+| SM-1 e SM-C1 | Parcialmente: continuação técnica e contraste medidos; sem métrica de satisfação | Não comprovados como metas de produto |
+| **SM-2** | **Pendente.** Nenhuma prova técnica substitui a avaliação humana da pessoa responsável sobre desktop e celular reais | **Não comprovado** |
+
+### Limites e pendências
+
+- SM-2: avaliação humana pendente; não registrar como comprovado.
+- Tecnologia assistiva, teclado nativo do sistema e conformidade WCAG completa: não realizados.
+- Revisão quick independente das alterações desta entrega: não executada nesta sessão.
+- Ambiente limpo humano: não realizado.
+- Capturas e logs brutos ficam fora do repositório, em área de trabalho local.
+
+## Entrega histórica de 2026-10-12
+
+**Atenção:** os caminhos `_bmad-output/initiative-hn-modernizacao/…` e `execution-progress.md` citados abaixo como histórico não estão presentes na árvore de trabalho de 2026-10-13; estão excluídos da árvore de trabalho e permanecem versionados no histórico Git, por exemplo em HEAD `fd06133`. Não devem ser lidos como artefatos atuais.
 
 ## Estado de versionamento
 
@@ -12,7 +84,7 @@
 
 ## Mapeamento das sete fases
 
-| Fase SDLC | Artefatos reais | Evidência/estado, sem inferências de execução |
+| Fase SDLC | Artefatos citados (excluídos da árvore de trabalho; ver histórico Git) | Evidência/estado, sem inferências de execução |
 |---|---|---|
 | **1. Especificação** | `_bmad-output/initiative-hn-modernizacao/brief-hn-modernizacao/brief-hn-modernizacao.md`; `prd-hn-modernizacao/prd-hn-modernizacao.md`; `prd-hn-modernizacao/addendum.md`; `architecture-hn-modernizacao/architecture-hn-modernizacao.md` | Artefatos de especificação e arquitetura. O Addendum preserva o registro parcial histórico de 4.4 e acrescenta o fechamento técnico posterior. O versionamento desses artefatos está detalhado no registro global acima; sua inclusão não formaliza status de tickets ou pais. |
 | **2. Plano técnico** | `architecture-hn-modernizacao/architecture-hn-modernizacao.md`; planos `epic-plataforma-base/story-*-plan.md`; `epic-listagem/story-refactor-sweep-plan.md` | Há planos por história e um sweep de refatoração. O plano de refactor registra proposta NO-OP e revisão técnica focada aprovada, sem alteração de código; isso não equivale a revisão formal ou aceite de todas as fases. O status formal de cada folha está no plano oficial (`status`, mantido por `tickets.py mark`); `plan_status`/`technical_ref` de planos auxiliares não são estados formais de ticket. |
@@ -55,4 +127,4 @@ Resultado reportado: 121 testes em 20 arquivos/49,37 s; build de três workspace
 - **Status formal:** o reporte de verificação técnica de O-03 e o versionamento de artefatos não alteram automaticamente os estados formais de tickets ou pais nem equivalem a aceite de produto; consultar os registros próprios para esses estados.
 - **CI:** não se afirma gate de Axe ou de acessibilidade em CI.
 
-Use `_bmad-output/initiative-hn-modernizacao/execution-progress.md` como registro temporal e distinga estados documentados antes/depois do commit e resultados reportados de novas execuções. Este inventário separa existência/versionamento de artefatos de status formal, critérios de aceite e resultados de execução.
+Use `_bmad-output/initiative-hn-modernizacao/execution-progress.md` (excluído da árvore de trabalho; presente no histórico Git) como registro temporal e distinga estados documentados antes/depois do commit e resultados reportados de novas execuções. Este inventário separa existência/versionamento de artefatos de status formal, critérios de aceite e resultados de execução.

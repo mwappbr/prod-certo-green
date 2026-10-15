@@ -1,0 +1,11 @@
+# Adversarial review — Home scroll infinito e cores
+
+**Verdict: revise the cross-epic seams before splitting; otherwise adoptable.** AD-2/3/4/8 adequately constrain page/snapshot/limit, deduplication, empty/unknown results, retry and operational bounds; I found no separate gap there.
+
+**Compliant counterexample pair.** Epic A (sequence state) keeps `useStories` mounted and cancels only automatic in-flight work on detail navigation, as AD-5 literally states; an already-started manual continuation may still settle. Epic B (detail/return) treats AD-8’s “no continuation in background on detail” as cancel-and-ignore for every in-flight continuation, including manual. Both preserve the sequence and its cursor on cancellation; they disagree whether the same manual response commits. This blocks integration.
+
+1. **P1 — Detail transition / in-flight manual continuation (AD-5, AD-8).** Clarify whether entering detail aborts and rejects *all* in-flight continuation results, or only prevents new work while a home-origin request may settle. Prefer all origins: cancel/ignore before append, preserve accepted pages/cursor, and release busy state only for the owning request.
+2. **P1 — Restore/focus gate ownership and order (AD-2, AD-5, AD-6).** The Provider owns route/position restoration, `useStories` owns auto policy, and focus protection must cancel before append; yet no shared transition says how “home active,” “restoration complete,” and focus-protected enter/leave the hook’s policy. One epic can gate/rearm from Provider restoration; another can rearm from presentation layout and hold focus protection locally. Define the semantic handoff/order (restore position → apply focus gate → rearm; focus exit plus a new trigger), keeping voluntary pause in sequence state.
+3. **P2 — Theme token integration contract (AD-7).** A token epic may define one semantic variable vocabulary in `theme.css`, while a listing epic independently consumes another; both can satisfy the owner/theme/value/contrast rules, but `listing.css` will not integrate. Ratify the semantic token names needed by the home with the approved palette, or keep token definition and home consumption in one epic.
+
+**Review scope:** architecture file only; no code or test verification.

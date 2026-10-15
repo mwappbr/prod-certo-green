@@ -1,4 +1,0 @@
-
-> @hn/server@0.0.0 typecheck
-> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json --noEmit
-

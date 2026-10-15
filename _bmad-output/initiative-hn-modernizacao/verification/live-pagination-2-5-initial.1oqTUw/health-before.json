@@ -1,9 +1,0 @@
-{
-  "node": "v24.21.0",
-  "health": {
-    "status": "ok",
-    "cache": {
-      "entries": 0
-    }
-  }
-}

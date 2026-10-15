@@ -274,7 +274,7 @@ async function measureTargets(
 
   if (surface === 'listing') {
     await add('category tab', page.locator('.category-tabs__tab'), 6);
-    await add('button', page.locator('button:not([role="tab"])'), 2);
+    await add('button', page.locator('button:not([role="tab"])'), 3);
     await add('story navigation link', page.locator('.story-row__detail'), 2);
     await add('story source link', page.locator('.story-row__source'), 2);
   } else {
@@ -516,4 +516,50 @@ test('rejects a fixture story source hidden from target measurement', async ({ p
   });
 
   await expect(measureTargets(page, 'listing', 100)).rejects.toThrow(/toBeVisible/);
+});
+
+test('home a 360 px com cabeçalho azul: sem overflow de página, faixa interna e alvos de 44 px', async ({ page }) => {
+  test.setTimeout(30_000);
+  await installLocalApiFixture(page, []);
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.setViewportSize({ width: 360, height: 812 });
+
+  for (const theme of ['light', 'dark'] as const) {
+    if (theme === 'dark') {
+      await page.addInitScript((key) => window.sessionStorage.setItem(key, 'dark'), 'hn-modernizacao.theme.preference.v1');
+    }
+    await page.goto('/?category=top');
+    await expect(page.locator('.listing__header h1')).toBeVisible();
+    await expect(page.locator('.story-row')).toHaveCount(2);
+
+    const metrics = await page.evaluate(() => ({
+      innerWidth: window.innerWidth,
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+      headerRight: document.querySelector('.listing__header')?.getBoundingClientRect().right ?? -1,
+      stripOverflowX: getComputedStyle(document.querySelector('.category-tabs') as Element).overflowX,
+      dataTheme: document.documentElement.dataset.theme ?? '',
+      headerBackground: getComputedStyle(document.querySelector('.listing__header') as Element).backgroundColor,
+    }));
+    // Light by system has no data-theme attribute (ThemeProvider removes it); the dark route sets it explicitly.
+    expect(metrics.dataTheme, `${theme} route theme`).toBe(theme === 'dark' ? 'dark' : '');
+    expect(metrics.headerBackground, `${theme}: cabeçalho azul renderizado`).toBe(
+      theme === 'dark' ? 'rgb(23, 37, 84)' : 'rgb(219, 234, 254)',
+    );
+    expect(metrics.innerWidth, `${theme} viewport`).toBe(360);
+    expect(metrics.scrollWidth, `${theme}: sem overflow horizontal da página`).toBeLessThanOrEqual(360);
+    expect(metrics.clientWidth, `${theme} clientWidth`).toBe(360);
+    expect(metrics.headerRight, `${theme}: cabeçalho dentro da viewport`).toBeLessThanOrEqual(360);
+    expect(metrics.stripOverflowX, `${theme}: faixa de categorias rolável internamente`).toBe('auto');
+
+    const toggle = page.locator('.theme-toggle');
+    const toggleBox = await toggle.boundingBox();
+    expect(toggleBox?.width ?? 0, `${theme} toggle width`).toBeGreaterThanOrEqual(44);
+    expect(toggleBox?.height ?? 0, `${theme} toggle height`).toBeGreaterThanOrEqual(44);
+
+    for (const tab of await page.locator('.category-tabs__tab').all()) {
+      const box = await tab.boundingBox();
+      expect(box?.height ?? 0, `${theme} tab height`).toBeGreaterThanOrEqual(44);
+    }
+  }
 });

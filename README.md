@@ -3,12 +3,22 @@
 Leitor somente leitura do Hacker News, com uma SPA React servida pelo Vite em desenvolvimento e pelo servidor Fastify em produção, junto à API em `/api`.
 
 - Seis categorias: Top, New, Best, Ask, Show e Jobs.
-- Paginação explícita por snapshot, com preservação da categoria, das páginas e da rolagem ao voltar de uma história.
+- Paginação por snapshot, com continuação automática na home (seis categorias) e botão "Carregar mais" como alternativa; a categoria, as páginas e a rolagem são preservadas ao voltar de uma história.
+- Home com cabeçalho azul, categoria ativa em violeta com indicação não cromática e interações coloridas, sem redesenho do detalhe. Os tokens estão em `client/src/theme.css`.
 - Detalhes e árvore de comentários recolhível; HTML sanitizado no servidor e marcadores neutros para comentários removidos ou mortos.
 - Temas claro/escuro, preferência inicial do sistema e escolha manual por sessão da aba.
 - Navegação por teclado, foco visível, layout responsivo e verificações locais de acessibilidade.
 
 Não inclui login, votos, publicação de comentários ou busca indexada. O filtro local de títulos é opcional e não foi implementado.
+
+## Escopo atual: home contínua e colorida
+
+Iniciativa `initiative-home-scroll-infinito-e-cores` (2026-10-13), com a árvore em `_bmad-output/initiative-home-scroll-infinito-e-cores/`. Ela é distinta da entrega histórica de 2026-10-12 descrita na seção de SDLC.
+
+- **Continuação:** na lista, a rolagem até o fim da página (ou tecla de rolagem a partir de um link focado) carrega o próximo lote de 30 notícias do mesmo snapshot. Não há ação manual para continuar. Erro preserva as notícias já exibidas e oferece "Tentar novamente", que repete a mesma requisição. Só `hasMore === false` mostra "Você chegou ao fim". Se o snapshot expirar, a sequência é reiniciada com aviso.
+- **Controles:** "Pausar automático" e "Retomar automático" ficam após a lista. "Carregar mais" continua disponível. Anúncios de carregamento incremental ficam fora da região ocupada da lista.
+- **Cores:** cabeçalho azul (`--surface-brand`), categoria ativa violeta (`--surface-accent`, `--accent`) e contornos essenciais (`--border-control`). Os oito tokens existentes foram preservados. Os valores claro e escuro estão em `client/src/theme.css`; `npm run check` verifica os valores aprovados e o contraste de texto e de elementos não textuais.
+- **Limitações:** o juízo humano de SM-2 ("a home está claramente mais colorida") continua **pendente**; a aprovação da paleta não o substitui. Não há teste humano com tecnologia assistiva e não se declara conformidade WCAG completa. As capturas de tela foram verificadas tecnicamente (overflow e leitura por ferramenta), não por avaliação humana. A suíte `npm run e2e` usa um upstream de fixtures; o smoke contra a API pública do Hacker News foi executado manualmente e não faz parte da suíte automatizada.
 
 ## Pré-requisitos
 
@@ -71,7 +81,7 @@ npm run e2e
 
 Os testes de integração e as auditorias axe usam o BFF real com um upstream HN de fixtures locais, não a API pública. Há também testes UI específicos com respostas controladas no browser; eles não são apresentados como prova de integração pública. A aplicação normal usa a API pública HN pelo servidor.
 
-Por decisão do usuário em 2026-10-12, o aceite obrigatório é **técnico automatizado**. Não foram realizados os aceites humanos em ambiente limpo ou com tecnologia assistiva; não se declara conformidade WCAG completa. O reflow de 200% é uma simulação tipográfica de teste, não zoom nativo do navegador. Resultados axe inconclusivos são reportados, não convertidos em aprovação irrestrita.
+Histórico (entrega de 2026-10-12): por decisão do usuário, o aceite obrigatório é **técnico automatizado**. Não foram realizados os aceites humanos em ambiente limpo ou com tecnologia assistiva; não se declara conformidade WCAG completa. O reflow de 200% é uma simulação tipográfica de teste, não zoom nativo do navegador. Resultados axe inconclusivos são reportados, não convertidos em aprovação irrestrita.
 
 ## Desenvolvimento local
 

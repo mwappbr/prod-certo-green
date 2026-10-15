@@ -1,0 +1,27 @@
+# Não colocar status aqui: o build mantém status no plano de cada entrada.
+
+[[entry]]
+id = 1
+type = "story"
+title = "Tracer de continuação automática segura"
+description = "Entrega o tracer executável nos seis feeds: comando manual/auto com lock síncrono e escopo geração/ciclo, navegação/cancelamento seguros, cursor por página aceita com validação pré-duplicata e projeção first-ID-wins, detector de demanda sem drain e manual preservado, fornecendo essa base à recuperação de 1.2."
+verify = "Na aplicação Playwright existente, wheel/teclas reais acrescentam três incrementos além da página inicial com tupla correta, prefixo/posição estáveis e uma requisição em voo, enquanto callbacks repetidos, observer recriado, scroll programático, sinais busy, resposta lenta e navegação tardia não disparam/aplicam continuações indevidas; helpers puros comprovam deduplicação e validação de envelope/cursor."
+covers = ["FR-1", "FR-3", "NFR-3"]
+after = []
+hitl = false
+risk = "high"
+plan_checkpoint = false
+done_checkpoint = false
+
+[[entry]]
+id = 2
+type = "story"
+title = "Recuperação continuidade e interrupção acessível"
+description = "Sobre sequência/comando/escopo de 1.1, completa erro/retry idêntico, vazio/só duplicados/desconhecido/fim, 410 ativo versus obsoleto, restauração efetiva no Provider, foco protegido com cancelamento automático/manual permitido, pausa persistente e anúncios incrementais, entregando controles e estados estáveis para a UX/CSS de 2.1."
+verify = "E2E demonstra páginas retidas e mesma tupla no retry, cursor de vazio/só duplicados, fim apenas confirmado, recuperação 410 ativa sem efeitos tardios no detalhe, retorno por histórico/Voltar com posição preservada, foco do fallback/retry mantido somente após manual de teclado, cancelamento por foco/rota/Tab, pausa/retomada e fallback sem observer, com status fora da região busy e controles operáveis a 360 px."
+covers = ["FR-2", "FR-3", "FR-4", "FR-5", "NFR-2", "NFR-3"]
+after = [1]
+hitl = false
+risk = "high"
+plan_checkpoint = false
+done_checkpoint = false

@@ -1,4 +1,0 @@
-COMMAND=node drive-theme-fixture-app.mjs ROOT /tmp/hn-4-1-actual-data.0SbGkE
-v24.21.0
-11.19.0
-{"status":"failed","resultPath":"/tmp/hn-4-1-actual-data.0SbGkE/actual-result.json","screenshots":0,"failure":"page.waitForFunction: Timeout 8000ms exceeded."}
